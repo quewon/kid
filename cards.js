@@ -90,7 +90,7 @@ class Card {
       card.pos[3] = e.clientY;
 
       document.onmouseup = function() {
-        //TODO: if you let go of a card at the edge of the screen and the card is more than halfway in the edge, someone will toss it back to u and be like "bro dont go losing my cards this is my dad's deck" or something 
+        //TODO: if you let go of a card at the edge of the screen and the card is more than halfway in the edge, someone will toss it back to u and be like "bro dont go losing my cards this is my dad's deck" or something
 
         document.onmouseup = null;
         document.onmousemove = null;
@@ -161,7 +161,6 @@ class Card {
       }
     } else {
       let big = l.big[this.suit][this.value];
-      console.log(layout);
       ctx.drawImage(big.img, big.sx, big.sy, big.sWidth, big.sHeight, layout[0], layout[1], big.sWidth, big.sHeight);
     }
   }

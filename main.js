@@ -11,7 +11,9 @@ var images = [
 ];
 var imgs = {};
 
-init();
+window.onload = function () {
+  init();
+};
 
 function init() {
   // load images
@@ -287,9 +289,9 @@ function init() {
           down: [[20, 78], [20, 100], [42, 89], [64, 78], [64, 100]],
         },
         "A": [42, 67],
-        "J": [17, 33],
-        "Q": [17, 33],
-        "K": [17, 33],
+        "J": [16, 32],
+        "Q": [16, 32],
+        "K": [16, 32],
       },
       small: {
         hearts: {
@@ -547,6 +549,6 @@ function init() {
     // set dialogue
     tabletop.deck = new Deck();
 
-    // compile();
+    compile()
   }
 }

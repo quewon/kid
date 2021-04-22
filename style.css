@@ -1,3 +1,8 @@
+html {
+  --three: #5c5c5c;
+  --four: #141414;
+}
+
 .centered {
   position: absolute !important;
   left: 50% !important;
@@ -20,11 +25,39 @@
   width: 15em;
   height: 15em;
   transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 1em;
+  overflow: scroll;
+  line-height: 1.5em;
+}
+
+#dialogue p {
   pointer-events: none;
 }
 
-#dialogue * {
+input[type=button] {
+  width: 100%;
+  margin-top: 1em;
+}
+
+button, input[type=button] {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: 1px solid var(--three);
   background-color: white;
+  color: var(--four);
+}
+button:hover, input[type=button]:hover {
+  background-color: var(--three);
+  color: #ebebeb;
+}
+button:active, input[type=button]:active {
+  border: 1px solid white;
+}
+
+.choicemenu {
+  margin-top: 1em;
 }
 
 .card {
