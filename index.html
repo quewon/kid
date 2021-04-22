@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div id="tabletop"></div>
+    <div id="dialogue" class="centered">
+    </div>
+
+    <span style="display:none" id="yarnscript">
+      [
+      	{
+      		"title": "Start",
+      		"tags": "",
+      		"body": "<b>bob:</b> <i>psst. hey</i>\n\n[[what's up]]\n[[shush we're in class]]",
+      		"position": {
+      			"x": 621,
+      			"y": 296
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "what's up",
+      		"tags": "",
+      		"body": "<b>you:</b> <i>what's up</i>\n<b>bob:</b> <i>im starting a card game club</i>",
+      		"position": {
+      			"x": 478,
+      			"y": 569
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "shush we're in class",
+      		"tags": "",
+      		"body": "<b>you:</b> <i>shush we're in class</i>\n<b>bob:</b> <i>ms math hasnt turned around for fifteen minutes</i>\n<b>bob:</b> <i>im starting a card game club</i>",
+      		"position": {
+      			"x": 698,
+      			"y": 569
+      		},
+      		"colorID": 0
+      	}
+      ]
+    </span>
+  </body>
+
+  <script src="bondage.min.js" charset="utf-8"></script>
+  <script src="dialogue.js" charset="utf-8"></script>
+  <script src="cards.js" charset="utf-8"></script>
+  <script src="main.js" charset="utf-8"></script>
+</html>

@@ -1,0 +1,48 @@
+.centered {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  margin-left: 0 !important;
+}
+
+#tabletop {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translateY(-150px);
+}
+
+#dialogue {
+  position: absolute;
+  top: 50%;
+  left: calc(30% + 200px);
+  margin-left: 5%;
+  width: 15em;
+  height: 15em;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+#dialogue * {
+  background-color: white;
+}
+
+.card {
+  display: block;
+  position: absolute;
+  width: 200px;
+  height: 300px;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+.card:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
