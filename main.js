@@ -1,27 +1,15 @@
-var table = document.getElementById("tabletop");
-var tabletop;
+function loadresources() {
+  images = [
+    "img/big_suits.png",
+    "img/card_font.png",
+    "img/card.png",
+    "img/cardback.png",
+    "img/royals.png",
+    "img/small_suits.png",
+  ];
 
-var images = [
-  "img/big_suits.png",
-  "img/card_font.png",
-  "img/card.png",
-  "img/cardback.png",
-  "img/royals.png",
-  "img/small_suits.png",
-];
-var imgs = {};
-
-window.onload = function () {
-  init();
-};
-
-function init() {
-  // load images
-  const length = images.length;
-  let tally = 0;
-
-  sound.flipcard = new Howl({ src: ['sound/card/flip.wav'], volume:0.7 });
-  sound.placecard = new Howl({ src: ['sound/card/place.wav'], volume:0.5 });
+  sound.flipcard = new Howl({ src: ['sound/card/flip.wav'], volume:0.5 });
+  sound.placecard = new Howl({ src: ['sound/card/place.wav'], volume:0.3 });
   sound.pickupcard = new Howl({ src: ['sound/card/pickup.wav'] })
   music.bored = new Howl({
     src: ['sound/music/bored.wav'],
@@ -31,7 +19,32 @@ function init() {
   ambience.quiet_classroom = new Howl({
     src: ['sound/ambience/classroom.wav'],
     loop: true,
+    volume: 2,
   });
+  ambience.lunch = new Howl({
+    src: ['sound/ambience/lunch.ogg'],
+    loop: true,
+  });
+}
+
+
+
+var table = document.getElementById("tabletop");
+var tabletop;
+
+var images;
+var imgs = {};
+
+window.onload = function () {
+  init();
+};
+
+function init() {
+  loadresources();
+  
+  // load images
+  const length = images.length;
+  let tally = 0;
 
   for (const i of images) {
     let img = new Image();
@@ -559,12 +572,6 @@ function init() {
       zindex: 0,
     };
 
-    // set dialogue
-    tabletop.deck = new Deck();
-
     compile();
-
-    // music.bored.play();
-    ambience.quiet_classroom.play();
   }
 }

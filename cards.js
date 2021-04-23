@@ -123,6 +123,15 @@ class Card {
 
     tabletop.cards[canvas.id] = this;
   }
+  // pickup() {
+  //   sound.pickupcard.play();
+  // }
+  // drop() {
+  //   sound.placecard.play();
+  // }
+  // flip() {
+  //   sound.flipcard.play();
+  // }
   bringToFront() {
     tabletop.zindex++;
     this.canvas.style.zIndex = tabletop.zindex;

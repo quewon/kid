@@ -6,28 +6,28 @@ html {
 .centered {
   position: absolute !important;
   left: 50% !important;
-  transform: translate(-50%, -50%) !important;
+  transform: translateX(-50%) !important;
   margin-left: 0 !important;
+}
+
+.hidden {
+  display: none
 }
 
 #tabletop {
   position: absolute;
-  top: 50%;
+  top: 20%;
   left: 30%;
-  transform: translateY(-150px);
 }
 
 #dialogue {
   position: absolute;
-  top: 50%;
+  top: 20%;
   left: calc(30% + 200px);
   margin-left: 5%;
   width: 15em;
-  height: 15em;
-  transform: translateY(-50%);
   background-color: rgba(255, 255, 255, 0.5);
   padding: 1em;
-  overflow: scroll;
   line-height: 1.5em;
 }
 
@@ -35,18 +35,19 @@ html {
   pointer-events: none;
 }
 
-input[type=button] {
-  width: 100%;
-  margin-top: 1em;
+a {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
-button, input[type=button] {
+button {
   font-family: inherit;
   font-size: inherit;
   cursor: pointer;
   border: 1px solid var(--three);
   background-color: white;
   color: var(--four);
+  text-align: justify;
 }
 button:hover, input[type=button]:hover {
   background-color: var(--three);
