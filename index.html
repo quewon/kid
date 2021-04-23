@@ -15,7 +15,7 @@
       	{
       		"title": "Start",
       		"tags": "centered",
-      		"body": "[b]bob:[/b] [i]psst. hey[/i]\n\n[[what's up]]\n[[shush we're in class]]",
+      		"body": "<b>bob:</b> <i>psst. hey</i>\n\n[[what's up]]\n[[shush we're in class]]",
       		"position": {
       			"x": 621,
       			"y": 296
@@ -25,7 +25,7 @@
       	{
       		"title": "what's up",
       		"tags": "centered",
-      		"body": "[b]you:[/b] [i]what's up[/i]\n[b]bob:[/b] [i]im starting a card game club[/i]",
+      		"body": "<b>you:</b> <i>what's up</i>\n<b>bob:</b> <i>im starting a card game club</i>\n\n[[a card game club?]]\n[[for the last time dude you have to stop making clubs you have like five already]]",
       		"position": {
       			"x": 478,
       			"y": 569
@@ -35,10 +35,50 @@
       	{
       		"title": "shush we're in class",
       		"tags": "centered",
-      		"body": "[b]you:[/b] [i]shush we're in class[/i]\n[b]bob:[/b] [i]ms math hasnt turned around for fifteen minutes[/i]\n[b]bob:[/b] [i]im starting a card game club[/i]",
+      		"body": "<b>you:</b> <i>shush we're in class</i>\n<b>bob:</b> <i>ms math hasnt turned around for fifteen minutes</i>\n<b>you:</b> <i>so?</i>\n<b>bob:</b> <i>im starting a card game club</i>\n\n[[a card game club?]]\n[[for the last time dude you have to stop making clubs you have like five already|exasperated]]",
       		"position": {
-      			"x": 698,
-      			"y": 569
+      			"x": 718,
+      			"y": 570
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "a card game club?",
+      		"tags": "centered",
+      		"body": "<b>you:</b> <i>a card game club?</i>\n<b>bob:</b> <i>hell yeah dude it's gonna be great. i've already got a sick game idea. i'm gonna be making all the games by the way. so what do you say? you in?</i>\n\n[[in|BEGIN CARD GAME]]\n[[out]]",
+      		"position": {
+      			"x": 386,
+      			"y": 829
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "out",
+      		"tags": "centered",
+      		"body": "<b>you:</b> <i>thanks but nah i'm good</i>\n<b>bob:</b> <i>oh ok that's cool but if you ever wanna join u let me know yeah?</i>\n<b>you:</b> <i>ok yeah</i>\n<b>bob:</b> ...\n<b>you:</b> ...\n<b>bob:</b> ..\n<b>you:</b> .\n<b>bob:</b> <i>ok are you really not gonna join</i>\n\n[[... fine, let's do it|BEGIN CARD GAME]]",
+      		"position": {
+      			"x": 471,
+      			"y": 1093
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "BEGIN CARD GAME",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 792,
+      			"y": 1120
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "exasperated",
+      		"tags": "centered",
+      		"body": "<b>you:</b> for the last time dude, you have to stop making clubs. you have like five already!\n<b>bob:</b> <i>nah dude dad got me a deck of cards so im making a card game club and theres nothing you or anyone else can do about it</i>\n<b>you:</b> ...\n<b>bob:</b> <i>you’ll regret it if u ignore me bro everyones gonna be talking about this club in a couple days</i>\n<b>bob:</b> <i>i dont care about math and you've already studied this stuff two years in advance</i>\n<b>bob:</b> <i>i know youre bored</i>\n\n[[... fine, let's hear it|BEGIN CARD GAME]]",
+      		"position": {
+      			"x": 747,
+      			"y": 812
       		},
       		"colorID": 0
       	}
@@ -46,6 +86,7 @@
     </span>
   </body>
 
+  <script src="howler.core.js" charset="utf-8"></script>
   <script src="bondage.min.js" charset="utf-8"></script>
   <script src="dialogue.js" charset="utf-8"></script>
   <script src="cards.js" charset="utf-8"></script>

@@ -2,6 +2,8 @@ var suits = ["spades", "diamonds", "clubs", "hearts"];
 var values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 var card_settings = {};
 
+var sound = {};
+
 class Deck {
   constructor(func) {
     this.deck = [];
@@ -59,56 +61,64 @@ class Card {
 
     canvas.addEventListener('contextmenu', function(e) {
       e.preventDefault();
-
-      const card = tabletop.cards[this.id];
-
-      if (card.face == "down") {
-        // TODO: check if card index is highest among cards that havent been flipped over
-        // if not, player gets called out for potentially cheating
-
-        card.face = "up";
-        card.context.clearRect(0, 0, 100, 150);
-
-        card.drawCard();
-      } else {
-        card.face = "down";
-        card.context.clearRect(0, 0, 100, 150);
-        card.context.drawImage(imgs["img/cardback.png"], 0, 0);
-      }
-
-      card.bringToFront();
-
       return false
     }, false);
 
     canvas.onmousedown = function(e) {
       e = e || window.event;
       e.preventDefault();
-      const card = tabletop.cards[this.id];
 
-      card.pos[2] = e.clientX;
-      card.pos[3] = e.clientY;
+      if ("buttons" in e) {
+        const card = tabletop.cards[this.id];
 
-      document.onmouseup = function() {
-        //TODO: if you let go of a card at the edge of the screen and the card is more than halfway in the edge, someone will toss it back to u and be like "bro dont go losing my cards this is my dad's deck" or something
+        if (e.buttons == 1) {
+          card.pos[2] = e.clientX;
+          card.pos[3] = e.clientY;
 
-        document.onmouseup = null;
-        document.onmousemove = null;
-      };
-      document.onmousemove = function(e) {
-        e = e || window.event;
-        const card = tabletop.cards[canvas.id];
+          document.onmouseup = function() {
+            //TODO: if you let go of a card at the edge of the screen and the card is more than halfway in the edge, someone will toss it back to u and be like "bro dont go losing my cards this is my dad's deck" or something
 
-        card.pos[0] = card.pos[2] - e.clientX;
-        card.pos[1] = card.pos[3] - e.clientY;
-        card.pos[2] = e.clientX;
-        card.pos[3] = e.clientY;
+            document.onmouseup = null;
+            document.onmousemove = null;
 
-        canvas.style.top = (canvas.offsetTop - card.pos[1] + "px");
-        canvas.style.left = (canvas.offsetLeft - card.pos[0] + "px");
-      };
+            sound.placecard.play();
+          };
+          document.onmousemove = function(e) {
+            e = e || window.event;
+            const card = tabletop.cards[canvas.id];
 
-      card.bringToFront();
+            card.pos[0] = card.pos[2] - e.clientX;
+            card.pos[1] = card.pos[3] - e.clientY;
+            card.pos[2] = e.clientX;
+            card.pos[3] = e.clientY;
+
+            canvas.style.top = (canvas.offsetTop - card.pos[1] + "px");
+            canvas.style.left = (canvas.offsetLeft - card.pos[0] + "px");
+          };
+
+          sound.pickupcard.play();
+
+          card.bringToFront();
+        } else {
+          if (card.face == "down") {
+            // TODO: check if card index is highest among cards that havent been flipped over
+            // if not, player gets called out for potentially cheating
+
+            card.face = "up";
+            card.context.clearRect(0, 0, 100, 150);
+
+            card.drawCard();
+          } else {
+            card.face = "down";
+            card.context.clearRect(0, 0, 100, 150);
+            card.context.drawImage(imgs["img/cardback.png"], 0, 0);
+          }
+
+          sound.flipcard.play();
+
+          card.bringToFront();
+        }
+      }
     }
 
     tabletop.cards[canvas.id] = this;

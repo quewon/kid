@@ -1,32 +1,20 @@
 /* eslint-env browser */
 
+var music = {};
+var ambience = {};
+
 var yarnTextField;
 var displayArea = document.getElementById("dialogue");
 var dialogue;
-var dialogueIterator;
+var parsedNodes = {};
 var optNum = 0;
 
 function step() {
-  // Steps until an options result
-  while(true) {
-    var iter = dialogueIterator.next()
-    if (iter.done) {
-      break;
-    }
-
-    var result = iter.value;
-    if (result instanceof bondage.OptionResult) {
-      showOptions(result);
-      break;
-    } else {
-      displayArea.innerHTML += parse(result.text) + '<br/>';
-    }
-  }
 }
 
 function parse(text) {
-  text = text.replace(/\[b\]/g,'<b>').replace(/\[\/b\]/g,'</b>');
-  text = text.replace(/\[i\]/g,'<i>').replace(/\[\/i\]/g,'</i>');
+  const options = text.match(/\[(.*?)\]/g);
+
   return text
 }
 
@@ -36,66 +24,20 @@ function compile() {
   dialogue = new bondage.Runner();
   var data = JSON.parse(document.getElementById("yarnscript").textContent);
   dialogue.load(data);
-  dialogueIterator = dialogue.run('Start');
-  step();
-}
 
-// function showOptions(result) {
-//   displayArea.innerHTML += '<br/>';
-//
-//   for (var i = 0; i < result.options.length; i++) {
-//     let button = document.createElement("button");
-//     button.textContent = result.options[i];
-//     button.id = "opt-" + optNum + i;
-//     button.value = i;
-//     displayArea.appendChild(button);
-//     displayArea.innerHTML += "<br />";
-//
-//     function please() {
-//       result.select(i);
-//       optNum++;
-//       step();
-//     }
-//
-//     button.addEventListener("click", function() {
-//       alert("hi")
-//     }, false);
-//   }
-//   displayArea.innerHTML += '<br/><br/>';
-// }
+  for (node in dialogue.yarnNodes) {
+    let origin = dialogue.yarnNodes[node];
+    parsedNodes[node] = {};
+    let n = parsedNodes[node];
+    n.tags = origin.tags;
 
-function showOptions(result) {
-  var menu = document.createElement("div");
-  menu.className = "choicemenu";
-  displayArea.appendChild(menu);
+    if (origin.body.includes("[[")) {
 
-  for (var i = 0; i < result.options.length; i++) {
-    menu.innerHTML += '<input name="opt-' + optNum + '" type="radio" value="' + i + '">' + result.options[i] + '</input><br/>';
-  }
-  menu.innerHTML += '<input type="button" id="option-button-' + optNum + '" value="say"/>'
-  menu.innerHTML += '<br/><br/>';
-
-  var button = document.getElementById('option-button-' + optNum);
-  button.onclick = function () {
-    var radios = document.getElementsByName('opt-' + optNum);
-    for (var n in radios) {
-      var radio = radios[n];
-      if (radio.checked) {
-        result.select(radio.value);
-        optNum++;
-
-        menu.remove();
-        displayArea.innerHTML = "";
-
-        step();
-        return;
-      }
+    } else {
+      n.body = origin.body;
     }
-
-    console.error('Need to choose an option first!');
   }
 }
 
-function jump() {
-  console.error('Not implemented yet...');
+function showOptions() {
 }

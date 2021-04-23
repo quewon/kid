@@ -20,6 +20,19 @@ function init() {
   const length = images.length;
   let tally = 0;
 
+  sound.flipcard = new Howl({ src: ['sound/card/flip.wav'], volume:0.7 });
+  sound.placecard = new Howl({ src: ['sound/card/place.wav'], volume:0.5 });
+  sound.pickupcard = new Howl({ src: ['sound/card/pickup.wav'] })
+  music.bored = new Howl({
+    src: ['sound/music/bored.wav'],
+    loop: true,
+    volume: 0.5,
+  });
+  ambience.quiet_classroom = new Howl({
+    src: ['sound/ambience/classroom.wav'],
+    loop: true,
+  });
+
   for (const i of images) {
     let img = new Image();
     img.onload = function() {
@@ -549,6 +562,9 @@ function init() {
     // set dialogue
     tabletop.deck = new Deck();
 
-    compile()
+    compile();
+
+    // music.bored.play();
+    ambience.quiet_classroom.play();
   }
 }
