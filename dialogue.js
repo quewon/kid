@@ -6,15 +6,42 @@ var ambience = {};
 var yarnTextField;
 var displayArea = document.getElementById("dialogue");
 var dialogue;
+var dialogueHistory = [];
 var parsedNodes = {};
 var optNum = 0;
 
 function jump(nodename) {
   let node = parsedNodes[nodename];
+  let body = node.body;
 
-  displayArea.innerHTML = node.body;
+  if (node.body.includes("</if>")) {
+    let text = node.body;
 
-  if (node.onjump) node.onjump(); console.log(node.onjump)
+    let conditional = text.match(/<if([\s\S]*?)<\/if>/g);
+
+    for (tex in conditional) {
+      let t = conditional[tex];
+
+      let opener = t.match(/<if([\s\S]*?)\)>/g);
+      let conditional_text = t.replace(opener, "").replace("</if>", "");
+
+      let condition = t.match(/\(([\s\S]*?)\)/g)[0];
+
+      let check = window.Function("return " + condition)();
+
+      if (!check) {
+        text = text.replace(t, "");
+      } else {
+        text = text.replace(t, conditional_text);
+      }
+    }
+
+    body = text;
+  }
+
+  displayArea.innerHTML = body;
+
+  if (node.onjump) node.onjump();
 
   switch(node.tags) {
     case "centered":
@@ -30,9 +57,13 @@ function jump(nodename) {
       }
       break;
   }
+
+  dialogueHistory.push(nodename);
 }
 
-function parse(text) {
+function parse(text, node) {
+  text = text.replace("&gt;", ">").replace("&lt;", "<");
+
   // cleaning up function
   if (text.includes("[script]")) {
     let func = text.match(/\[script](.*?)\[\/script]/g);
@@ -40,7 +71,7 @@ function parse(text) {
   }
 
   if (text.includes("[[")) {
-    let options = text.match(/\[(.*?)\]]/g);
+    let options = text.match(/\[\[(.*?)\]]/g);
     for (opt in options) {
       let o = options[opt].replace("[[", "").replace("]]", "");
       let destination;
@@ -66,12 +97,18 @@ function parse(text) {
 }
 
 function compile() {
-  dialogue = new bondage.Runner();
   var data = JSON.parse(document.getElementById("yarnscript").innerHTML);
-  dialogue.load(data);
+  dialogue = {};
 
-  for (node in dialogue.yarnNodes) {
-    let origin = dialogue.yarnNodes[node];
+  for (object of data) {
+    dialogue[object.title] = {};
+    let node = dialogue[object.title];
+    node.body = object.body;
+    node.tags = object.tags;
+  }
+
+  for (node in dialogue) {
+    let origin = dialogue[node];
     parsedNodes[node] = {};
     let n = parsedNodes[node];
     n.tags = origin.tags;

@@ -12,6 +12,7 @@ function loadresources() {
   sound.placecard = new Howl({ src: ['sound/card/place.wav'], volume:0.3 });
   sound.pickupcard = new Howl({ src: ['sound/card/pickup.wav'] });
   sound.takeoutdeck = sound.flipcard;
+  sound.shuffle = sound.flipcard;
   music.bored = new Howl({
     src: ['sound/music/bored.wav'],
     loop: true,
@@ -20,15 +21,14 @@ function loadresources() {
   ambience.classroom = new Howl({
     src: ['sound/ambience/classroom.wav'],
     loop: true,
-    volume: 2,
+    volume: 0.7,
   });
   ambience.lunch = new Howl({
     src: ['sound/ambience/lunch.wav'],
     loop: true,
+    volume: 0.3,
   });
 }
-
-
 
 var table = document.getElementById("tabletop");
 var tabletop;

@@ -33,6 +33,25 @@ class Deck {
   		this.deck[a] = this.deck[b];
   		this.deck[b] = aa;
   	}
+
+    v.currentDeckSeen = false;
+  }
+  reshuffle() {
+    for (let card in tabletop.cards) {
+      let c = tabletop.cards[card];
+      c.removeCanvas()
+    }
+    tabletop.cards = {};
+
+    this.shuffle();
+
+    for (let card in this.deck) {
+      this.deck[card].index = card;
+      this.deck[card].createCanvas();
+      tabletop.zindex++;
+    }
+
+    sound.shuffle.play();
   }
 }
 
@@ -42,6 +61,7 @@ class Card {
     this.value = value;
     this.face = "down";
     this.index = undefined;
+    this.canvas = undefined;
 
     this.pos = [0, 0, 0, 0];
   }
@@ -80,7 +100,6 @@ class Card {
 
             document.onmouseup = null;
             document.onmousemove = null;
-
             sound.placecard.play();
           };
           document.onmousemove = function(e) {
@@ -100,38 +119,42 @@ class Card {
 
           card.bringToFront();
         } else {
-          if (card.face == "down") {
-            // TODO: check if card index is highest among cards that havent been flipped over
-            // if not, player gets called out for potentially cheating
-
-            card.face = "up";
-            card.context.clearRect(0, 0, 100, 150);
-
-            card.drawCard();
-          } else {
-            card.face = "down";
-            card.context.clearRect(0, 0, 100, 150);
-            card.context.drawImage(imgs["img/cardback.png"], 0, 0);
-          }
-
-          sound.flipcard.play();
-
-          card.bringToFront();
+          card.flip();
         }
       }
     }
 
     tabletop.cards[canvas.id] = this;
   }
-  // pickup() {
-  //   sound.pickupcard.play();
-  // }
-  // drop() {
-  //   sound.placecard.play();
-  // }
-  // flip() {
-  //   sound.flipcard.play();
-  // }
+  flip() {
+    if (this.face == "down") {
+      this.face = "up";
+      this.context.clearRect(0, 0, 100, 150);
+
+      this.drawCard();
+    } else {
+      this.face = "down";
+      this.context.clearRect(0, 0, 100, 150);
+      this.context.drawImage(imgs["img/cardback.png"], 0, 0);
+    }
+
+    sound.flipcard.play();
+
+    this.bringToFront();
+
+    if (!v.firstCardFlipped) v.firstCardFlipped = true;
+    if (!v.currentDeckSeen) v.currentDeckSeen = true;
+
+    if (v.gameStarted) {
+      if (!v.timeToFlip) {
+        jump('flipped before guessing');
+      } else if (v.timeToFlip != card.index) {
+        jump('peeked at other cards');
+      }
+    }
+
+    v.flipCount++;
+  }
   bringToFront() {
     tabletop.zindex++;
     this.canvas.style.zIndex = tabletop.zindex;
@@ -182,5 +205,8 @@ class Card {
       let big = l.big[this.suit][this.value];
       ctx.drawImage(big.img, big.sx, big.sy, big.sWidth, big.sHeight, layout[0], layout[1], big.sWidth, big.sHeight);
     }
+  }
+  removeCanvas() {
+    this.canvas.remove();
   }
 }

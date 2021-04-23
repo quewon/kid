@@ -55,7 +55,7 @@
       	{
       		"title": "out",
       		"tags": "centered",
-      		"body": "[b]bob:[/b] [i]oh ok that's cool but if you ever wanna join u let me know yeah?[/i]\n[b]you:[/b] [i]ok yeah[/i]\n[b]bob:[/b] ...\n[b]you:[/b] ...\n[b]bob:[/b] ..\n[b]you:[/b] .\n[b]bob:[/b] [i]ok are you really not gonna join[/i]\n\n[[... fine, let's do it|wah]]",
+      		"body": "[b]bob:[/b] [i]oh ok that's cool but if you ever wanna join u let me know yeah?[/i]\n[b]you:[/b] [i]ok yeah[/i]\n[b]bob:[/b] ...\n[b]you:[/b] ...\n[b]bob:[/b] ..\n[b]you:[/b] .\n[b]bob:[/b] [i]ok are you really not gonna join[/i]\n\n[[... do i have a choice?|wah]]",
       		"position": {
       			"x": 471,
       			"y": 1093
@@ -65,10 +65,10 @@
       	{
       		"title": "wah",
       		"tags": "centered",
-      		"body": "[[next period is [b]lunch.[/b]|BEGIN CARD GAME]]",
+      		"body": "[[you both agree to meet at [b]lunch.[/b]|BEGIN CARD GAME]]",
       		"position": {
-      			"x": 789,
-      			"y": 1120
+      			"x": 790,
+      			"y": 1121
       		},
       		"colorID": 0
       	},
@@ -85,7 +85,7 @@
       	{
       		"title": "BEGIN CARD GAME",
       		"tags": "centered",
-      		"body": "[script]ambience.classroom.stop();ambience.lunch.play();[/script][b]you:[/b] ok i'm here what's this great card game you've come up with?\n[b]bob:[/b] check [a onclick='jump(`create deck`);tabletop.deck=new Deck();sound.takeoutdeck.play()']this[/a] out.",
+      		"body": "[script]ambience.classroom.stop();ambience.lunch.play();[/script][b]you:[/b] ok i'm here what's this great card game you've come up with?\n[b]bob:[/b] check [a][[this|create deck]][/a] out.",
       		"position": {
       			"x": 603,
       			"y": 1352
@@ -95,9 +95,9 @@
       	{
       		"title": "create deck",
       		"tags": "",
-      		"body": "[b]bob:[/b] pretty cool huh??\n\n[[no]]\n[[yea]]\n[[what now]]",
+      		"body": "[script]tabletop.deck=new Deck();sound.takeoutdeck.play()[/script][b]bob:[/b] pretty cool huh??\n\n[[no]]\n[[yea]]\n[[what now|introducing red or black]]",
       		"position": {
-      			"x": 584,
+      			"x": 582,
       			"y": 1570
       		},
       		"colorID": 0
@@ -105,30 +105,100 @@
       	{
       		"title": "no",
       		"tags": "",
-      		"body": "[b]bob:[/b] that's fine i didn't spend two days coding this in anyway\n[b]you:[/b] whatever dude just tell me what we're about to do\n[b]bob:[/b] ok so",
+      		"body": "[b]bob:[/b] that's fine i didn't spend two days coding this in anyway\n\n[[whatever dude just tell me what we're about to do|introducing red or black]]",
       		"position": {
-      			"x": 353,
-      			"y": 1817
+      			"x": 325,
+      			"y": 1568
       		},
       		"colorID": 0
       	},
       	{
       		"title": "yea",
       		"tags": "",
-      		"body": "[b]bob:[/b] ay im glad you agree. ok so",
+      		"body": "[b]bob:[/b] ay im glad you agree[if (v.firstCardFlipped == false)]. so u know how u can flip cards over by [em]right-clicking[/em] them?\n[b]you:[/b] yeah of course\n[/if][b]bob:[/b] well, here's a game i came up with last night called [a][q][[red or black.|red or black]][/q][/a]",
       		"position": {
-      			"x": 614,
-      			"y": 1815
+      			"x": 485,
+      			"y": 1817
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "what now",
+      		"title": "red or black",
       		"tags": "",
-      		"body": "[b]bob:[/b] ok so",
+      		"body": "[blockquote][q]red or black[/q]\n1. guess the color of the card\n2. if you guess correctly, you win![/blockquote]\n[b]bob:[/b] did you get that?\n\n[[i'm ready]]",
       		"position": {
-      			"x": 834,
-      			"y": 1815
+      			"x": 603,
+      			"y": 2129
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "introducing red or black",
+      		"tags": "",
+      		"body": "[if (v.firstCardFlipped == false)][b]bob:[/b] so u know how u can flip cards over by [em]right-clicking[/em] them?\n[b]you:[/b] yeah of course\n[/if][b]bob:[/b] well, here's a game i came up with last night called [q][a][[red or black.|red or black]][/a][/q]",
+      		"position": {
+      			"x": 775,
+      			"y": 1809
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "i'm ready",
+      		"tags": "",
+      		"body": "[if (v.currentDeckSeen)][b]bob:[/b] let me just reshuffle this deck...\n[/if][b]bob:[/b] ok, make your move!\n\nthis next card is...\n[[red]]\n[[black]][script]v.gameStarted = true; if (v.currentDeckSeen) { tabletop.deck.reshuffle() }[/script]",
+      		"position": {
+      			"x": 589,
+      			"y": 2419
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "red",
+      		"tags": "",
+      		"body": "[script]v.timeToFlip = 51[/script]",
+      		"position": {
+      			"x": 476,
+      			"y": 2679
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "black",
+      		"tags": "",
+      		"body": "[script]v.timeToFlip = 51[/script]",
+      		"position": {
+      			"x": 698,
+      			"y": 2681
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "flipped before guessing",
+      		"tags": "",
+      		"body": "[script]v.timesFlippedBeforeGuessing++;[/script][b]bob: [/b] hey! dont flip before guessing\n\n[if (v.timesFlippedBeforeGuessing == 0)][[whoops my bad|RETURN]][/if][if (v.timesFlippedBeforeGuessing == 1)][[yeah i got it|RETURN]][/if][if (v.timesFlippedBeforeGuessing >= 2)][[this game sucks|RETURN]][/if]",
+      		"position": {
+      			"x": 1072,
+      			"y": 2450
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "RETURN",
+      		"tags": "",
+      		"body": "[script]dialogueHistory.pop(); jump(dialogueHistory[dialogueHistory.length-1])[/script]",
+      		"position": {
+      			"x": 1190,
+      			"y": 2230
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "peeked at other cards",
+      		"tags": "",
+      		"body": "[script]v.timesFlippedBeforeGuessing++;[/script][b]bob: [/b] are you... peeking?\n\n[if (v.timesFlippedBeforeGuessing == 0)][[whoops my bad|RETURN]][/if][if (v.timesFlippedBeforeGuessing == 1)][[yeah i got it|RETURN]][/if][if (v.timesFlippedBeforeGuessing >= 2)][[this game sucks|RETURN]][/if]",
+      		"position": {
+      			"x": 1310,
+      			"y": 2505
       		},
       		"colorID": 0
       	}
@@ -136,8 +206,8 @@
     </span>
   </body>
 
+  <script src="variables.js" charset="utf-8"></script>
   <script src="howler.core.js" charset="utf-8"></script>
-  <script src="bondage.min.js" charset="utf-8"></script>
   <script src="dialogue.js" charset="utf-8"></script>
   <script src="cards.js" charset="utf-8"></script>
   <script src="main.js" charset="utf-8"></script>
