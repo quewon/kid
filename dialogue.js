@@ -14,7 +14,7 @@ function jump(nodename) {
 
   displayArea.innerHTML = node.body;
 
-  if (node.onjump) node.onjump()
+  if (node.onjump) node.onjump(); console.log(node.onjump)
 
   switch(node.tags) {
     case "centered":

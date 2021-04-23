@@ -15,7 +15,7 @@
       	{
       		"title": "Start",
       		"tags": "centered",
-      		"body": "[b]bob:[/b] [i]psst. hey[/i]\n\n[[what's up]]\n[[shush we're in class]][script]ambience.quiet_classroom.play();[/script]",
+      		"body": "[b]bob:[/b] [i]psst. hey[/i]\n\n[[what's up]]\n[[shush we're in class]][script]ambience.classroom.play();[/script]",
       		"position": {
       			"x": 621,
       			"y": 296
@@ -25,7 +25,7 @@
       	{
       		"title": "what's up",
       		"tags": "centered",
-      		"body": "[b]you:[/b] [i]what's up[/i]\n[b]bob:[/b] [i]im starting a card game club[/i]\n\n[[a card game club?]]\n[[for the last time dude you have to stop making clubs you have like five already|exasperated]]",
+      		"body": "[b]bob:[/b] [i]im starting a card game club[/i]\n\n[[a card game club?]]\n[[for the last time dude you have to stop making clubs you have like five already|exasperated]]",
       		"position": {
       			"x": 478,
       			"y": 569
@@ -35,7 +35,7 @@
       	{
       		"title": "shush we're in class",
       		"tags": "centered",
-      		"body": "[b]you:[/b] [i]shush we're in class[/i]\n[b]bob:[/b] [i]ms math hasnt turned around for fifteen minutes[/i]\n[b]you:[/b] [i]so?[/i]\n[b]bob:[/b] [i]im starting a card game club[/i]\n\n[[a card game club?]]\n[[for the last time dude you have to stop making clubs you have like five already|exasperated]]",
+      		"body": "[b]bob:[/b] [i]ms math hasnt turned around for fifteen minutes[/i]\n[b]you:[/b] [i]so?[/i]\n[b]bob:[/b] [i]im starting a card game club[/i]\n\n[[a card game club?]]\n[[for the last time dude you have to stop making clubs you have like five already|exasperated]]",
       		"position": {
       			"x": 718,
       			"y": 570
@@ -45,9 +45,9 @@
       	{
       		"title": "a card game club?",
       		"tags": "centered",
-      		"body": "[b]you:[/b] [i]a card game club?[/i]\n[b]bob:[/b] [i]hell yeah dude it's gonna be great. i've already got a sick game idea. i'm gonna be making all the games by the way. so what do you say? you in?[/i]\n\n[[in|wah]]\n[[out]]",
+      		"body": "[b]bob:[/b] [i]hell yeah dude it's gonna be great. i've already got a sick game idea. i'm gonna be making all the games by the way. so what do you say? you in?[/i]\n\n[[in|wah]]\n[[out]]",
       		"position": {
-      			"x": 386,
+      			"x": 383,
       			"y": 829
       		},
       		"colorID": 0
@@ -55,7 +55,7 @@
       	{
       		"title": "out",
       		"tags": "centered",
-      		"body": "[b]you:[/b] [i]thanks but nah i'm good[/i]\n[b]bob:[/b] [i]oh ok that's cool but if you ever wanna join u let me know yeah?[/i]\n[b]you:[/b] [i]ok yeah[/i]\n[b]bob:[/b] ...\n[b]you:[/b] ...\n[b]bob:[/b] ..\n[b]you:[/b] .\n[b]bob:[/b] [i]ok are you really not gonna join[/i]\n\n[[... fine, let's do it|wah]]",
+      		"body": "[b]bob:[/b] [i]oh ok that's cool but if you ever wanna join u let me know yeah?[/i]\n[b]you:[/b] [i]ok yeah[/i]\n[b]bob:[/b] ...\n[b]you:[/b] ...\n[b]bob:[/b] ..\n[b]you:[/b] .\n[b]bob:[/b] [i]ok are you really not gonna join[/i]\n\n[[... fine, let's do it|wah]]",
       		"position": {
       			"x": 471,
       			"y": 1093
@@ -75,7 +75,7 @@
       	{
       		"title": "exasperated",
       		"tags": "centered",
-      		"body": "[b]you:[/b] for the last time dude you have to stop making clubs you have like five already\n[b]ms. math:[/b] ... so the [i]x[/i] here is going to be equal to...\n[b]bob:[/b] [i]... nah dude dad got me a deck of cards so im making a card game club and theres nothing you or anyone else can do about it[/i]\n[b]you:[/b] ...\n[b]bob:[/b] [i]you’ll regret it if u ignore me bro everyones gonna be talking about this club in a couple days[/i]\n[b]bob:[/b] [i]i dont care about math and you've already studied this stuff two years in advance[/i]\n[b]bob:[/b] [i]i know youre bored[/i]\n\n[[... fine, let's hear it|wah]]",
+      		"body": "[b]bob:[/b] [i]nah dude dad got me a deck of cards so im making a card game club and theres nothing you or anyone else can do about it[/i]\n[b]you:[/b] ...\n[b]bob:[/b] [i]you’ll regret it if u ignore me bro everyones gonna be talking about this club in a couple days[/i]\n[b]bob:[/b] [i]i dont care about math and you've already studied this stuff two years in advance[/i]\n[b]bob:[/b] [i]i know youre bored[/i]\n\n[[... fine, let's hear it|wah]]",
       		"position": {
       			"x": 747,
       			"y": 812
@@ -84,8 +84,8 @@
       	},
       	{
       		"title": "BEGIN CARD GAME",
-      		"tags": "",
-      		"body": "[script]ambience.lunch.play();[/script][b]you:[/b] ok i'm here what's this great card game you've come up with?\n[b]bob:[/b] check [a onclick='jump(`create deck`);tabletop.deck=new Deck();']this[/a] out.",
+      		"tags": "centered",
+      		"body": "[script]ambience.classroom.stop();ambience.lunch.play();[/script][b]you:[/b] ok i'm here what's this great card game you've come up with?\n[b]bob:[/b] check [a onclick='jump(`create deck`);tabletop.deck=new Deck();sound.takeoutdeck.play()']this[/a] out.",
       		"position": {
       			"x": 603,
       			"y": 1352
@@ -105,9 +105,9 @@
       	{
       		"title": "no",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[b]bob:[/b] that's fine i didn't spend two days coding this in anyway\n[b]you:[/b] whatever dude just tell me what we're about to do\n[b]bob:[/b] ok so",
       		"position": {
-      			"x": 355,
+      			"x": 353,
       			"y": 1817
       		},
       		"colorID": 0
@@ -115,7 +115,7 @@
       	{
       		"title": "yea",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[b]bob:[/b] ay im glad you agree. ok so",
       		"position": {
       			"x": 614,
       			"y": 1815
@@ -125,7 +125,7 @@
       	{
       		"title": "what now",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[b]bob:[/b] ok so",
       		"position": {
       			"x": 834,
       			"y": 1815

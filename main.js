@@ -10,19 +10,20 @@ function loadresources() {
 
   sound.flipcard = new Howl({ src: ['sound/card/flip.wav'], volume:0.5 });
   sound.placecard = new Howl({ src: ['sound/card/place.wav'], volume:0.3 });
-  sound.pickupcard = new Howl({ src: ['sound/card/pickup.wav'] })
+  sound.pickupcard = new Howl({ src: ['sound/card/pickup.wav'] });
+  sound.takeoutdeck = sound.flipcard;
   music.bored = new Howl({
     src: ['sound/music/bored.wav'],
     loop: true,
     volume: 0.5,
   });
-  ambience.quiet_classroom = new Howl({
+  ambience.classroom = new Howl({
     src: ['sound/ambience/classroom.wav'],
     loop: true,
     volume: 2,
   });
   ambience.lunch = new Howl({
-    src: ['sound/ambience/lunch.ogg'],
+    src: ['sound/ambience/lunch.wav'],
     loop: true,
   });
 }
@@ -41,7 +42,7 @@ window.onload = function () {
 
 function init() {
   loadresources();
-  
+
   // load images
   const length = images.length;
   let tally = 0;
