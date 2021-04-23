@@ -125,10 +125,10 @@
       	{
       		"title": "red or black",
       		"tags": "",
-      		"body": "[blockquote][q]red or black[/q]\n1. guess the color of the card\n2. if you guess correctly, you win![/blockquote]\n[b]bob:[/b] did you get that?\n\n[[i'm ready]]",
+      		"body": "[blockquote][q]red or black[/q]\n1. guess the color of the card\n2. if you guess correctly, you win![/blockquote]\n[b]bob:[/b] did you get that?\n\n[[i'm ready]]\n[[this game is stupid|i'm ready]]",
       		"position": {
-      			"x": 603,
-      			"y": 2129
+      			"x": 601,
+      			"y": 2125
       		},
       		"colorID": 0
       	},
@@ -145,30 +145,30 @@
       	{
       		"title": "i'm ready",
       		"tags": "",
-      		"body": "[if (v.currentDeckSeen)][b]bob:[/b] let me just reshuffle this deck...\n[/if][b]bob:[/b] ok, make your move!\n\nthis next card is...\n[[red]]\n[[black]][script]v.gameStarted = true; if (v.currentDeckSeen) { tabletop.deck.reshuffle() }[/script]",
+      		"body": "[if (v.currentDeckSeen)][b]bob:[/b] let me just reshuffle this deck...\n[/if][b]bob:[/b] ok, make your move!\n\nthis next card is...\n[[red]]\n[[black]][script]v.gameStarted = true; if (v.currentDeckSeen) { tabletop.deck.reshuffle() }; setBookmark();[/script]",
       		"position": {
-      			"x": 589,
-      			"y": 2419
+      			"x": 606,
+      			"y": 2440
       		},
       		"colorID": 0
       	},
       	{
       		"title": "red",
       		"tags": "",
-      		"body": "[script]v.timeToFlip = 51[/script]",
+      		"body": "[script]v.timeToFlip = 51[/script]end of demo",
       		"position": {
-      			"x": 476,
-      			"y": 2679
+      			"x": 493,
+      			"y": 2699
       		},
       		"colorID": 0
       	},
       	{
       		"title": "black",
       		"tags": "",
-      		"body": "[script]v.timeToFlip = 51[/script]",
+      		"body": "[script]v.timeToFlip = 51[/script]end of demo",
       		"position": {
-      			"x": 698,
-      			"y": 2681
+      			"x": 715,
+      			"y": 2701
       		},
       		"colorID": 0
       	},
@@ -185,7 +185,7 @@
       	{
       		"title": "RETURN",
       		"tags": "",
-      		"body": "[script]dialogueHistory.pop(); jump(dialogueHistory[dialogueHistory.length-1])[/script]",
+      		"body": "[script]jump(dialogue.bookmark)[/script]",
       		"position": {
       			"x": 1190,
       			"y": 2230

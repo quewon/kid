@@ -5,8 +5,7 @@ var ambience = {};
 
 var yarnTextField;
 var displayArea = document.getElementById("dialogue");
-var dialogue;
-var dialogueHistory = [];
+var dialogue = {};
 var parsedNodes = {};
 var optNum = 0;
 
@@ -41,6 +40,8 @@ function jump(nodename) {
 
   displayArea.innerHTML = body;
 
+  dialogue.currentNode = nodename;
+
   if (node.onjump) node.onjump();
 
   switch(node.tags) {
@@ -57,8 +58,6 @@ function jump(nodename) {
       }
       break;
   }
-
-  dialogueHistory.push(nodename);
 }
 
 function parse(text, node) {
@@ -98,17 +97,19 @@ function parse(text, node) {
 
 function compile() {
   var data = JSON.parse(document.getElementById("yarnscript").innerHTML);
-  dialogue = {};
+  dialogue.nodes = {};
+  dialogue.bookmark = undefined;
+  dialogue.currentNode = undefined;
 
   for (object of data) {
-    dialogue[object.title] = {};
-    let node = dialogue[object.title];
+    dialogue.nodes[object.title] = {};
+    let node = dialogue.nodes[object.title];
     node.body = object.body;
     node.tags = object.tags;
   }
 
-  for (node in dialogue) {
-    let origin = dialogue[node];
+  for (node in dialogue.nodes) {
+    let origin = dialogue.nodes[node];
     parsedNodes[node] = {};
     let n = parsedNodes[node];
     n.tags = origin.tags;
@@ -127,4 +128,8 @@ function compile() {
 }
 
 function showOptions() {
+}
+
+function setBookmark() {
+  dialogue.bookmark = dialogue.currentNode;
 }
