@@ -644,4 +644,6 @@ function palette(mode) {
   function rgbify(array) {
     return "rgb(" + array.r + "," + array.g + "," + array.b + ")"
   }
+
+  palettes.current = mode;
 }

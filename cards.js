@@ -48,6 +48,7 @@ class Deck {
     for (let card in this.deck) {
       this.deck[card].index = card;
       this.deck[card].createCanvas();
+      this.deck[card].face = "down";
       tabletop.zindex++;
     }
 
