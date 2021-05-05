@@ -49,6 +49,8 @@ class Deck {
       this.deck[card].index = card;
       this.deck[card].createCanvas();
       this.deck[card].face = "down";
+      this.deck[card].pos = [0, 0, 0, 0];
+      this.deck[card].seen = false;
       tabletop.zindex++;
     }
 
