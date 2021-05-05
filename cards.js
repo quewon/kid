@@ -64,6 +64,9 @@ class Card {
     this.canvas = undefined;
 
     this.pos = [0, 0, 0, 0];
+
+    this.seen = false;
+    this.color = (suit == 'diamonds' || suit == 'hearts') ? 'red' : 'black';
   }
   createCanvas() {
     let canvas = document.createElement("canvas");
@@ -78,6 +81,10 @@ class Card {
     let context = canvas.getContext("2d");
     this.context = context;
     this.context.drawImage(imgs["img/cardback.png"], 0, 0);
+
+    //
+
+    this.applyPalette();
 
     canvas.addEventListener('contextmenu', function(e) {
       e.preventDefault();
@@ -136,6 +143,7 @@ class Card {
       this.face = "down";
       this.context.clearRect(0, 0, 100, 150);
       this.context.drawImage(imgs["img/cardback.png"], 0, 0);
+      this.applyPalette();
     }
 
     sound.flipcard.play();
@@ -143,14 +151,38 @@ class Card {
     this.bringToFront();
 
     if (!v.firstCardFlipped) v.firstCardFlipped = true;
-    if (!v.currentDeckSeen) v.currentDeckSeen = true;
+    v.currentDeckSeen = true;
 
-    if (v.gameStarted) {
-      if (!v.timeToFlip) {
-        jump('flipped before guessing');
-      } else if (v.timeToFlip != card.index) {
-        jump('peeked at other cards');
+    if (birdsgame.ongoing && !this.seen) {
+      this.seen = true;
+      birdsgame.cardsFlipped++;
+
+      if (!birdsgame.timeToFlip) {
+        if (birdsgame.cardBeingChecked != this.index) {
+          jump('peeked at other cards');
+        } else {
+          jump('flipped before guessing');
+        }
+      } else {
+        birdsgame.cardBeingChecked--;
+        if (this.color == birdsgame.guessedColor) {
+          jump('outcome_correct');
+        } else {
+          birdsgame.ongoing = false;
+          birdsgame.cardsFlipped--;
+          let flipped = birdsgame.cardsFlipped;
+          if (flipped > birdsgame.highscore) {
+            if (birdsgame.highscore != 0) {
+              birdsgame.newHighscore = true;
+            }
+            birdsgame.highscore = flipped;
+          }
+          birdsgame.timesPlayed++;
+          jump('outcome_incorrect');
+        }
       }
+    } else {
+      this.seen = false;
     }
 
     v.flipCount++;
@@ -205,8 +237,44 @@ class Card {
       let big = l.big[this.suit][this.value];
       ctx.drawImage(big.img, big.sx, big.sy, big.sWidth, big.sHeight, layout[0], layout[1], big.sWidth, big.sHeight);
     }
+
+    this.applyPalette();
   }
   removeCanvas() {
     this.canvas.remove();
   }
+  applyPalette() {
+    let data = this.context.getImageData(0, 0, 100, 150);
+    for (let i=0; i<data.data.length; i+=4) {
+      let shade = data.data[i];
+      let overlay;
+
+      if (shade == 0) continue
+      if (shade == 20) overlay = palettes[palettes.current].four
+      if (shade == 92) overlay = palettes[palettes.current].three
+      if (shade == 164) overlay = palettes[palettes.current].two
+      if (shade == 235) overlay = palettes[palettes.current].one
+
+      data.data[i]   = overlay.r;
+      data.data[i+1] = overlay.g;
+      data.data[i+2] = overlay.b;
+    }
+    this.context.putImageData(data, 0, 0);
+  }
+}
+
+//birds game
+
+function startBirdsGame() {
+  birdsgame.ongoing = true;
+  birdsgame.cardBeingChecked = 51;
+  birdsgame.cardsFlipped = 0;
+  birdsgame.timeToFlip = false;
+  birdsgame.newHighscore = false;
+  setBookmark();
+}
+
+function birdWaitsForFlip(color) {
+  birdsgame.timeToFlip = true;
+  birdsgame.guessedColor = color;
 }

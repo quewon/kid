@@ -11,10 +11,10 @@ var optNum = 0;
 
 function jump(nodename) {
   let node = parsedNodes[nodename];
-  let body = node.body;
+  var body = node.body;
 
-  if (node.body.includes("</if>")) {
-    let text = node.body;
+  if (body.includes("</if>")) {
+    let text = body;
 
     let conditional = text.match(/<if([\s\S]*?)<\/if>/g);
 
@@ -32,6 +32,25 @@ function jump(nodename) {
         text = text.replace(t, "");
       } else {
         text = text.replace(t, conditional_text);
+      }
+    }
+
+    body = text;
+  }
+
+  if (body.includes("</v>")) {
+    let text = body;
+
+    let vari = text.match(/<v>(.*?)<\/v>/g);
+    for (string in vari) {
+      let x = vari[string].replace("<v>", "").replace("</v>", "");
+
+      if (x.includes(".")) {
+        let part1 = x.substr(0, x.indexOf('.'));
+        let part2 = x.substr(x.indexOf('.')).replace(".", "");
+        text = text.replace(vari[string], window[part1][part2]);
+      } else {
+        text = text.replace(vari[string], window[x])
       }
     }
 
@@ -61,7 +80,7 @@ function jump(nodename) {
 }
 
 function parse(text, node) {
-  text = text.replace("&gt;", ">").replace("&lt;", "<");
+  text = text.replace(/&gt;/g, ">").replace(/&lt;/g, "<");
 
   // cleaning up function
   if (text.includes("[script]")) {
@@ -125,6 +144,10 @@ function compile() {
   }
 
   jump("Start");
+
+  // DEBUG
+  // tabletop.deck = new Deck();
+  // jump("i'm ready");
 }
 
 function showOptions() {

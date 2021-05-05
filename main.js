@@ -1,4 +1,56 @@
 function loadresources() {
+  palettes.current = "light";
+  palettes.light = {
+    four: {
+      r: 20,
+      g: 20,
+      b: 20,
+    },
+    three: {
+      r: 92,
+      g: 92,
+      b: 92,
+    },
+    two: {
+      r: 245,
+      g: 66,
+      b: 84,
+    },
+    one: {
+      r: 235,
+      g: 235,
+      b: 235,
+    },
+    bg: "white",
+    names: "#5a8cdb",
+    em: "#f54254",
+  }
+  palettes.dark = {
+    one: {
+      r: 20,
+      g: 20,
+      b: 20,
+    },
+    two: {
+      r: 92,
+      g: 92,
+      b: 92,
+    },
+    three: {
+      r: 245,
+      g: 66,
+      b: 84,
+    },
+    four: {
+      r: 235,
+      g: 235,
+      b: 235,
+    },
+    bg: "black",
+    names: "lightblue",
+    em: "#f54254",
+  }
+
   images = [
     "img/big_suits.png",
     "img/card_font.png",
@@ -13,11 +65,6 @@ function loadresources() {
   sound.pickupcard = new Howl({ src: ['sound/card/pickup.wav'] });
   sound.takeoutdeck = sound.flipcard;
   sound.shuffle = sound.flipcard;
-  music.bored = new Howl({
-    src: ['sound/music/bored.wav'],
-    loop: true,
-    volume: 0.5,
-  });
   ambience.classroom = new Howl({
     src: ['sound/ambience/classroom.wav'],
     loop: true,
@@ -36,12 +83,16 @@ var tabletop;
 var images;
 var imgs = {};
 
+var palettes = {};
+
 window.onload = function () {
   init();
 };
 
 function init() {
   loadresources();
+
+  palette(palettes.current);
 
   // load images
   const length = images.length;
@@ -574,5 +625,23 @@ function init() {
     };
 
     compile();
+  }
+}
+
+function palette(mode) {
+  const root = document.documentElement;
+  const palette = palettes[mode];
+
+  root.style.setProperty("--bg", palette.bg);
+  root.style.setProperty("--names", palette.names);
+  root.style.setProperty("--em", palette.em)
+
+  root.style.setProperty("--one", rgbify(palette.one));
+  root.style.setProperty("--two", rgbify(palette.two));
+  root.style.setProperty("--three", rgbify(palette.three));
+  root.style.setProperty("--four", rgbify(palette.four));
+
+  function rgbify(array) {
+    return "rgb(" + array.r + "," + array.g + "," + array.b + ")"
   }
 }

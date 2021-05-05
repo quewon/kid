@@ -1,12 +1,18 @@
-html {
+:root {
   --bg: white;
   --one: #ebebeb;
+  --two: #a4a4a4;
   --three: #5c5c5c;
   --four: #141414;
   --names: blue;
-  --tutorial: red;
+  --em: red;
 
-  color: var(--four);
+  --text: var(--four);
+}
+
+html {
+  color: var(--text);
+  background-color: var(--bg)
 }
 
 .centered {
@@ -32,9 +38,12 @@ html {
   left: calc(30% + 200px);
   margin-left: 5%;
   width: 15em;
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 1em;
   line-height: 1.5em;
+  height: 60%;
+  overflow: scroll;
+  padding: 1em;
+  border: 1px solid var(--three);
+  box-sizing: border-box;
 }
 
 #dialogue p {
@@ -43,7 +52,7 @@ html {
 
 a button {
   text-decoration: underline;
-  background-color: none;
+  background-color: inherit;
   border: none !important;
   text-align: left;
   padding: 0;
@@ -52,11 +61,12 @@ a button {
   color: inherit;
 }
 a button:hover {
-  background-color: var(--three);
-  color: var(--one);
+  background-color: inherit;
+  color: inherit;
 }
-a:active {
-  opacity: 0.5;
+a:active, a button:active {
+  color: var(--three);
+  opacity: 0.7;
 }
 
 q {
@@ -71,7 +81,7 @@ blockquote {
 
 em {
   font-style: normal;
-  color: var(--controls);
+  color: var(--em);
 }
 
 button {
@@ -80,7 +90,7 @@ button {
   cursor: pointer;
   border: 1px solid var(--three);
   background-color: var(--bg);
-  color: var(--four);
+  color: var(--text);
   text-align: justify;
 }
 button:hover {
