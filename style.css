@@ -7,6 +7,8 @@
   --names: blue;
   --em: red;
 
+  --bird: orange;
+
   --text: var(--four);
 }
 
@@ -16,42 +18,40 @@
 
 html {
   color: var(--text);
-  background-color: var(--bg)
-}
+  background-color: var(--bg);
 
-.centered {
-  position: absolute !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  margin-left: 0 !important;
+  font-family: monospace;
+  text-align: justify;
 }
 
 .hidden {
   display: none
 }
 
-#tabletop {
+.container {
   position: absolute;
-  top: 20%;
-  left: 30%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 60%;
+  display: flex;
+}
+
+#tabletop {
+  margin-right: 2em;
+  width: 200px;
+  height: 300px;
 }
 
 #dialogue {
-  position: absolute;
-  top: 20%;
-  left: calc(30% + 200px);
-  margin-left: 5%;
-  width: 15em;
+  width: 20em;
   line-height: 1.5em;
-  height: 60%;
+  height: 100%;
   overflow: scroll;
   padding: 1em;
   border: 1px solid var(--three);
-  box-sizing: border-box;
-}
-
-#dialogue p {
-  pointer-events: none;
+  font-family: inherit;
+  text-align: inherit;
 }
 
 a button {
@@ -71,6 +71,16 @@ a button:hover {
 a:active, a button:active {
   color: var(--three);
   opacity: 0.7;
+}
+
+h1, h2 {
+  margin: 0;
+  display: inline;
+}
+
+p {
+  margin: 0;
+  display: inline;
 }
 
 q {

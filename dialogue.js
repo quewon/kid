@@ -66,7 +66,7 @@ function jump(nodename) {
   switch(node.tags) {
     case "centered":
       if (!displayArea.classList.contains("centered")) {
-        displayArea.classList.add("centered")
+        displayArea.classList.add("centered");
         table.classList.add("hidden");
       }
       break;
@@ -110,6 +110,8 @@ function parse(text, node) {
   text = text.replace(/\[/g, "<").replace(/]/g, ">");
 
   text = text.replace(/\n/g, "<br />");
+  text = text.replace(/<bird\>/g, "<p style='color:var(--bird)'>");
+  text = text.replace(/<\/bird\>/g, "</p>");
 
   return text
 }

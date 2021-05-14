@@ -60,21 +60,25 @@ function loadresources() {
     "img/small_suits.png",
   ];
 
-  sound.flipcard = new Howl({ src: ['sound/card/flip.wav'], volume:0.5 });
-  sound.placecard = new Howl({ src: ['sound/card/place.wav'], volume:0.3 });
+  sound.flipcard = new Howl({ src: ['sound/card/flip.wav'] });
+  sound.placecard = new Howl({ src: ['sound/card/place.wav'], volume:0.8 });
   sound.pickupcard = new Howl({ src: ['sound/card/pickup.wav'] });
   sound.takeoutdeck = sound.flipcard;
   sound.shuffle = sound.flipcard;
-  ambience.classroom = new Howl({
-    src: ['sound/ambience/classroom.wav'],
+  // ambience.classroom = new Howl({
+  //   src: ['sound/ambience/classroom.wav'],
+  //   loop: true,
+  //   volume: 0.7,
+  // });
+
+  // music.interstellar = new Howl({
+  //   src: ['sound/music/waiting for a train.wav'],
+  //   loop: true,
+  // });
+  music.hearts = new Howl({
+    src: ['sound/music/hearts.mp3'],
     loop: true,
-    volume: 0.7,
-  });
-  ambience.lunch = new Howl({
-    src: ['sound/ambience/lunch.wav'],
-    loop: true,
-    volume: 0.3,
-  });
+  })
 }
 
 var table = document.getElementById("tabletop");

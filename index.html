@@ -2,243 +2,55 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>kid 2</title>
+    <title>cardskid</title>
     <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
-    <div id="tabletop"></div>
-    <div id="dialogue"></div>
+    <div class="container">
+      <div id="tabletop"></div>
+      <div id="dialogue"></div>
+    </div>
 
     <span style="display:none" id="yarnscript">
       [
       	{
       		"title": "Start",
       		"tags": "centered",
-      		"body": "[b]bird:[/b] [i]psst. hey[/i]\n\n[[what's up]]\n[[shush we're in class]][script]ambience.classroom.play();[/script]\n\nif you see this the site has been updated ver 2",
+      		"body": "[script]music.hearts.play()[/script][bird]are we there yet[/bird]\n\nare you for real\n\n[bird]why does it take so long to go to school\nwhy do we live so far away\nthey should make a day where it only takes us five minutes to go to school[/bird]\n\nthat doesn't make any sense\nand two hrs isn't that long\n\n[bird]are YOU for real[/bird]\n\nlook can't u see i'm reading something\ni'm halfway into this book and it's getting really good\n\n[bird]what's it about?[/bird]\n\nit's about this ghost hunter that befriends ghosts instead of hunting them\ni think you'd like it\n\n[bird]i... LOVE it[/bird]\n\nwanna read it when i'm done?\n\n[bird]dude\ni was gonna say yes but it just hit me that i'm probably not even going to finish it\nyou know that feeling where you get inspired by a book's blurb and then when you actually read the book it's worse than what you imagined in your head?[/bird]\n\n... no?\n\n[bird]your description is so hype dude i'm like imagining so much now[/bird]\n\nwhy don't you write the book in your head\n\n[bird]nah i don't have the patience for that\ni do have a great idea though[/bird]\n\n[[he rummages through his backpack and produces a [b]deck of cards.[/b]|DECK]]",
       		"position": {
-      			"x": 603,
-      			"y": 286
+      			"x": 531,
+      			"y": 108
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "what's up",
-      		"tags": "centered",
-      		"body": "[b]bird:[/b] [i]im starting a card game club[/i]\n\n[[a card game club?]]\n[[for the last time dude you have to stop making clubs you have like five already|exasperated]]",
-      		"position": {
-      			"x": 478,
-      			"y": 569
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "shush we're in class",
-      		"tags": "centered",
-      		"body": "[b]bird:[/b] [i]ms math hasnt turned around for fifteen minutes[/i]\n\n[b]you:[/b] [i]so?[/i]\n\n[b]bird:[/b] [i]im starting a card game club[/i]\n\n[[a card game club?]]\n[[for the last time dude you have to stop making clubs you have like five already|exasperated]]",
-      		"position": {
-      			"x": 718,
-      			"y": 570
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "a card game club?",
-      		"tags": "centered",
-      		"body": "[b]bird:[/b] [i]hell yeah dude it's gonna be great. i've already got a sick game idea. i'm gonna be making all the games by the way. so what do you say? you in?[/i]\n\n[[in|wah]]\n[[out]]",
-      		"position": {
-      			"x": 383,
-      			"y": 829
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "out",
-      		"tags": "centered",
-      		"body": "[b]bird:[/b] [i]oh ok that's cool but if you ever wanna join u let me know yeah?[/i]\n\n[b]you:[/b] [i]ok yeah[/i]\n\n[b]bird:[/b] ...\n\n[b]you:[/b] ...\n\n[b]bird:[/b] ..\n\n[b]you:[/b] .\n\n[b]bird:[/b] [i]ok are you really not gonna join[/i]\n\n[[... do i have a choice?|wah]]",
-      		"position": {
-      			"x": 471,
-      			"y": 1093
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "wah",
-      		"tags": "centered",
-      		"body": "[[you both agree to meet at [b]lunch.[/b]|BEGIN CARD GAME]]",
-      		"position": {
-      			"x": 788,
-      			"y": 1122
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "exasperated",
-      		"tags": "centered",
-      		"body": "[b]bird:[/b] [i]nah dude dad got me a deck of cards so im making a card game club and theres nothing you or anyone else can do about it[/i]\n\n[b]you:[/b] ...\n\n[b]bird:[/b] [i]you’ll regret it if u ignore me bro everyones gonna be talking about this club in a couple days[/i]\n[b]bird:[/b] [i]i dont care about math and you've already studied this stuff two years in advance[/i]\n[b]bird:[/b] [i]i know youre bored[/i]\n\n[[... fine, let's hear it|wah]]",
-      		"position": {
-      			"x": 747,
-      			"y": 812
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "BEGIN CARD GAME",
-      		"tags": "centered",
-      		"body": "[h1]chapter 1[/h1]\n[h2]the lunchroom[/h2]\n\n[script]ambience.classroom.stop();ambience.lunch.play();[/script][b]you:[/b] ok i'm here what's this great card game you've come up with?\n\n[b]bird:[/b] check [a][[this|create deck]][/a] out.",
-      		"position": {
-      			"x": 603,
-      			"y": 1352
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "create deck",
+      		"title": "DECK",
       		"tags": "",
-      		"body": "[script]tabletop.deck=new Deck();sound.takeoutdeck.play()[/script][b]bird:[/b] pretty cool huh??\n\n[[no]]\n[[yea]]\n[[what now|introducing red or black]]",
+      		"body": "[script]tabletop.deck = new Deck(); sound.takeoutdeck.play()[/script][bird]let's play a game!\n\n[blockquote][q]bird's awesome new ghost hunting game[/q]\n\n1. flip a card\n2. depending on the card's suit and caste, bird will come up with a cool [em]event[/em]!\n3. decide on how you want to respond to the event\n4. rinse and repeat[/blockquote]\n\nyou got that?[/bird]\n\n[[i don't get it|BEGIN GAME BUT DOUBT]]\n[[what are we waiting for|BEGIN GAME]]",
       		"position": {
-      			"x": 631,
-      			"y": 1585
+      			"x": 527,
+      			"y": 348
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "no",
+      		"title": "BEGIN GAME",
       		"tags": "",
-      		"body": "[b]bird:[/b] that's fine i didn't spend two days coding this in anyway\n\n[[whatever dude just tell me what we're about to do|introducing red or black]]",
+      		"body": "[if (v.currentDeckSeen)][bird]let me reshuffle this deck real quick[/bird][script]tabletop.deck.reshuffle()[/script]\n[/if][bird]alright, flip a card when you're ready[/bird]",
       		"position": {
-      			"x": 325,
-      			"y": 1568
+      			"x": 437,
+      			"y": 581
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "yea",
+      		"title": "BEGIN GAME BUT DOUBT",
       		"tags": "",
-      		"body": "[b]bird:[/b] ay im glad you agree[if (v.firstCardFlipped == false)]. so u know how u can flip cards over by [em]right-clicking[/em] them?\n\n[b]you:[/b] yeah of course\n\n[/if][b]bird:[/b] well, here's a game i came up with last night called [a][q][[red or black.|red or black]][/q][/a]",
+      		"body": "[bird]ah, you'll figure it out as we go[/bird]\n\n[[... ok|BEGIN GAME]]",
       		"position": {
-      			"x": 485,
-      			"y": 1818
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "red or black",
-      		"tags": "",
-      		"body": "[blockquote][q]red or black[/q]\n1. guess the color of the card\n2. if you guess correctly, you win![/blockquote]\n[b]bird:[/b] did you get that?\n\n[[i'm ready]]\n[[this game is stupid|i'm ready]]",
-      		"position": {
-      			"x": 601,
-      			"y": 2125
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "introducing red or black",
-      		"tags": "",
-      		"body": "[if (v.firstCardFlipped == false)][b]bird:[/b] so u know how u can flip cards over by [em]right-clicking[/em] them?\n\n[b]you:[/b] yeah of course\n\n[/if][b]bird:[/b] well, here's a game i came up with last night called [q][a][[red or black.|red or black]][/a][/q]",
-      		"position": {
-      			"x": 775,
-      			"y": 1809
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "i'm ready",
-      		"tags": "",
-      		"body": "[if (v.currentDeckSeen)][b]bird:[/b] let me just reshuffle this deck...\n[/if][b]bird:[/b] ok, make your move!\n\nthis next card is...\n[[red]]\n[[black]][script]if (v.currentDeckSeen) { tabletop.deck.reshuffle() }; startBirdsGame();[/script]",
-      		"position": {
-      			"x": 606,
-      			"y": 2440
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "red",
-      		"tags": "",
-      		"body": "[b]bird: [/b]now flip the card...[script]birdWaitsForFlip('red')[/script]",
-      		"position": {
-      			"x": 493,
-      			"y": 2699
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "black",
-      		"tags": "",
-      		"body": "[b]bird: [/b]now flip the card...[script]birdWaitsForFlip('black')[/script]",
-      		"position": {
-      			"x": 716,
-      			"y": 2701
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "flipped before guessing",
-      		"tags": "",
-      		"body": "[script]v.timesFlippedBeforeGuessing++;[/script][b]bird: [/b] hey! dont flip before guessing\n\n[if (v.timesFlippedBeforeGuessing == 0)][[whoops my bad|RETURN]][/if][if (v.timesFlippedBeforeGuessing == 1)][[yeah i got it|RETURN]][/if][if (v.timesFlippedBeforeGuessing >= 2)][[this game sucks|RETURN]][/if]",
-      		"position": {
-      			"x": 1072,
-      			"y": 2450
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "RETURN",
-      		"tags": "",
-      		"body": "[script]jump(dialogue.bookmark)[/script]",
-      		"position": {
-      			"x": 1190,
-      			"y": 2230
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "peeked at other cards",
-      		"tags": "",
-      		"body": "[script]v.timesFlippedBeforeGuessing++;[/script][b]bird: [/b] are you... peeking?\n\n[if (v.timesFlippedBeforeGuessing == 0)][[whoops my bad|RETURN]][/if][if (v.timesFlippedBeforeGuessing == 1)][[yeah i got it|RETURN]][/if][if (v.timesFlippedBeforeGuessing >= 2)][[this game sucks|RETURN]][/if]",
-      		"position": {
-      			"x": 1310,
-      			"y": 2505
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "outcome_correct",
-      		"tags": "",
-      		"body": "[b]bird:[/b] you got it!\n\nthis next card is...\n[[red]]\n[[black]]\n\n[[i'm done with this game]][script]birdsgame.timeToFlip = false[/script]",
-      		"position": {
-      			"x": 489,
-      			"y": 2927
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "outcome_incorrect",
-      		"tags": "",
-      		"body": "[b]bird: [/b]damn\n[b]bird:[/b] u got [v]birdsgame.cardsFlipped[/v] right[if (birdsgame.newHighscore)]\n[b]bird: [/b]that's your new high score![/if]\n[b]bird: [/b]wanna try again?[if (birdsgame.timesPlayed == 2)][script]v.encounteredKitty = true[/script]\n\nyou notice [b]kitty[/b] watching over your shoulder.\n\n[b]kitty:[/b] what's up? :3\n\n[b]bird:[/b] we're playing a game called [q]red or black[/q]\n\n[b]kitty:[/b] tsk tsk. what an uncreative title 3:\n\n[b]bird:[/b] hey!! ... how did u even know i made it?\n\n[b]kitty:[/b] wdym :3 u make literally every game u play\n[b]kitty:[/b] anyway can i stay and watch??\n\n[b]you:[/b] make yourself comfortable.\n\nit looks like she already has, anyway.[/if][if (birdsgame.timesPlayed == 3)][script]v.encounteredPup = true[/script]\n\na shadow falls over the table. you look up to see [b]pup[/b] looming over the three of you, a sandwich in his hands.\n\n[b]pup: [/b] ?\n\n[b]kitty: [/b]oh hey puppy!\n[b]kitty: [/b]wait.... did i ditch u??? 3: sorry i got so caught up watching bird's game\n\n[b]pup: [/b]...\n\npup seems entranced by the cards. he sits down at the table and watches the game intently.[/if][if (birdsgame.timesPlayed == 4)]\n\na [b]gang of kids[/b] over on the other table have started whispering intensely, and by the way they keep glancing over at your table, you have the nagging feeling they're talking about bird's game.[/if][if (birdsgame.timesPlayed == 5)][script]v.encounteredGang = true[/script]\n\n[b]gang of kids:[/b] [i](collectively)[/i] u guys playing a game?\n\n[b]bird:[/b] u guys wanna watch?\n\n[b]gang of kids:[/b] (do we wanna watch) (the game looks kinda boring) (no it looks fun) (these kids look like losers)\n\n[b]you:[/b] ...\n\n[b]gang of kids:[/b] [i](collectively)[/i] yeah ok\n\nthe whole gang brings their lunches over and takes up so much space. the table is getting more and more crowded.[/if][if (birdsgame.timesPlayed == 6)]\n\nthere's a circle of kids you've never talked to that have gathered around your table.[/if][if (birdsgame.timesPlayed > 6)]\n\nit is way too crowded here.[/if][if (birdsgame.timesPlayed == 7)]\n\nsome kids have started betting on your next score.[/if][if (birdsgame.timesPlayed > 7)]\n\n[b]rando:[/b] hey bird, can i play\n\n[b]bird:[/b] sorry dude i've only got one deck. if u bring ur own ill teach u the rules[/if][if (birdsgame.timesPlayed > 10)]\n[b]bird:[/b] (wow it's so funny how i haven't gotten tired of saying that)[/if][if (birdsgame.timesPlayed > 12)]\n[b]bird:[/b] (im not gonna say anything new now so u can move on to the next chapter)\n[b]bird:[/b] (isnt it kinda freaky how game characters repeat the same thing over and over again tho)\n[b]bird:[/b] (idk ive always thought about how tragic and almost dystopian that is. makes me wanna make a game about it)\n[b]bird:[/b] (but it wont be this one lol this is supposed to be a small scale game)[/if]\n\n[[try again|i'm ready]]\n[[i'm done with this game]]",
-      		"position": {
-      			"x": 716,
-      			"y": 2930
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "i'm done with this game",
-      		"tags": "",
-      		"body": "it was a good game.\n\n[if (birdsgame.timesPlayed < 7)][[to your surprise, your [b]classmates[/b] start to get into bird's game.|THE SECOND DAY]][/if][if (birdsgame.timesPlayed > 6)][[the game spreads like [b]wildfire.[/b]|THE SECOND DAY]][/if]",
-      		"position": {
-      			"x": 616,
-      			"y": 3212
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "THE SECOND DAY",
-      		"tags": "",
-      		"body": "[h1]chapter 2[/h1]\n[h2]the halls[/h2]\n\n[b]you:[/b] what's everyone doing outside class?\n\nkids line the walls of the hall outside ms. math's classroom. there are cards strewn across the floor, games in progress.\n\n[b]bird:[/b] teach isnt here yet\n\nnext to bird, [b]fish[/b] and the [b]gang of kids[/b] have just finished their match.\n\n[b]fish:[/b] hey bird what happens when we're tied?\n\n[b]bird:[/b] why not break the tie with a shorter match\n\n[b]gang of kids:[/b] [i](collectively)[/i] this game takes way too long\n\n[b]fish:[/b] yeah we should just do [em]first to ten[/em].\n\n\nbahh h  wfejwoefk owjefij iojiewjfo jie wjio i havent started writing chapter two",
-      		"position": {
-      			"x": 617,
-      			"y": 3477
+      			"x": 675,
+      			"y": 583
       		},
       		"colorID": 0
       	}

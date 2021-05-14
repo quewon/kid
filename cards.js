@@ -155,38 +155,7 @@ class Card {
 
     if (!v.firstCardFlipped) v.firstCardFlipped = true;
     v.currentDeckSeen = true;
-
-    if (birdsgame.ongoing && !this.seen) {
-      this.seen = true;
-      birdsgame.cardsFlipped++;
-
-      if (!birdsgame.timeToFlip) {
-        if (birdsgame.cardBeingChecked != this.index) {
-          jump('peeked at other cards');
-        } else {
-          jump('flipped before guessing');
-        }
-      } else {
-        birdsgame.cardBeingChecked--;
-        if (this.color == birdsgame.guessedColor) {
-          jump('outcome_correct');
-        } else {
-          birdsgame.ongoing = false;
-          birdsgame.cardsFlipped--;
-          let flipped = birdsgame.cardsFlipped;
-          if (flipped > birdsgame.highscore) {
-            if (birdsgame.highscore != 0) {
-              birdsgame.newHighscore = true;
-            }
-            birdsgame.highscore = flipped;
-          }
-          birdsgame.timesPlayed++;
-          jump('outcome_incorrect');
-        }
-      }
-    } else {
-      this.seen = false;
-    }
+    if (!this.seen) this.seen = true;
 
     v.flipCount++;
   }
@@ -267,17 +236,3 @@ class Card {
 }
 
 //birds game
-
-function startBirdsGame() {
-  birdsgame.ongoing = true;
-  birdsgame.cardBeingChecked = 51;
-  birdsgame.cardsFlipped = 0;
-  birdsgame.timeToFlip = false;
-  birdsgame.newHighscore = false;
-  setBookmark();
-}
-
-function birdWaitsForFlip(color) {
-  birdsgame.timeToFlip = true;
-  birdsgame.guessedColor = color;
-}
