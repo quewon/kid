@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
 :root {
   --bg: white;
   --one: #ebebeb;
   --two: #a4a4a4;
   --three: #5c5c5c;
   --four: #141414;
-  --names: blue;
   --em: red;
 
   --bird: orange;
@@ -16,12 +17,17 @@
     display: none;
 }
 
+.bird {
+  color: var(--bird);
+}
+
 html {
   color: var(--text);
   background-color: var(--bg);
 
-  font-family: monospace;
+  font-family: 'Josefin Sans', sans-serif;
   text-align: justify;
+  line-height: 1.2em;
 }
 
 .hidden {
@@ -45,7 +51,6 @@ html {
 
 #dialogue {
   width: 20em;
-  line-height: 1.5em;
   height: 100%;
   overflow: scroll;
   padding: 1em;
@@ -78,19 +83,19 @@ h1, h2 {
   display: inline;
 }
 
-p {
+ol, ul {
   margin: 0;
-  display: inline;
+  color: inherit;
 }
 
-q {
-  quotes: none;
-  color: var(--names);
+li {
+  margin-bottom: -1em;
 }
 
 blockquote {
   margin-top: 0;
   margin-bottom: 0;
+  color: inherit;
 }
 
 em {
@@ -105,7 +110,8 @@ button {
   border: 1px solid var(--three);
   background-color: var(--bg);
   color: var(--text);
-  text-align: justify;
+  text-align: inherit;
+  line-height: inherit;
 }
 button:hover {
   background-color: var(--three);

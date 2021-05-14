@@ -22,8 +22,7 @@ function loadresources() {
       b: 235,
     },
     bg: "white",
-    names: "#5a8cdb",
-    em: "#f54254",
+    em: "var(--two)",
   }
   palettes.dark = {
     one: {
@@ -47,7 +46,6 @@ function loadresources() {
       b: 235,
     },
     bg: "black",
-    names: "lightblue",
     em: "#f54254",
   }
 

@@ -57,11 +57,17 @@ function jump(nodename) {
     body = text;
   }
 
+  if (body.includes("<script>")) {
+    let func = body.match(/<script>(.*?)\<\/script>/g);
+    body = body.replace(func[0], "");
+    func = func[0].replace("<script>", "").replace("</script>", "");
+    func = new Function(func);
+    func();
+  }
+
   displayArea.innerHTML = body;
 
   dialogue.currentNode = nodename;
-
-  if (node.onjump) node.onjump();
 
   switch(node.tags) {
     case "centered":
@@ -81,12 +87,6 @@ function jump(nodename) {
 
 function parse(text, node) {
   text = text.replace(/&gt;/g, ">").replace(/&lt;/g, "<");
-
-  // cleaning up function
-  if (text.includes("[script]")) {
-    let func = text.match(/\[script](.*?)\[\/script]/g);
-    text = text.replace(func[0], "");
-  }
 
   if (text.includes("[[")) {
     let options = text.match(/\[\[(.*?)\]]/g);
@@ -110,8 +110,8 @@ function parse(text, node) {
   text = text.replace(/\[/g, "<").replace(/]/g, ">");
 
   text = text.replace(/\n/g, "<br />");
-  text = text.replace(/<bird\>/g, "<p style='color:var(--bird)'>");
-  text = text.replace(/<\/bird\>/g, "</p>");
+  text = text.replace(/<bird\>/g, "<span class='bird'>");
+  text = text.replace(/<\/bird\>/g, "</span>");
 
   return text
 }
@@ -134,13 +134,6 @@ function compile() {
     parsedNodes[node] = {};
     let n = parsedNodes[node];
     n.tags = origin.tags;
-
-    n.onjump = null;
-    if (origin.body.includes("[script]")) {
-      let func = origin.body.match(/\[script](.*?)\[\/script]/g);
-      func = func[0].replace("[script]", "").replace("[/script]", "");
-      n.onjump = new Function(func);
-    }
 
     n.body = parse(origin.body);
   }

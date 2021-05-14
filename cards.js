@@ -155,8 +155,12 @@ class Card {
 
     if (!v.firstCardFlipped) v.firstCardFlipped = true;
     v.currentDeckSeen = true;
-    if (!this.seen) this.seen = true;
 
+    if (birdsgame.ongoing && !this.seen) {
+      
+    }
+
+    if (!this.seen) this.seen = true;
     v.flipCount++;
   }
   bringToFront() {
