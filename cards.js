@@ -157,15 +157,19 @@ class Card {
     v.currentDeckSeen = true;
 
     if (birdsgame.ongoing && !this.seen) {
-      console.log(this.suit+" "+this.value);
       birdsgame.flipped++;
 
-      if (birdsgame.flipped == 1) {
-        jump("FIRST CARD");
-        jumpnoclear(this.suit+" "+this.value);
+      if (dialogue.nodes[dialogue.currentNode].tags.includes("end")) {
+        if (birdsgame.flipped == 1) jump("FIRST CARD")
+
+        jump(this.suit+" "+this.value);
         jumpnoclear(this.suit+" CONSTANT");
       } else {
-        jump(this.suit+" "+this.value);
+        birdsgame.fwc++;
+        jump("FLIPPED WITHOUT CHOOSING");
+        jumpnoclear(dialogue.bookmark);
+        jumpnoclear(dialogue.bookmark+" PASSIVE");
+        jumpnoclear(this.suit+" "+this.value);
         jumpnoclear(this.suit+" CONSTANT");
       }
 

@@ -7,7 +7,7 @@ var v = {
 
 var birdsgame = {
   ongoing: false,
-  fleed: 0,
+  fwc: 0,
   flipped: 0,
   // current:
 

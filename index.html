@@ -12,6 +12,8 @@
       <div id="dialogue"></div>
     </div>
 
+    <div id="tooltip" class="hidden"></div>
+
     <span style="display:none" id="yarnscript">
       [
       	{
@@ -19,7 +21,7 @@
       		"tags": "centered",
       		"body": "[bird]are we there yet[/bird]\n\nare you for real\n\n[bird]why does it take so long to go to school\nwhy do we live so far away\nthey should make a day where it only takes us five minutes to go to school[/bird]\n\nthat doesn't make any sense\nand two hours isn't that long\n\n[bird]are YOU for real[/bird]\n\nlook can't you see i'm reading something\ni'm halfway into this book and it's getting really good\n\n[bird]what's it about?[/bird]\n\nit's about this ghost hunter that befriends ghosts instead of hunting them\ni think you'd like it\n\n[bird]i... LOVE it[/bird]\n\nwanna read it when i'm done?\n\n[bird]dude\ni was gonna say yes but it just hit me that i'm probably not even going to finish it\nyou know that feeling where you get inspired by a book's blurb and then when you actually read the book it's worse than what you imagined in your head?[/bird]\n\n... no?\n\n[bird]your description is so hype dude i'm like imagining so much now[/bird]\n\nwhy don't you write the book in your head\n\n[bird]nah i don't have the patience for that\ni do have a great idea though[/bird]\n\n[[he rummages through his backpack and produces a [b]deck of cards.[/b]|DECK]]",
       		"position": {
-      			"x": 531,
+      			"x": 528,
       			"y": 108
       		},
       		"colorID": 0
@@ -27,7 +29,7 @@
       	{
       		"title": "DECK",
       		"tags": "",
-      		"body": "[script]tabletop.deck = new Deck(); sound.takeoutdeck.play();[/script][bird]let's play a game!\n\n[blockquote][u]bird's awesome new ghost hunting game[/u]\n\n[ol][li]flip a card[/li]\n[li]depending on the card's suit and caste, i'll come up with a cool [em]event[/em]![/li]\n[li]decide on how you want to respond to the event[/li]\n[li]rinse and repeat[/li][/ol][/blockquote]\n\nyou got that?[/bird]\n\n[[i don't get it|BEGIN GAME BUT DOUBT]]\n[[what are we waiting for|BEGIN GAME]]",
+      		"body": "[script]tabletop.deck = new Deck(); sound.takeoutdeck.play();[/script][bird]let's play a game!\n\n[blockquote][u]bird's awesome new ghost hunting game[/u]\n\n[ol][li]flip a card[/li]\n[li]depending on the card's suit and caste, i'll come up with a cool [alt (EVENT EXPLANATION)]event[/alt]! [i](hover over red text for more info)[/i][/li]\n[li]decide on how you want to respond to the event[/li]\n[li]rinse and repeat[/li][/ol][/blockquote]\n\nyou got that?[/bird]\n\n[[i don't get it|BEGIN GAME BUT DOUBT]]\n[[what are we waiting for|BEGIN GAME]]",
       		"position": {
       			"x": 527,
       			"y": 344
@@ -36,7 +38,7 @@
       	},
       	{
       		"title": "BEGIN GAME",
-      		"tags": "bookmark",
+      		"tags": "bookmark end",
       		"body": "[if (v.currentDeckSeen)][bird]let me reshuffle this deck real quick[/bird][script]tabletop.deck.reshuffle()[/script]\n[/if][bird]ok, flip a card when you're ready[/bird][script]birdsgame.ongoing = true[/script]",
       		"position": {
       			"x": 433,
@@ -59,8 +61,8 @@
       		"tags": "card",
       		"body": "[h1]the ace of clubs[/h1]",
       		"position": {
-      			"x": -318,
-      			"y": 877
+      			"x": -480,
+      			"y": 1079
       		},
       		"colorID": 0
       	},
@@ -69,8 +71,8 @@
       		"tags": "card",
       		"body": "[h1]the two of clubs[/h1]",
       		"position": {
-      			"x": -100,
-      			"y": 877
+      			"x": -264,
+      			"y": 1079
       		},
       		"colorID": 0
       	},
@@ -79,8 +81,8 @@
       		"tags": "card",
       		"body": "[h1]the three of clubs[/h1]",
       		"position": {
-      			"x": 115,
-      			"y": 877
+      			"x": -53,
+      			"y": 1079
       		},
       		"colorID": 0
       	},
@@ -89,8 +91,8 @@
       		"tags": "card",
       		"body": "[h1]the four of clubs[/h1]",
       		"position": {
-      			"x": 336,
-      			"y": 877
+      			"x": 166,
+      			"y": 1079
       		},
       		"colorID": 0
       	},
@@ -99,68 +101,68 @@
       		"tags": "card",
       		"body": "[h1]the five of clubs[/h1]",
       		"position": {
-      			"x": -318,
-      			"y": 1108
+      			"x": 389,
+      			"y": 1079
       		},
       		"colorID": 0
       	},
       	{
       		"title": "clubs 6",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the six of clubs[/h1]",
       		"position": {
-      			"x": -100,
-      			"y": 1108
+      			"x": 607,
+      			"y": 1079
       		},
       		"colorID": 0
       	},
       	{
       		"title": "clubs 7",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the seven of clubs[/h1]",
       		"position": {
-      			"x": 115,
-      			"y": 1108
+      			"x": 822,
+      			"y": 1079
       		},
       		"colorID": 0
       	},
       	{
       		"title": "clubs 8",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the eight of clubs[/h1]",
       		"position": {
-      			"x": 336,
-      			"y": 1108
+      			"x": 1043,
+      			"y": 1079
       		},
       		"colorID": 0
       	},
       	{
       		"title": "clubs 9",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the nine of clubs[/h1]",
       		"position": {
-      			"x": -318,
-      			"y": 1328
+      			"x": 1263,
+      			"y": 1079
       		},
       		"colorID": 0
       	},
       	{
       		"title": "clubs 10",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the ten of clubs[/h1]",
       		"position": {
-      			"x": -100,
-      			"y": 1335
+      			"x": 1481,
+      			"y": 1079
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds A",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the ace of diamonds[/h1]",
       		"position": {
-      			"x": -318,
-      			"y": 1651
+      			"x": -480,
+      			"y": 2636
       		},
       		"colorID": 0
       	},
@@ -169,148 +171,148 @@
       		"tags": "card",
       		"body": "[h1]the king of clubs[/h1]",
       		"position": {
-      			"x": 551,
-      			"y": 1336
+      			"x": 2132,
+      			"y": 1079
       		},
       		"colorID": 0
       	},
       	{
       		"title": "clubs J",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the jack of clubs[/h1]",
       		"position": {
-      			"x": 115,
-      			"y": 1336
+      			"x": 1696,
+      			"y": 1079
       		},
       		"colorID": 0
       	},
       	{
       		"title": "clubs Q",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the queen of clubs[/h1]",
       		"position": {
-      			"x": 336,
-      			"y": 1336
+      			"x": 1917,
+      			"y": 1079
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds 2",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the two of diamonds[/h1]",
       		"position": {
-      			"x": -100,
-      			"y": 1651
+      			"x": -264,
+      			"y": 2636
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds 3",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the three of diamonds[/h1]",
       		"position": {
-      			"x": 115,
-      			"y": 1651
+      			"x": -53,
+      			"y": 2636
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds 4",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the four of diamonds[/h1]",
       		"position": {
-      			"x": 336,
-      			"y": 1651
+      			"x": 166,
+      			"y": 2636
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds 5",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the five of diamonds[/h1]",
       		"position": {
-      			"x": -318,
-      			"y": 1862
+      			"x": 389,
+      			"y": 2626
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds 10",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the ten of diamonds[/h1]",
       		"position": {
-      			"x": -100,
-      			"y": 2081
+      			"x": 1481,
+      			"y": 2633
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds 7",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the seven of diamonds[/h1]",
       		"position": {
-      			"x": 115,
-      			"y": 1862
+      			"x": 822,
+      			"y": 2626
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds 8",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the eight of diamonds[/h1]",
       		"position": {
-      			"x": 336,
-      			"y": 1862
+      			"x": 1043,
+      			"y": 2626
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds 6",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the six of diamonds[/h1]",
       		"position": {
-      			"x": -100,
-      			"y": 1862
+      			"x": 607,
+      			"y": 2626
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds 9",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the nine of diamonds[/h1]",
       		"position": {
-      			"x": -318,
-      			"y": 2081
+      			"x": 1263,
+      			"y": 2633
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds J",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the jack of diamonds[/h1]",
       		"position": {
-      			"x": 115,
-      			"y": 2081
+      			"x": 1696,
+      			"y": 2633
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds Q",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the queen of diamonds[/h1]",
       		"position": {
-      			"x": 336,
-      			"y": 2081
+      			"x": 1917,
+      			"y": 2633
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds K",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the king of diamonds[/h1]",
       		"position": {
-      			"x": 551,
-      			"y": 2081
+      			"x": 2132,
+      			"y": 2633
       		},
       		"colorID": 0
       	},
@@ -319,8 +321,8 @@
       		"tags": "card",
       		"body": "[h1]the ace of hearts[/h1]",
       		"position": {
-      			"x": 896,
-      			"y": 877
+      			"x": -480,
+      			"y": 1903
       		},
       		"colorID": 0
       	},
@@ -329,48 +331,48 @@
       		"tags": "card",
       		"body": "[h1]the 4 of hearts[/h1]",
       		"position": {
-      			"x": 1543,
-      			"y": 877
+      			"x": 166,
+      			"y": 1903
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts 8",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the 8 of hearts[/h1]",
       		"position": {
-      			"x": 1543,
-      			"y": 1108
+      			"x": 1043,
+      			"y": 1903
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts K",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the king of hearts[/h1]",
       		"position": {
-      			"x": 1758,
-      			"y": 1334
+      			"x": 2132,
+      			"y": 1903
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts 5",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the 5 of hearts[/h1]",
       		"position": {
-      			"x": 896,
-      			"y": 1108
+      			"x": 389,
+      			"y": 1903
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts 9",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the 9 of hearts[/h1]",
       		"position": {
-      			"x": 896,
-      			"y": 1336
+      			"x": 1263,
+      			"y": 1903
       		},
       		"colorID": 0
       	},
@@ -379,28 +381,28 @@
       		"tags": "card",
       		"body": "[h1]the 2 of hearts[/h1]",
       		"position": {
-      			"x": 1114,
-      			"y": 877
+      			"x": -264,
+      			"y": 1903
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts 6",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the 6 of hearts[/h1]",
       		"position": {
-      			"x": 1114,
-      			"y": 1108
+      			"x": 607,
+      			"y": 1903
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts 10",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the 10 of hearts[/h1]",
       		"position": {
-      			"x": 1114,
-      			"y": 1336
+      			"x": 1481,
+      			"y": 1903
       		},
       		"colorID": 0
       	},
@@ -409,215 +411,185 @@
       		"tags": "card",
       		"body": "[h1]the 3 of hearts[/h1]",
       		"position": {
-      			"x": 1327,
-      			"y": 877
+      			"x": -53,
+      			"y": 1903
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts 7",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the 7 of hearts[/h1]",
       		"position": {
-      			"x": 1327,
-      			"y": 1108
+      			"x": 822,
+      			"y": 1903
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts J",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the jack of hearts[/h1]",
       		"position": {
-      			"x": 1327,
-      			"y": 1336
+      			"x": 1696,
+      			"y": 1903
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts Q",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the queen of hearts[/h1]",
       		"position": {
-      			"x": 1543,
-      			"y": 1335
+      			"x": 1917,
+      			"y": 1903
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades A",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the ace of spades[/h1]",
       		"position": {
-      			"x": 896,
-      			"y": 1651
+      			"x": -480,
+      			"y": 3364
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades 5",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the five of spades[/h1]",
       		"position": {
-      			"x": 896,
-      			"y": 1862
+      			"x": 389,
+      			"y": 3364
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades 9",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the nine of spades[/h1]",
       		"position": {
-      			"x": 896,
-      			"y": 2081
+      			"x": 1263,
+      			"y": 3364
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades 2",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the two of spades[/h1]",
       		"position": {
-      			"x": 1114,
-      			"y": 1651
+      			"x": -264,
+      			"y": 3364
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades 6",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the six of spades[/h1]",
       		"position": {
-      			"x": 1114,
-      			"y": 1862
+      			"x": 607,
+      			"y": 3364
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades 10",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the ten of spades[/h1]",
       		"position": {
-      			"x": 1114,
-      			"y": 2081
+      			"x": 1481,
+      			"y": 3364
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades J",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the jack of spades[/h1]",
       		"position": {
-      			"x": 1327,
-      			"y": 2081
+      			"x": 1696,
+      			"y": 3364
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades 7",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the seven of spades[/h1]",
       		"position": {
-      			"x": 1327,
-      			"y": 1862
+      			"x": 822,
+      			"y": 3364
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades 3",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the three of spades[/h1]",
       		"position": {
-      			"x": 1327,
-      			"y": 1651
+      			"x": -53,
+      			"y": 3364
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades 4",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the four of spades[/h1]",
       		"position": {
-      			"x": 1543,
-      			"y": 1651
+      			"x": 166,
+      			"y": 3364
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades 8",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the eight of spades[/h1]",
       		"position": {
-      			"x": 1543,
-      			"y": 1862
+      			"x": 1043,
+      			"y": 3364
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades Q",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the queen of spades[/h1]",
       		"position": {
-      			"x": 1543,
-      			"y": 2081
+      			"x": 1917,
+      			"y": 3364
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades K",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the king of spades[/h1]",
       		"position": {
-      			"x": 1758,
-      			"y": 2081
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "HELP",
-      		"tags": "",
-      		"body": "[bird]whats up[/bird]\n\n[[dunno what i'm supposed to be doing|HELP EVENT]]\n\n[[i remember now|RECALL BOOKMARK]]",
-      		"position": {
-      			"x": 1616,
-      			"y": 72
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "HELP EVENT",
-      		"tags": "",
-      		"body": "[bird]so basically when you turn over a card, depending on the suit and caste i'm gonna be like [q]whoa! this thing just happened! what are you gonna do about it?[/q] and then you're gonna tell me what you're gonna do about it[/bird]\n\n[[gotcha|RECALL BOOKMARK]]",
-      		"position": {
-      			"x": 1612,
-      			"y": 289
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "RECALL BOOKMARK",
-      		"tags": "",
-      		"body": "[script]jump(dialogue.bookmark)[/script]",
-      		"position": {
-      			"x": 1612,
-      			"y": 514
+      			"x": 2132,
+      			"y": 3364
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts CONSTANT",
-      		"tags": "",
-      		"body": "[bird]what do you do?[/bird]\n\n[[listen[em](+1 ♡)[/em]|HEART LISTEN]]\n[[speak[em](-3 ♧)[/em]|HEART SPEAK]]",
+      		"tags": "choice",
+      		"body": "[bird]what do you do?[/bird]\n\n[[speak[alt (HEARTS ACTIVE EXP)]-3♧[/alt]|CONSTANT ACTIVE]]\n[[listen[alt (HEARTS PASSIVE EXP)]+♡[/alt]|CONSTANT PASSIVE]]",
       		"position": {
-      			"x": 2232,
-      			"y": 346
+      			"x": 1750,
+      			"y": -123
       		},
       		"colorID": 0
       	},
       	{
       		"title": "FIRST CARD",
       		"tags": "",
-      		"body": "yo who's playing that music\n\n[kitty]don't mind me, just jamming out some mood tunez[/kitty]\n\n[bird]um... thanks[/bird]\n\n[kitty]you're welcome :3[/kitty]",
+      		"body": "yo who's playing that [alt (KITTYS MUSIC)]music[/alt]",
       		"position": {
       			"x": 1144,
       			"y": 235
@@ -626,121 +598,1191 @@
       	},
       	{
       		"title": "spades CONSTANT",
-      		"tags": "",
-      		"body": "[bird]what do you do?[/bird]\n\n[[fight[em](-2 ♤)[/em]|SPADE FIGHT]]\n[[flee[em](+1 ♤)|SPADE FLEE]]",
+      		"tags": "choice",
+      		"body": "[bird]what do you do?[/bird]\n\n[[fight[alt (SPADES ACTIVE EXP)]-2♤[/alt]|CONSTANT ACTIVE]]\n[[flee[alt (SPADES PASSIVE EXP)]+♤[/alt]|CONSTANT PASSIVE]]",
       		"position": {
-      			"x": 2691,
-      			"y": 349
+      			"x": 1968,
+      			"y": -127
       		},
       		"colorID": 0
       	},
       	{
       		"title": "clubs CONSTANT",
-      		"tags": "",
-      		"body": "[bird]what do you do?[/bird]\n\n[[negotiate[em](+1 ♧)[/em]|CLUB A]]\n[[lie[em](-3 ♡)[/em]|CLUB B]]",
+      		"tags": "choice",
+      		"body": "[bird]what do you do?[/bird]\n\n[[negotiate[alt (CLUBS ACTIVE EXP)]+♧[/alt]|CONSTANT ACTIVE]]\n[[lie[alt (CLUBS PASSIVE EXP)]-3♡[/alt]|CONSTANT PASSIVE]]",
       		"position": {
-      			"x": 2236,
-      			"y": 814
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "CLUB A",
-      		"tags": "",
-      		"body": "Empty Text",
-      		"position": {
-      			"x": 2235,
-      			"y": 1055
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "CLUB B",
-      		"tags": "",
-      		"body": "Empty Text",
-      		"position": {
-      			"x": 2457,
-      			"y": 1055
+      			"x": 1748,
+      			"y": 95
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds CONSTANT",
-      		"tags": "",
-      		"body": "[bird]what do you do?[/bird]\n\n[[deal|DIAMOND A]]\n[[no deal|DIAMOND B]]",
+      		"tags": "choice",
+      		"body": "[bird]what do you do?[/bird]\n\n[[deal|CONSTANT ACTIVE]]\n[[no deal|CONSTANT PASSIVE]]",
       		"position": {
-      			"x": 2697,
-      			"y": 819
+      			"x": 1966,
+      			"y": 92
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "DIAMOND A",
-      		"tags": "",
-      		"body": "Empty Text",
+      		"title": "CONSTANT PASSIVE",
+      		"tags": "end",
+      		"body": "[script]jumpnoclear(dialogue.bookmark);jumpnoclear(dialogue.bookmark+\" PASSIVE\");jumpnoclear('FLIP NEXT CARD')[/script]",
       		"position": {
-      			"x": 2694,
-      			"y": 1056
+      			"x": 1746,
+      			"y": 316
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "DIAMOND B",
-      		"tags": "",
-      		"body": "Empty Text",
+      		"title": "CONSTANT ACTIVE",
+      		"tags": "end",
+      		"body": "[script]jumpnoclear(dialogue.bookmark);jumpnoclear(dialogue.bookmark+\" ACTIVE\");jumpnoclear('FLIP NEXT CARD')[/script]",
       		"position": {
-      			"x": 2915,
-      			"y": 1068
+      			"x": 1969,
+      			"y": 316
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "SPADE FIGHT",
+      		"title": "FLIPPED WITHOUT CHOOSING",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "why'd you flip without choosing\ni'll just assume you made the passive choice",
       		"position": {
-      			"x": 2692,
-      			"y": 594
+      			"x": 2188,
+      			"y": 313
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "SPADE FLEE",
+      		"title": "clubs A PASSIVE",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "",
       		"position": {
-      			"x": 2917,
-      			"y": 596
+      			"x": -480,
+      			"y": 1302
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "SPADE PAY",
+      		"title": "clubs A ACTIVE",
       		"tags": "",
       		"body": "Empty Text",
       		"position": {
-      			"x": 3137,
-      			"y": 596
+      			"x": -480,
+      			"y": 1515
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "HEART LISTEN",
-      		"tags": "",
-      		"body": "Empty Text",
+      		"title": "EVENT EXPLANATION",
+      		"tags": "tt",
+      		"body": "[bird]so basically when you turn over a card, depending on the suit and caste i'm gonna be like [q]whoa! this thing just happened! what are you gonna do about it?[/q] and then you're gonna tell me what you're gonna do about it[/bird]",
       		"position": {
-      			"x": 2234,
-      			"y": 574
+      			"x": 751,
+      			"y": 343
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "HEART SPEAK",
+      		"title": "HEARTS ACTIVE EXP",
+      		"tags": "tt",
+      		"body": "[bird]earn this heart card[/bird]",
+      		"position": {
+      			"x": 2784,
+      			"y": -102
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "HEARTS PASSIVE EXP",
+      		"tags": "tt",
+      		"body": "[bird]spend three clubs cards[/bird]",
+      		"position": {
+      			"x": 2566,
+      			"y": -109
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "SPADES ACTIVE EXP",
+      		"tags": "tt",
+      		"body": "[bird]lose two spades cards[/bird]",
+      		"position": {
+      			"x": 2564,
+      			"y": 106
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "SPADES PASSIVE EXP_2",
+      		"tags": "tt",
+      		"body": "[bird]earn this spades card[/bird]",
+      		"position": {
+      			"x": 2784,
+      			"y": 110
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "CLUBS PASSIVE EXP",
+      		"tags": "tt",
+      		"body": "[bird]lose three heart cards[/bird]",
+      		"position": {
+      			"x": 2572,
+      			"y": 320
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "CLUBS ACTIVE EXP",
+      		"tags": "tt",
+      		"body": "[bird]earn this clubs card[/bird]",
+      		"position": {
+      			"x": 2793,
+      			"y": 325
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "KITTYS MUSIC",
+      		"tags": "tt",
+      		"body": "[kitty]don't mind me, just jamming out some mood tunez :3[/kitty]",
+      		"position": {
+      			"x": 1360,
+      			"y": 227
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "FLIP NEXT CARD",
+      		"tags": "end",
+      		"body": "[bird]go ahead and flip the next card[/bird]",
+      		"position": {
+      			"x": 2191,
+      			"y": 524
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs 2 PASSIVE",
       		"tags": "",
       		"body": "Empty Text",
       		"position": {
-      			"x": 2454,
-      			"y": 574
+      			"x": -264,
+      			"y": 1302
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs 2 ACTIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": -264,
+      			"y": 1515
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs 3 PASSIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": -53,
+      			"y": 1302
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs 3 ACTIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": -53,
+      			"y": 1515
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs 4 PASSIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 166,
+      			"y": 1302
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs 4 ACTIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 166,
+      			"y": 1515
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs 5 PASSIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 389,
+      			"y": 1302
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs 5 ACTIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 389,
+      			"y": 1515
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs 6 PASSIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 607,
+      			"y": 1302
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs 6 ACTIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 607,
+      			"y": 1515
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs 7 PASSIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 822,
+      			"y": 1302
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs 7 ACTIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 822,
+      			"y": 1515
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs 8 PASSIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1043,
+      			"y": 1302
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs 8 ACTIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1043,
+      			"y": 1515
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs 9 PASSIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1263,
+      			"y": 1302
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs 9 ACTIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1263,
+      			"y": 1515
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs 10 PASSIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1481,
+      			"y": 1302
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs 10 ACTIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1481,
+      			"y": 1515
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs J PASSIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1696,
+      			"y": 1302
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs J ACTIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1696,
+      			"y": 1515
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs Q PASSIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1917,
+      			"y": 1302
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs Q ACTIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1917,
+      			"y": 1515
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs K PASSIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 2132,
+      			"y": 1302
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "clubs K ACTIVE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 2132,
+      			"y": 1515
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_23",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": -480,
+      			"y": 2112
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_24",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": -264,
+      			"y": 2112
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_25",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": -53,
+      			"y": 2112
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_26",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 166,
+      			"y": 2112
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_27",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 389,
+      			"y": 2112
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_28",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 607,
+      			"y": 2112
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_29",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 822,
+      			"y": 2112
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_30",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1043,
+      			"y": 2112
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_31",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1263,
+      			"y": 2112
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_32",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1481,
+      			"y": 2112
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_33",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1696,
+      			"y": 2112
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_34",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1917,
+      			"y": 2112
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_35",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 2132,
+      			"y": 2112
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_36",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": -480,
+      			"y": 2331
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_37",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": -264,
+      			"y": 2331
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_38",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": -53,
+      			"y": 2331
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_39",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 166,
+      			"y": 2331
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_40",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 389,
+      			"y": 2331
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_41",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 607,
+      			"y": 2331
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_42",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 822,
+      			"y": 2331
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_43",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1043,
+      			"y": 2331
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_44",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1263,
+      			"y": 2331
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_45",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1481,
+      			"y": 2331
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_46",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1696,
+      			"y": 2331
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_47",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1917,
+      			"y": 2331
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_48",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 2132,
+      			"y": 2331
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_49",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": -480,
+      			"y": 2850
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_50",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": -264,
+      			"y": 2845
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_51",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": -53,
+      			"y": 2845
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_52",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 166,
+      			"y": 2850
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_53",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 389,
+      			"y": 2845
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_54",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 607,
+      			"y": 2841
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_55",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 822,
+      			"y": 2850
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_56",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1043,
+      			"y": 2845
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_57",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1263,
+      			"y": 2850
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_58",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1481,
+      			"y": 2850
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_59",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1696,
+      			"y": 2855
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_60",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1917,
+      			"y": 2854
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_61",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 2132,
+      			"y": 2854
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_62",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": -480,
+      			"y": 3067
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_63",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": -264,
+      			"y": 3058
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_64",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": -53,
+      			"y": 3054
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_65",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 166,
+      			"y": 3058
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_66",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 389,
+      			"y": 3054
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_67",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 607,
+      			"y": 3049
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_68",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 822,
+      			"y": 3054
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_69",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1043,
+      			"y": 3050
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_70",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1263,
+      			"y": 3050
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_71",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1481,
+      			"y": 3054
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_72",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1696,
+      			"y": 3068
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_73",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1917,
+      			"y": 3063
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_74",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 2132,
+      			"y": 3072
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_75",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": -480,
+      			"y": 3591
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_76",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": -264,
+      			"y": 3591
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_77",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": -53,
+      			"y": 3591
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_78",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 166,
+      			"y": 3591
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_79",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 389,
+      			"y": 3591
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_80",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 607,
+      			"y": 3591
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_81",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 822,
+      			"y": 3591
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_82",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1043,
+      			"y": 3591
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_83",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1263,
+      			"y": 3591
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_84",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1481,
+      			"y": 3591
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_85",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1696,
+      			"y": 3591
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_86",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1917,
+      			"y": 3591
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_87",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 2132,
+      			"y": 3591
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_88",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": -480,
+      			"y": 3829
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_89",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": -53,
+      			"y": 3829
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_90",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": -264,
+      			"y": 3829
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_91",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 166,
+      			"y": 3829
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_92",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 389,
+      			"y": 3829
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_93",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 607,
+      			"y": 3829
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_94",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 822,
+      			"y": 3829
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_95",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1043,
+      			"y": 3829
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_96",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1263,
+      			"y": 3829
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_97",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1481,
+      			"y": 3829
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_98",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1696,
+      			"y": 3829
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_99",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1917,
+      			"y": 3829
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "Node_100",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 2132,
+      			"y": 3829
       		},
       		"colorID": 0
       	}

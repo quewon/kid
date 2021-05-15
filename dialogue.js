@@ -18,11 +18,12 @@ function jump(nodename) {
 }
 
 function jumpnoclear(nodename) {
-  if (displayArea.innerHTML != "") {
-    displayArea.innerHTML += "<br /><br />"
+  if (displayArea.innerHTML != "" && !displayArea.innerHTML.endsWith("<br><br>")) {
+    displayArea.innerHTML += "<br><br>"
   }
 
   let node = parsedNodes[nodename];
+
   var body = node.body;
 
   if (body.includes("</if>")) {
@@ -69,6 +70,8 @@ function jumpnoclear(nodename) {
     body = text;
   }
 
+  dialogue.currentNode = nodename;
+
   if (body.includes("<script>")) {
     let func = body.match(/<script>(.*?)\<\/script>/g);
 
@@ -83,8 +86,6 @@ function jumpnoclear(nodename) {
 
   displayArea.innerHTML += body;
 
-  dialogue.currentNode = nodename;
-
   if (node.tags.includes("centered")) {
     if (!displayArea.classList.contains("centered")) {
       displayArea.classList.add("centered");
@@ -96,7 +97,7 @@ function jumpnoclear(nodename) {
       table.classList.remove("hidden");
     }
   }
-  if (node.tags.includes("bookmark")) {
+  if (node.tags.includes("bookmark") || node.tags.includes("card")) {
     dialogue.bookmark = dialogue.currentNode;
   }
 }
@@ -132,6 +133,26 @@ function parse(text, node) {
   text = text.replace(/<fish\>/g, "<span class='fish'>").replace(/<\/fish\>/g, "</span>");
   text = text.replace(/<pup\>/g, "<span class='pup'>").replace(/<\/pup\>/g, "</span>");
 
+  if (text.includes("</alt>")) {
+    let conditional = text.match(/<alt([\s\S]*?)<\/alt>/g);
+
+    for (tex in conditional) {
+      let t = conditional[tex];
+
+      let opener = t.match(/<alt([\s\S]*?)\)>/g);
+
+      let alt_text = t.match(/\(([\s\S]*?)\)/g)[0];
+      alt_text = alt_text.slice(0, -1);
+      alt_text = alt_text.substring(1);
+
+      let em = "<em onmouseover='tooltip(`" + alt_text + "`)' onmouseout='tooltip()'>";
+
+      text = text.replace(opener, em);
+
+      text = text.replace("</alt>", "</em>")
+    }
+  }
+
   return text
 }
 
@@ -164,5 +185,21 @@ function compile() {
   // jump("i'm ready");
 }
 
-function showOptions() {
+let tt = document.getElementById("tooltip");
+function tooltip(nodename) {
+  if (!nodename) {
+    tt.classList.add("hidden");
+    return
+  }
+
+  tt.classList.remove("hidden");
+  tt.innerHTML = parsedNodes[nodename].body;
 }
+
+window.onmousemove = function(e) {
+  let x = e.clientX;
+  let y = e.clientY;
+
+  tt.style.left = x + 'px';
+  tt.style.top = y + 'px';
+};

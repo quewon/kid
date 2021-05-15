@@ -55,13 +55,23 @@ html {
 
 #dialogue {
   width: 20em;
-  height: 100%;
   overflow: scroll;
   padding: 1em;
   border: 1px solid var(--three);
   font-family: inherit;
   text-align: inherit;
   line-height: inherit;
+}
+
+#tooltip {
+  position: absolute;
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+  padding: 0.5em;
+  background-color: var(--bg);
+  max-width: 15em;
+  box-sizing: border-box;
+  text-align: justify;
 }
 
 *::selection {
@@ -122,6 +132,9 @@ blockquote {
 em {
   font-style: normal;
   color: var(--em);
+  display: inline-block;
+  cursor: help;
+  font-weight: bold;
 }
 
 button {
@@ -133,7 +146,7 @@ button {
   color: var(--text);
   text-align: inherit;
   line-height: inherit;
-  margin-bottom: 0.1em;
+  margin-bottom: 3px;
 }
 button:hover {
   background-color: var(--three);
@@ -181,6 +194,6 @@ button em::before {
 
   background-color: var(--three-shadow);
   box-shadow: var(--three) 0px 0px 20px 1px;
-  width: 210px;
-  height: 310px;
+  width: 206px;
+  height: 306px;
 }
