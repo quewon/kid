@@ -49,10 +49,8 @@ html {
 }
 
 #tabletop {
-  margin-right: 1em;
-  width: 200px;
-  height: 300px;
-  transform: translate(50%, 50%);
+  margin-right: calc(1em + 100px);
+  margin-top: calc(150px);
 }
 
 #dialogue {
