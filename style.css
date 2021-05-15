@@ -5,6 +5,7 @@
   --one: #ebebeb;
   --two: #a4a4a4;
   --three: #5c5c5c;
+  --three-shadow: #a9a9a9;
   --four: #141414;
   --em: red;
 
@@ -48,9 +49,10 @@ html {
 }
 
 #tabletop {
-  margin-right: 2em;
+  margin-right: 1em;
   width: 200px;
   height: 300px;
+  transform: translate(50%, 50%);
 }
 
 #dialogue {
@@ -143,6 +145,10 @@ button:active {
   border: 1px solid var(--bg);
 }
 
+button em::before {
+  content: "\00a0\00a0";
+}
+
 .choicemenu {
   margin-top: 1em;
 }
@@ -160,15 +166,23 @@ button:active {
   cursor: grab;
   cursor: -moz-grab;
   cursor: -webkit-grab;
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s, background-color 0.2s, width 0.2s, height 0.2s;
   border-radius: 25px;
+  transform: translate(-50%, -50%);
   /* opacity: 0.9; */
 }
+
+/* .card:hover {
+  border: 1px solid var(--three-shadow);
+} */
+
 .card:active {
   cursor: grabbing;
   cursor: -moz-grabbing;
   cursor: -webkit-grabbing;
 
-  /* background-color: var(--three); */
+  background-color: var(--three-shadow);
   box-shadow: var(--three) 0px 0px 20px 1px;
+  width: 210px;
+  height: 310px;
 }

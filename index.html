@@ -27,10 +27,10 @@
       	{
       		"title": "DECK",
       		"tags": "",
-      		"body": "[script]tabletop.deck = new Deck(); sound.takeoutdeck.play();[/script][bird]let's play a game!\n\n[blockquote][u]bird's awesome new ghost hunting game[/u]\n\n[ol][li]flip a card[/li]\n[li]depending on the card's suit and caste, i'll will come up with a cool [em]event[/em]![/li]\n[li]decide on how you want to respond to the event[/li]\n[li]rinse and repeat[/li][/ol][/blockquote]\n\nyou got that?[/bird]\n\n[[i don't get it|BEGIN GAME BUT DOUBT]]\n[[what are we waiting for|BEGIN GAME]]",
+      		"body": "[script]tabletop.deck = new Deck(); sound.takeoutdeck.play();[/script][bird]let's play a game!\n\n[blockquote][u]bird's awesome new ghost hunting game[/u]\n\n[ol][li]flip a card[/li]\n[li]depending on the card's suit and caste, i'll come up with a cool [em]event[/em]![/li]\n[li]decide on how you want to respond to the event[/li]\n[li]rinse and repeat[/li][/ol][/blockquote]\n\nyou got that?[/bird]\n\n[[i don't get it|BEGIN GAME BUT DOUBT]]\n[[what are we waiting for|BEGIN GAME]]",
       		"position": {
       			"x": 527,
-      			"y": 348
+      			"y": 344
       		},
       		"colorID": 0
       	},
@@ -39,7 +39,7 @@
       		"tags": "bookmark",
       		"body": "[if (v.currentDeckSeen)][bird]let me reshuffle this deck real quick[/bird][script]tabletop.deck.reshuffle()[/script]\n[/if][bird]ok, flip a card when you're ready[/bird][script]birdsgame.ongoing = true[/script]",
       		"position": {
-      			"x": 437,
+      			"x": 433,
       			"y": 581
       		},
       		"colorID": 0
@@ -50,7 +50,7 @@
       		"body": "[bird]you'll figure it out as we go, i believe in you[/bird]\n\n[[... ok|BEGIN GAME]]",
       		"position": {
       			"x": 675,
-      			"y": 583
+      			"y": 579
       		},
       		"colorID": 0
       	},
@@ -96,7 +96,7 @@
       	},
       	{
       		"title": "clubs 5",
-      		"tags": "",
+      		"tags": "card",
       		"body": "[h1]the five of clubs[/h1]",
       		"position": {
       			"x": -318,
@@ -605,19 +605,19 @@
       		"colorID": 0
       	},
       	{
-      		"title": "CONSTANT",
+      		"title": "hearts CONSTANT",
       		"tags": "",
-      		"body": "um ok",
+      		"body": "[bird]what do you do?[/bird]\n\n[[listen[em](+1 ♡)[/em]|HEART LISTEN]]\n[[speak[em](-3 ♧)[/em]|HEART SPEAK]]",
       		"position": {
-      			"x": 1144,
-      			"y": 453
+      			"x": 2232,
+      			"y": 346
       		},
       		"colorID": 0
       	},
       	{
       		"title": "FIRST CARD",
       		"tags": "",
-      		"body": "yo who's playing that music\n\n[kitty]thought you might want some mood tunes[/kitty]\n\n[bird]um... thanks[/bird]\n\n[kitty]you're welcome :3[/kitty]",
+      		"body": "yo who's playing that music\n\n[kitty]don't mind me, just jamming out some mood tunez[/kitty]\n\n[bird]um... thanks[/bird]\n\n[kitty]you're welcome :3[/kitty]",
       		"position": {
       			"x": 1144,
       			"y": 235
@@ -625,22 +625,122 @@
       		"colorID": 0
       	},
       	{
-      		"title": "listen",
+      		"title": "spades CONSTANT",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[bird]what do you do?[/bird]\n\n[[fight[em](-2 ♤)[/em]|SPADE FIGHT]]\n[[flee[em](+1 ♤)|SPADE FLEE]]",
       		"position": {
-      			"x": 1356,
-      			"y": 16
+      			"x": 2691,
+      			"y": 349
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "negotiate",
+      		"title": "clubs CONSTANT",
+      		"tags": "",
+      		"body": "[bird]what do you do?[/bird]\n\n[[negotiate[em](+1 ♧)[/em]|CLUB A]]\n[[lie[em](-3 ♡)[/em]|CLUB B]]",
+      		"position": {
+      			"x": 2236,
+      			"y": 814
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "CLUB A",
       		"tags": "",
       		"body": "Empty Text",
       		"position": {
-      			"x": 1360,
-      			"y": 20
+      			"x": 2235,
+      			"y": 1055
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "CLUB B",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 2457,
+      			"y": 1055
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "diamonds CONSTANT",
+      		"tags": "",
+      		"body": "[bird]what do you do?[/bird]\n\n[[deal|DIAMOND A]]\n[[no deal|DIAMOND B]]",
+      		"position": {
+      			"x": 2697,
+      			"y": 819
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "DIAMOND A",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 2694,
+      			"y": 1056
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "DIAMOND B",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 2915,
+      			"y": 1068
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "SPADE FIGHT",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 2692,
+      			"y": 594
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "SPADE FLEE",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 2917,
+      			"y": 596
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "SPADE PAY",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 3137,
+      			"y": 596
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "HEART LISTEN",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 2234,
+      			"y": 574
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "HEART SPEAK",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 2454,
+      			"y": 574
       		},
       		"colorID": 0
       	}

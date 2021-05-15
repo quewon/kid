@@ -163,10 +163,10 @@ class Card {
       if (birdsgame.flipped == 1) {
         jump("FIRST CARD");
         jumpnoclear(this.suit+" "+this.value);
-        jumpnoclear("CONSTANT");
+        jumpnoclear(this.suit+" CONSTANT");
       } else {
         jump(this.suit+" "+this.value);
-        jumpnoclear("CONSTANT");
+        jumpnoclear(this.suit+" CONSTANT");
       }
 
       if (bgm != music[this.suit]) {
