@@ -17,7 +17,7 @@
       	{
       		"title": "Start",
       		"tags": "centered",
-      		"body": "[script]music.hearts.play()[/script][bird]are we there yet[/bird]\n\nare you for real\n\n[bird]why does it take so long to go to school\nwhy do we live so far away\nthey should make a day where it only takes us five minutes to go to school[/bird]\n\nthat doesn't make any sense\nand two hours isn't that long\n\n[bird]are YOU for real[/bird]\n\nlook can't you see i'm reading something\ni'm halfway into this book and it's getting really good\n\n[bird]what's it about?[/bird]\n\nit's about this ghost hunter that befriends ghosts instead of hunting them\ni think you'd like it\n\n[bird]i... LOVE it[/bird]\n\nwanna read it when i'm done?\n\n[bird]dude\ni was gonna say yes but it just hit me that i'm probably not even going to finish it\nyou know that feeling where you get inspired by a book's blurb and then when you actually read the book it's worse than what you imagined in your head?[/bird]\n\n... no?\n\n[bird]your description is so hype dude i'm like imagining so much now[/bird]\n\nwhy don't you write the book in your head\n\n[bird]nah i don't have the patience for that\ni do have a great idea though[/bird]\n\n[[he rummages through his backpack and produces a [b]deck of cards.[/b]|DECK]]",
+      		"body": "[bird]are we there yet[/bird]\n\nare you for real\n\n[bird]why does it take so long to go to school\nwhy do we live so far away\nthey should make a day where it only takes us five minutes to go to school[/bird]\n\nthat doesn't make any sense\nand two hours isn't that long\n\n[bird]are YOU for real[/bird]\n\nlook can't you see i'm reading something\ni'm halfway into this book and it's getting really good\n\n[bird]what's it about?[/bird]\n\nit's about this ghost hunter that befriends ghosts instead of hunting them\ni think you'd like it\n\n[bird]i... LOVE it[/bird]\n\nwanna read it when i'm done?\n\n[bird]dude\ni was gonna say yes but it just hit me that i'm probably not even going to finish it\nyou know that feeling where you get inspired by a book's blurb and then when you actually read the book it's worse than what you imagined in your head?[/bird]\n\n... no?\n\n[bird]your description is so hype dude i'm like imagining so much now[/bird]\n\nwhy don't you write the book in your head\n\n[bird]nah i don't have the patience for that\ni do have a great idea though[/bird]\n\n[[he rummages through his backpack and produces a [b]deck of cards.[/b]|DECK]]",
       		"position": {
       			"x": 531,
       			"y": 108
@@ -27,7 +27,7 @@
       	{
       		"title": "DECK",
       		"tags": "",
-      		"body": "[script]tabletop.deck = new Deck(); sound.takeoutdeck.play()[/script][bird]let's play a game!\n\n[blockquote][u]bird's awesome new ghost hunting game[/u]\n\n[ol][li]flip a card[/li]\n[li]depending on the card's suit and caste, i'll will come up with a cool [em]event[/em]![/li]\n[li]decide on how you want to respond to the event[/li]\n[li]rinse and repeat[/li][/ol][/blockquote]\n\nyou got that?[/bird]\n\n[[i don't get it|BEGIN GAME BUT DOUBT]]\n[[what are we waiting for|BEGIN GAME]]",
+      		"body": "[script]tabletop.deck = new Deck(); sound.takeoutdeck.play();[/script][bird]let's play a game!\n\n[blockquote][u]bird's awesome new ghost hunting game[/u]\n\n[ol][li]flip a card[/li]\n[li]depending on the card's suit and caste, i'll will come up with a cool [em]event[/em]![/li]\n[li]decide on how you want to respond to the event[/li]\n[li]rinse and repeat[/li][/ol][/blockquote]\n\nyou got that?[/bird]\n\n[[i don't get it|BEGIN GAME BUT DOUBT]]\n[[what are we waiting for|BEGIN GAME]]",
       		"position": {
       			"x": 527,
       			"y": 348
@@ -36,8 +36,8 @@
       	},
       	{
       		"title": "BEGIN GAME",
-      		"tags": "",
-      		"body": "[if (v.currentDeckSeen)][bird]let me reshuffle this deck real quick[/bird][script]tabletop.deck.reshuffle()[/script]\n[/if][bird]ok, flip a card when you're ready[/bird]",
+      		"tags": "bookmark",
+      		"body": "[if (v.currentDeckSeen)][bird]let me reshuffle this deck real quick[/bird][script]tabletop.deck.reshuffle()[/script]\n[/if][bird]ok, flip a card when you're ready[/bird][script]birdsgame.ongoing = true[/script]",
       		"position": {
       			"x": 437,
       			"y": 581
@@ -56,521 +56,591 @@
       	},
       	{
       		"title": "clubs A",
-      		"tags": "",
-      		"body": "Empty Text",
+      		"tags": "card",
+      		"body": "[h1]the ace of clubs[/h1]",
       		"position": {
-      			"x": -505,
-      			"y": 899
+      			"x": -318,
+      			"y": 877
       		},
       		"colorID": 0
       	},
       	{
       		"title": "clubs 2",
-      		"tags": "",
-      		"body": "Empty Text",
+      		"tags": "card",
+      		"body": "[h1]the two of clubs[/h1]",
       		"position": {
-      			"x": -287,
-      			"y": 887
+      			"x": -100,
+      			"y": 877
       		},
       		"colorID": 0
       	},
       	{
       		"title": "clubs 3",
-      		"tags": "",
-      		"body": "Empty Text",
+      		"tags": "card",
+      		"body": "[h1]the three of clubs[/h1]",
       		"position": {
-      			"x": -72,
-      			"y": 887
+      			"x": 115,
+      			"y": 877
       		},
       		"colorID": 0
       	},
       	{
       		"title": "clubs 4",
-      		"tags": "",
-      		"body": "Empty Text",
+      		"tags": "card",
+      		"body": "[h1]the four of clubs[/h1]",
       		"position": {
-      			"x": 149,
-      			"y": 887
+      			"x": 336,
+      			"y": 877
       		},
       		"colorID": 0
       	},
       	{
       		"title": "clubs 5",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the five of clubs[/h1]",
       		"position": {
-      			"x": -508,
-      			"y": 1130
+      			"x": -318,
+      			"y": 1108
       		},
       		"colorID": 0
       	},
       	{
       		"title": "clubs 6",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the six of clubs[/h1]",
       		"position": {
-      			"x": -291,
-      			"y": 1123
+      			"x": -100,
+      			"y": 1108
       		},
       		"colorID": 0
       	},
       	{
       		"title": "clubs 7",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the seven of clubs[/h1]",
       		"position": {
-      			"x": -82,
-      			"y": 1112
+      			"x": 115,
+      			"y": 1108
       		},
       		"colorID": 0
       	},
       	{
       		"title": "clubs 8",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the eight of clubs[/h1]",
       		"position": {
-      			"x": 145,
-      			"y": 1119
+      			"x": 336,
+      			"y": 1108
       		},
       		"colorID": 0
       	},
       	{
       		"title": "clubs 9",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the nine of clubs[/h1]",
       		"position": {
-      			"x": -505,
-      			"y": 1350
+      			"x": -318,
+      			"y": 1328
       		},
       		"colorID": 0
       	},
       	{
       		"title": "clubs 10",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the ten of clubs[/h1]",
       		"position": {
-      			"x": -287,
-      			"y": 1347
+      			"x": -100,
+      			"y": 1335
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds A",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the ace of diamonds[/h1]",
       		"position": {
-      			"x": -505,
-      			"y": 1673
+      			"x": -318,
+      			"y": 1651
       		},
       		"colorID": 0
       	},
       	{
       		"title": "clubs K",
-      		"tags": "",
-      		"body": "Empty Text",
+      		"tags": "card",
+      		"body": "[h1]the king of clubs[/h1]",
       		"position": {
-      			"x": 379,
-      			"y": 1348
+      			"x": 551,
+      			"y": 1336
       		},
       		"colorID": 0
       	},
       	{
       		"title": "clubs J",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the jack of clubs[/h1]",
       		"position": {
-      			"x": -72,
-      			"y": 1348
+      			"x": 115,
+      			"y": 1336
       		},
       		"colorID": 0
       	},
       	{
       		"title": "clubs Q",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the queen of clubs[/h1]",
       		"position": {
-      			"x": 149,
-      			"y": 1348
+      			"x": 336,
+      			"y": 1336
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds 2",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the two of diamonds[/h1]",
       		"position": {
-      			"x": -287,
-      			"y": 1673
+      			"x": -100,
+      			"y": 1651
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds 3",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the three of diamonds[/h1]",
       		"position": {
-      			"x": -72,
-      			"y": 1674
+      			"x": 115,
+      			"y": 1651
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds 4",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the four of diamonds[/h1]",
       		"position": {
-      			"x": 149,
-      			"y": 1674
+      			"x": 336,
+      			"y": 1651
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds 5",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the five of diamonds[/h1]",
       		"position": {
-      			"x": -503,
-      			"y": 1884
+      			"x": -318,
+      			"y": 1862
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds 10",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the ten of diamonds[/h1]",
       		"position": {
-      			"x": -282,
-      			"y": 2106
+      			"x": -100,
+      			"y": 2081
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds 7",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the seven of diamonds[/h1]",
       		"position": {
-      			"x": -71,
-      			"y": 1887
+      			"x": 115,
+      			"y": 1862
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds 8",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the eight of diamonds[/h1]",
       		"position": {
-      			"x": 150,
-      			"y": 1889
+      			"x": 336,
+      			"y": 1862
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds 6",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the six of diamonds[/h1]",
       		"position": {
-      			"x": -288,
-      			"y": 1884
+      			"x": -100,
+      			"y": 1862
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds 9",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the nine of diamonds[/h1]",
       		"position": {
-      			"x": -505,
-      			"y": 2103
+      			"x": -318,
+      			"y": 2081
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds J",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the jack of diamonds[/h1]",
       		"position": {
-      			"x": -63,
-      			"y": 2107
+      			"x": 115,
+      			"y": 2081
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds Q",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the queen of diamonds[/h1]",
       		"position": {
-      			"x": 157,
-      			"y": 2116
+      			"x": 336,
+      			"y": 2081
       		},
       		"colorID": 0
       	},
       	{
       		"title": "diamonds K",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the king of diamonds[/h1]",
       		"position": {
-      			"x": 379,
-      			"y": 2116
+      			"x": 551,
+      			"y": 2081
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts A",
-      		"tags": "",
-      		"body": "Empty Text",
+      		"tags": "card",
+      		"body": "[h1]the ace of hearts[/h1]",
       		"position": {
-      			"x": 709,
-      			"y": 913
+      			"x": 896,
+      			"y": 877
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts 4",
-      		"tags": "",
-      		"body": "Empty Text",
+      		"tags": "card",
+      		"body": "[h1]the 4 of hearts[/h1]",
       		"position": {
-      			"x": 1356,
-      			"y": 909
+      			"x": 1543,
+      			"y": 877
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts 8",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the 8 of hearts[/h1]",
       		"position": {
-      			"x": 1365,
-      			"y": 1132
+      			"x": 1543,
+      			"y": 1108
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts K",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the king of hearts[/h1]",
       		"position": {
-      			"x": 1581,
-      			"y": 1346
+      			"x": 1758,
+      			"y": 1334
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts 5",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the 5 of hearts[/h1]",
       		"position": {
-      			"x": 714,
-      			"y": 1129
+      			"x": 896,
+      			"y": 1108
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts 9",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the 9 of hearts[/h1]",
       		"position": {
-      			"x": 716,
-      			"y": 1348
+      			"x": 896,
+      			"y": 1336
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts 2",
-      		"tags": "",
-      		"body": "Empty Text",
+      		"tags": "card",
+      		"body": "[h1]the 2 of hearts[/h1]",
       		"position": {
-      			"x": 927,
-      			"y": 913
+      			"x": 1114,
+      			"y": 877
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts 6",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the 6 of hearts[/h1]",
       		"position": {
-      			"x": 939,
-      			"y": 1129
+      			"x": 1114,
+      			"y": 1108
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts 10",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the 10 of hearts[/h1]",
       		"position": {
-      			"x": 941,
-      			"y": 1348
+      			"x": 1114,
+      			"y": 1336
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts 3",
-      		"tags": "",
-      		"body": "Empty Text",
+      		"tags": "card",
+      		"body": "[h1]the 3 of hearts[/h1]",
       		"position": {
-      			"x": 1140,
-      			"y": 908
+      			"x": 1327,
+      			"y": 877
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts 7",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the 7 of hearts[/h1]",
       		"position": {
-      			"x": 1149,
-      			"y": 1129
+      			"x": 1327,
+      			"y": 1108
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts J",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the jack of hearts[/h1]",
       		"position": {
-      			"x": 1151,
-      			"y": 1348
+      			"x": 1327,
+      			"y": 1336
       		},
       		"colorID": 0
       	},
       	{
       		"title": "hearts Q",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the queen of hearts[/h1]",
       		"position": {
-      			"x": 1370,
-      			"y": 1347
+      			"x": 1543,
+      			"y": 1335
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades A",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the ace of spades[/h1]",
       		"position": {
-      			"x": 709,
-      			"y": 1674
+      			"x": 896,
+      			"y": 1651
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades 5",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the five of spades[/h1]",
       		"position": {
-      			"x": 709,
-      			"y": 1896
+      			"x": 896,
+      			"y": 1862
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades 9",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the nine of spades[/h1]",
       		"position": {
-      			"x": 709,
-      			"y": 2116
+      			"x": 896,
+      			"y": 2081
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades 2",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the two of spades[/h1]",
       		"position": {
-      			"x": 921,
-      			"y": 1674
+      			"x": 1114,
+      			"y": 1651
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades 6",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the six of spades[/h1]",
       		"position": {
-      			"x": 921,
-      			"y": 1896
+      			"x": 1114,
+      			"y": 1862
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades 10",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the ten of spades[/h1]",
       		"position": {
-      			"x": 921,
-      			"y": 2116
+      			"x": 1114,
+      			"y": 2081
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades J",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the jack of spades[/h1]",
       		"position": {
-      			"x": 1146,
-      			"y": 2116
+      			"x": 1327,
+      			"y": 2081
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades 7",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the seven of spades[/h1]",
       		"position": {
-      			"x": 1146,
-      			"y": 1896
+      			"x": 1327,
+      			"y": 1862
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades 3",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the three of spades[/h1]",
       		"position": {
-      			"x": 1146,
-      			"y": 1674
+      			"x": 1327,
+      			"y": 1651
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades 4",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the four of spades[/h1]",
       		"position": {
-      			"x": 1356,
-      			"y": 1674
+      			"x": 1543,
+      			"y": 1651
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades 8",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the eight of spades[/h1]",
       		"position": {
-      			"x": 1356,
-      			"y": 1896
+      			"x": 1543,
+      			"y": 1862
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades Q",
       		"tags": "",
-      		"body": "Empty Text",
+      		"body": "[h1]the queen of spades[/h1]",
       		"position": {
-      			"x": 1356,
-      			"y": 2116
+      			"x": 1543,
+      			"y": 2081
       		},
       		"colorID": 0
       	},
       	{
       		"title": "spades K",
       		"tags": "",
+      		"body": "[h1]the king of spades[/h1]",
+      		"position": {
+      			"x": 1758,
+      			"y": 2081
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "HELP",
+      		"tags": "",
+      		"body": "[bird]whats up[/bird]\n\n[[dunno what i'm supposed to be doing|HELP EVENT]]\n\n[[i remember now|RECALL BOOKMARK]]",
+      		"position": {
+      			"x": 1616,
+      			"y": 72
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "HELP EVENT",
+      		"tags": "",
+      		"body": "[bird]so basically when you turn over a card, depending on the suit and caste i'm gonna be like [q]whoa! this thing just happened! what are you gonna do about it?[/q] and then you're gonna tell me what you're gonna do about it[/bird]\n\n[[gotcha|RECALL BOOKMARK]]",
+      		"position": {
+      			"x": 1612,
+      			"y": 289
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "RECALL BOOKMARK",
+      		"tags": "",
+      		"body": "[script]jump(dialogue.bookmark)[/script]",
+      		"position": {
+      			"x": 1612,
+      			"y": 514
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "CONSTANT",
+      		"tags": "",
+      		"body": "um ok",
+      		"position": {
+      			"x": 1144,
+      			"y": 453
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "FIRST CARD",
+      		"tags": "",
+      		"body": "yo who's playing that music\n\n[kitty]thought you might want some mood tunes[/kitty]\n\n[bird]um... thanks[/bird]\n\n[kitty]you're welcome :3[/kitty]",
+      		"position": {
+      			"x": 1144,
+      			"y": 235
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "listen",
+      		"tags": "",
       		"body": "Empty Text",
       		"position": {
-      			"x": 1575,
-      			"y": 2115
+      			"x": 1356,
+      			"y": 16
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "negotiate",
+      		"tags": "",
+      		"body": "Empty Text",
+      		"position": {
+      			"x": 1360,
+      			"y": 20
       		},
       		"colorID": 0
       	}

@@ -157,10 +157,27 @@ class Card {
     v.currentDeckSeen = true;
 
     if (birdsgame.ongoing && !this.seen) {
-      
+      console.log(this.suit+" "+this.value);
+      birdsgame.flipped++;
+
+      if (birdsgame.flipped == 1) {
+        jump("FIRST CARD");
+        jumpnoclear(this.suit+" "+this.value);
+        jumpnoclear("CONSTANT");
+      } else {
+        jump(this.suit+" "+this.value);
+        jumpnoclear("CONSTANT");
+      }
+
+      if (bgm != music[this.suit]) {
+        if (bgm != null) bgm.stop();
+        bgm = music[this.suit];
+        bgm.play();
+      }
+
+      this.seen = true;
     }
 
-    if (!this.seen) this.seen = true;
     v.flipCount++;
   }
   bringToFront() {

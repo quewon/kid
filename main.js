@@ -59,7 +59,7 @@ function loadresources() {
   ];
 
   sound.flipcard = new Howl({ src: ['sound/card/flip.wav'] });
-  sound.placecard = new Howl({ src: ['sound/card/place.wav'], volume:0.8 });
+  sound.placecard = new Howl({ src: ['sound/card/place.wav'], volume:0.5 });
   sound.pickupcard = new Howl({ src: ['sound/card/pickup.wav'] });
   sound.takeoutdeck = sound.flipcard;
   sound.shuffle = sound.flipcard;
@@ -69,14 +69,22 @@ function loadresources() {
   //   volume: 0.7,
   // });
 
-  // music.interstellar = new Howl({
-  //   src: ['sound/music/waiting for a train.wav'],
-  //   loop: true,
-  // });
   music.hearts = new Howl({
     src: ['sound/music/hearts.mp3'],
     loop: true,
-  })
+  });
+  music.clubs = new Howl({
+    src: ['sound/music/clubs.mp3'],
+    loop: true,
+  });
+  music.diamonds = new Howl({
+    src: ['sound/music/diamonds.mp3'],
+    loop: true,
+  });
+  music.spades = new Howl({
+    src: ['sound/music/spades.mp3'],
+    loop: true,
+  });
 }
 
 var table = document.getElementById("tabletop");

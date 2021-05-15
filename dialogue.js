@@ -1,6 +1,7 @@
 /* eslint-env browser */
 
 var music = {};
+var bgm;
 var ambience = {};
 
 var yarnTextField;
@@ -10,6 +11,17 @@ var parsedNodes = {};
 var optNum = 0;
 
 function jump(nodename) {
+  displayArea.innerHTML = "";
+  displayArea.scrollTop = 0;
+
+  jumpnoclear(nodename);
+}
+
+function jumpnoclear(nodename) {
+  if (displayArea.innerHTML != "") {
+    displayArea.innerHTML += "<br /><br />"
+  }
+
   let node = parsedNodes[nodename];
   var body = node.body;
 
@@ -59,29 +71,33 @@ function jump(nodename) {
 
   if (body.includes("<script>")) {
     let func = body.match(/<script>(.*?)\<\/script>/g);
-    body = body.replace(func[0], "");
-    func = func[0].replace("<script>", "").replace("</script>", "");
-    func = new Function(func);
-    func();
+
+    for (num in func) {
+      let f = func[num];
+      body = body.replace(f, "");
+      f = f.replace("<script>", "").replace("</script>", "");
+      f = new Function(f);
+      f();
+    }
   }
 
-  displayArea.innerHTML = body;
+  displayArea.innerHTML += body;
 
   dialogue.currentNode = nodename;
 
-  switch(node.tags) {
-    case "centered":
-      if (!displayArea.classList.contains("centered")) {
-        displayArea.classList.add("centered");
-        table.classList.add("hidden");
-      }
-      break;
-    default:
-      if (displayArea.classList.contains("centered")) {
-        displayArea.classList.remove("centered");
-        table.classList.remove("hidden");
-      }
-      break;
+  if (node.tags.includes("centered")) {
+    if (!displayArea.classList.contains("centered")) {
+      displayArea.classList.add("centered");
+      table.classList.add("hidden");
+    }
+  } else {
+    if (displayArea.classList.contains("centered")) {
+      displayArea.classList.remove("centered");
+      table.classList.remove("hidden");
+    }
+  }
+  if (node.tags.includes("bookmark")) {
+    dialogue.bookmark = dialogue.currentNode;
   }
 }
 
@@ -110,8 +126,11 @@ function parse(text, node) {
   text = text.replace(/\[/g, "<").replace(/]/g, ">");
 
   text = text.replace(/\n/g, "<br />");
-  text = text.replace(/<bird\>/g, "<span class='bird'>");
-  text = text.replace(/<\/bird\>/g, "</span>");
+
+  text = text.replace(/<bird\>/g, "<span class='bird'>").replace(/<\/bird\>/g, "</span>");
+  text = text.replace(/<kitty\>/g, "<span class='kitty'>").replace(/<\/kitty\>/g, "</span>");
+  text = text.replace(/<fish\>/g, "<span class='fish'>").replace(/<\/fish\>/g, "</span>");
+  text = text.replace(/<pup\>/g, "<span class='pup'>").replace(/<\/pup\>/g, "</span>");
 
   return text
 }
@@ -146,8 +165,4 @@ function compile() {
 }
 
 function showOptions() {
-}
-
-function setBookmark() {
-  dialogue.bookmark = dialogue.currentNode;
 }
