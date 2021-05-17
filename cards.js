@@ -5,7 +5,7 @@ var card_settings = {};
 var sound = {};
 
 class Item {
-  constructor(name, img, img_back, class, map) {
+  constructor(name, img, img_back, classname, map) {
     this.id = name;
     this.face = "up";
     this.pos = [0, 0, 0, 0];
@@ -14,16 +14,16 @@ class Item {
 
     this.createCanvas();
 
-    if (classes) this.canvas.classList.add(class);
+    if (classname) this.canvas.classList.add(classname);
 
-    if (map) {
-      // { tooltip: "r g b" }
-      for (tooltip in map) {
-        map[tooltip] = map[tooltip].split(" ");
-      }
-
-      
-    }
+    // if (map) {
+    //   // { tooltip: "r g b" }
+    //   for (tooltip in map) {
+    //     map[tooltip] = map[tooltip].split(" ");
+    //   }
+    //
+    //
+    // }
 
     sound.itemcreated.play();
   }
