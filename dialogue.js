@@ -79,6 +79,7 @@ function jumpnoclear(nodename) {
       let f = func[num];
       body = body.replace(f, "");
       f = f.replace("<script>", "").replace("</script>", "");
+      console.log(f);
       f = new Function(f);
       f();
     }

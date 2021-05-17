@@ -171,7 +171,7 @@ button em::before {
   margin-top: 1em;
 }
 
-.item, .card {
+.item {
   display: block;
   position: absolute;
   image-rendering: -moz-crisp-edges;
@@ -183,31 +183,24 @@ button em::before {
   cursor: -moz-grab;
   cursor: -webkit-grab;
   transition: box-shadow 0.2s, background-color 0.2s, transform 0.2s, opacity 0.2s;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1.5, 1.5);
 }
 
-.card {
-  width: 200px;
-  height: 300px;
-  border-radius: 25px;
-}
-.card:active {
-  /* width: 208px;
-  height: 308px; */
-}
-
-
-.card:active, .item:active {
+.item:active {
   cursor: grabbing;
   cursor: -moz-grabbing;
   cursor: -webkit-grabbing;
 
   background-color: var(--three-shadow);
   box-shadow: var(--three) 0px 0px 15px 1px;
-  transform: translate(-50%, -50%) scale(1.05, 1.05);
+  transform: translate(-50%, -50%) scale(1.55, 1.55);
   opacity: 1;
 }
 
 .transparent {
   opacity: 0.9;
+}
+
+.card {
+  border-radius: 10px;
 }

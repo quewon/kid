@@ -635,6 +635,7 @@ function init() {
     tabletop = {
       deck: undefined,
       items: {},
+      canvases: {},
       zindex: 0,
     };
 

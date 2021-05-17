@@ -23,7 +23,7 @@
       	{
       		"title": "Start",
       		"tags": "",
-      		"body": "[bird]let's play one last card game, before you leave.[/bird]\n\n... a card game?\n\n[bird]it's not like my other games. i've got a really good one this time.[/bird]\n\n[[the two of you walk a little, kicking stones off the boardwalk.|INTRO]][script]music.hearts.play()[/script]",
+      		"body": "[script]tabletop.items.map = new Item('map', 'map.png', 'map_back.png', 'transparent')[/script]wow, there are a lot of places here that i've never even been to.\n\n[bird]i know, you're kinda terribly unadventurous.[/bird]\n\nsure, dude...\n\n[[the two of you walk a little, kicking stones off the boardwalk.|INTRO]]",
       		"position": {
       			"x": 526,
       			"y": 108
@@ -33,30 +33,30 @@
       	{
       		"title": "INTRO",
       		"tags": "",
-      		"body": "[bird]there's just one problem.[/bird]\n\nwhat?\n\n[bird]i lost all my cards. no big deal, it's a small town. can't take that long to find.[/bird]\n\nbird... please tell me this isn't an elaborate way of lengthening your game's playtime.\n\n[bird]of course not! you insult my integrity, man. but i do have this convenient map that i drew for you in advance.[/bird]\n\n... give me the map.\n\n[[bird rummages through his backpack and produces a small, scratchily-drawn map of the town you've lived in for an entire year.|GET MAP]]",
-      		"position": {
-      			"x": 524,
-      			"y": 328
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "GET MAP",
-      		"tags": "",
-      		"body": "wow, there are a lot of places here that i've never even been to.\n\n[bird]i know, you're kinda terribly unadventurous.[/bird]\n\nalright, dude. ... 4 suits, 13 ranks. [alt (NO JOKERS)]52 cards[/alt]. how long could this take?[script]tabletop.items.map = new Item(\"map\", \"map.png\", \"map_back.png\", \"transparent\")[/script]",
+      		"body": "can't believe it's already been a year.\n\n[bird]serious? i can't believe it's [i]only[/i] been a year. you're like, the only person here that hasn't lived here forever. gonna miss ya. you better keep in touch. tell me what it's like out there, so i don't look like a fool when i'm finally out for college.[/bird]\n\nha. that's not gonna be enough to stop you from being a fool.\n\n[bird]yeah, yeah...[/bird]\n\n[[you don't say it, but you think this town is not gonna miss you.|NOT GONNA MISS YA]]",
       		"position": {
       			"x": 526,
-      			"y": 546
+      			"y": 321
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "NO JOKERS",
+      		"title": "NOT GONNA MISS YA",
       		"tags": "",
-      		"body": "no jokers?\n\n[bird]no jokers.[/bird]",
+      		"body": "sorry i lost that deck.\n\n[bird]don't sweat it, dude. all our card games were terrible.[/bird]\n\nand it was such a good time.\n\n[bird]yep.[/bird]\n\n[[bird stops and rummages around his backpack. he digs out a single card.|CARD ONE]]",
       		"position": {
-      			"x": 742,
-      			"y": 546
+      			"x": 524,
+      			"y": 538
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "CARD ONE",
+      		"tags": "",
+      		"body": "[script]tabletop.itemsLBRACKET;'clubs J'RBRACKET; = new Card('clubs J')[/script][bird]almost forgot i had this buried in the bottom of my backpack for a couple months now.[/bird]\n\nand you didn't throw it away?\n\n[bird]why would i? it's got value. it's a jack of clubs, to be precise. the guy on the card kinda looks like me, don't you think?[/bird]\n\nbird, you couldn't be further from this image.\n\n[bird]anyway, no one in this place just throws things away. not since... well, not anymore. the cards, they're probably all just lying around somewhere.[/bird]\n\nit's a small town.\n\n[bird]yeah.[/bird]\n\nhey, bird... what do you say to a little last-minute scavenger hunt?",
+      		"position": {
+      			"x": 525,
+      			"y": 755
       		},
       		"colorID": 0
       	}
