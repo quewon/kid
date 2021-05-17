@@ -13,6 +13,7 @@
   --kitty: #f4617b;
   --fish: #468235;
   --pup: #77c2d1;
+  --random: var(--three);
 
   --text: var(--four);
 }
@@ -25,6 +26,10 @@
 .kitty { color: var(--kitty); }
 .pup { color: var(--pup); }
 .fish { color: var(--fish); }
+.random { color: var(--rando) }
+.sa {
+
+}
 
 html {
   color: var(--text);
@@ -33,6 +38,7 @@ html {
   font-family: 'Josefin Sans', sans-serif;
   text-align: justify;
   line-height: 1.2em;
+  font-size: 17px;
 }
 
 .hidden {
@@ -49,15 +55,16 @@ html {
 }
 
 #tabletop {
-  margin-right: calc(1em + 100px);
-  margin-top: calc(150px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 
 #dialogue {
   width: 20em;
   overflow: scroll;
   padding: 1em;
-  border: 1px solid var(--three);
+  /* border: 1px solid var(--three); */
   font-family: inherit;
   text-align: inherit;
   line-height: inherit;
@@ -72,6 +79,7 @@ html {
   max-width: 15em;
   box-sizing: border-box;
   text-align: justify;
+  border: 3px solid var(--em);
 }
 
 *::selection {
@@ -132,7 +140,6 @@ blockquote {
 em {
   font-style: normal;
   color: var(--em);
-  display: inline-block;
   cursor: help;
   font-weight: bold;
 }
@@ -164,11 +171,9 @@ button em::before {
   margin-top: 1em;
 }
 
-.card {
+.item, .card {
   display: block;
   position: absolute;
-  width: 200px;
-  height: 300px;
   image-rendering: -moz-crisp-edges;
   image-rendering: -webkit-crisp-edges;
   image-rendering: pixelated;
@@ -177,23 +182,32 @@ button em::before {
   cursor: grab;
   cursor: -moz-grab;
   cursor: -webkit-grab;
-  transition: box-shadow 0.2s, background-color 0.2s, width 0.2s, height 0.2s;
-  border-radius: 25px;
+  transition: box-shadow 0.2s, background-color 0.2s, transform 0.2s, opacity 0.2s;
   transform: translate(-50%, -50%);
-  /* opacity: 0.9; */
 }
 
-/* .card:hover {
-  border: 1px solid var(--three-shadow);
-} */
-
+.card {
+  width: 200px;
+  height: 300px;
+  border-radius: 25px;
+}
 .card:active {
+  /* width: 208px;
+  height: 308px; */
+}
+
+
+.card:active, .item:active {
   cursor: grabbing;
   cursor: -moz-grabbing;
   cursor: -webkit-grabbing;
 
   background-color: var(--three-shadow);
-  box-shadow: var(--three) 0px 0px 20px 1px;
-  width: 206px;
-  height: 306px;
+  box-shadow: var(--three) 0px 0px 15px 1px;
+  transform: translate(-50%, -50%) scale(1.05, 1.05);
+  opacity: 1;
+}
+
+.transparent {
+  opacity: 0.9;
 }

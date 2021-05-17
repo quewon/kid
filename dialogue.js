@@ -86,17 +86,17 @@ function jumpnoclear(nodename) {
 
   displayArea.innerHTML += body;
 
-  if (node.tags.includes("centered")) {
-    if (!displayArea.classList.contains("centered")) {
-      displayArea.classList.add("centered");
-      table.classList.add("hidden");
-    }
-  } else {
-    if (displayArea.classList.contains("centered")) {
-      displayArea.classList.remove("centered");
-      table.classList.remove("hidden");
-    }
-  }
+  // if (node.tags.includes("centered")) {
+  //   if (!displayArea.classList.contains("centered")) {
+  //     displayArea.classList.add("centered");
+  //     table.classList.add("hidden");
+  //   }
+  // } else {
+  //   if (displayArea.classList.contains("centered")) {
+  //     displayArea.classList.remove("centered");
+  //     table.classList.remove("hidden");
+  //   }
+  // }
   if (node.tags.includes("bookmark") || node.tags.includes("card")) {
     dialogue.bookmark = dialogue.currentNode;
   }
@@ -127,11 +127,14 @@ function parse(text, node) {
   text = text.replace(/\[/g, "<").replace(/]/g, ">");
 
   text = text.replace(/\n/g, "<br />");
+  text = text.replace(/LBRACKET;/g, "[").replace(/RBRACKET;/g, "]");
 
   text = text.replace(/<bird\>/g, "<span class='bird'>").replace(/<\/bird\>/g, "</span>");
   text = text.replace(/<kitty\>/g, "<span class='kitty'>").replace(/<\/kitty\>/g, "</span>");
   text = text.replace(/<fish\>/g, "<span class='fish'>").replace(/<\/fish\>/g, "</span>");
   text = text.replace(/<pup\>/g, "<span class='pup'>").replace(/<\/pup\>/g, "</span>");
+  text = text.replace(/<rando\>/g, "<span class='rando'>").replace(/<\/rando\>/g, "</span>");
+  text = text.replace(/<sa\>/g, "<span class='sa'>").replace(/<\/sa\>/g, "</span>");
 
   if (text.includes("</alt>")) {
     let conditional = text.match(/<alt([\s\S]*?)<\/alt>/g);

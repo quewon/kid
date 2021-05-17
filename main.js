@@ -56,6 +56,8 @@ function loadresources() {
     "img/cardback.png",
     "img/royals.png",
     "img/small_suits.png",
+    "img/map.png",
+    "img/map_back.png",
   ];
 
   sound.flipcard = new Howl({ src: ['sound/card/flip.wav'] });
@@ -68,6 +70,8 @@ function loadresources() {
   //   loop: true,
   //   volume: 0.7,
   // });
+
+  sound.itemcreated = sound.flipcard;
 
   music.hearts = new Howl({
     src: ['sound/music/hearts.mp3'],
@@ -630,7 +634,7 @@ function init() {
     // set tabletop
     tabletop = {
       deck: undefined,
-      cards: {},
+      items: {},
       zindex: 0,
     };
 
