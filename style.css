@@ -79,7 +79,7 @@ html {
   max-width: 15em;
   box-sizing: border-box;
   text-align: justify;
-  border: 3px solid var(--em);
+  /* border: 3px solid var(--em); */
 }
 
 *::selection {
@@ -193,7 +193,8 @@ button em::before {
 
   background-color: var(--three-shadow);
   box-shadow: var(--three) 0px 0px 15px 1px;
-  transform: translate(-50%, -50%) scale(1.55, 1.55);
+  transform: translate(-50%, -50%) scale(1.6, 1.6);
+
   opacity: 1;
 }
 
@@ -203,4 +204,8 @@ button em::before {
 
 .card {
   border-radius: 10px;
+}
+
+.active {
+  cursor: pointer;
 }

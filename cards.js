@@ -11,24 +11,68 @@ class Item {
     this.pos = [0, 0, 0, 0];
     this.front = imgs["img/"+img];
     this.back = imgs["img/"+img_back] || null;
+    this.map = map || null;
 
     this.createCanvas();
 
     if (classname) this.canvas.classList.add(classname);
 
-    // if (map) {
-    //   // { tooltip: "r g b" }
-    //   for (tooltip in map) {
-    //     map[tooltip] = map[tooltip].split(" ");
-    //   }
-    //
-    //
-    // }
-
     sound.itemcreated.play();
   }
-  constructMap() {
+  activate() {
+    if (this.map) {
+      this.context.drawImage(this.map.img, 0, 0);
+      this.map.data = this.context.getImageData(0, 0, this.front.width, this.front.height).data;
+      this.context.clearRect(0, 0, this.front.width, this.front.height);
 
+      if (this.face == "up") {
+        this.context.drawImage(this.front, 0, 0);
+      } else {
+        this.context.drawImage(this.back, 0, 0);
+      }
+
+      this.canvas.onmousemove = function(e) {
+        let item = tabletop.items[this.id];
+        if (item.face == "up") {
+          let data = item.map.data;
+          let rect = e.target.getBoundingClientRect();
+          let x = Math.floor(e.clientX - rect.left);
+          let y = Math.floor(e.clientY - rect.top);
+
+          x = Math.floor(x / 1.5);
+          y = Math.floor(y / 1.5);
+
+          let index = (x + (y * this.width)) * 4;
+
+          var r = data[index];
+          var g = data[index + 1];
+          var b = data[index + 2];
+
+          for (let tt in item.map.tts) {
+            let color = item.map.tts[tt];
+            let arr = color.split(" ");
+            if (r == arr[0] && g == arr[1] && b == arr[2]) {
+              this.classList.add("active");
+              tooltip(tt);
+              this.onclick = function() {
+                console.log(tt)
+              }
+              return;
+            }
+            this.classList.remove("active");
+            tooltip("");
+            this.onclick = null;
+          }
+        } else {
+          tooltip("");
+          this.onclick = null;
+        }
+      }
+
+      this.canvas.onmouseout = function(e) {
+        tooltip("")
+      }
+    }
   }
   createCanvas() {
     let canvas = document.createElement("canvas");
@@ -42,8 +86,6 @@ class Item {
     let context = canvas.getContext("2d");
     this.context = context;
     this.context.drawImage(this.front, 0, 0);
-
-    //
 
     // this.applyPalette();
 
@@ -114,7 +156,6 @@ class Item {
   bringToFront() {
     tabletop.zindex++;
     this.canvas.style.zIndex = tabletop.zindex;
-    console.log(this.canvas.style.zIndex);
   }
   removeCanvas() {
     this.canvas.remove();
@@ -130,8 +171,6 @@ class Item {
       if (shade == 92) overlay = palettes[palettes.current].three
       if (shade == 164) overlay = palettes[palettes.current].two
       if (shade == 235) overlay = palettes[palettes.current].one
-
-      console.log(overlay, palettes);
 
       data.data[i]   = overlay.r;
       data.data[i+1] = overlay.g;

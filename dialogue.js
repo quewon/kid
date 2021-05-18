@@ -79,8 +79,11 @@ function jumpnoclear(nodename) {
       let f = func[num];
       body = body.replace(f, "");
       f = f.replace("<script>", "").replace("</script>", "");
-      console.log(f);
+      f = f.replace(/<br \/>/g, "");
       f = new Function(f);
+
+      // console.log(f);
+
       f();
     }
   }
@@ -157,6 +160,8 @@ function parse(text, node) {
     }
   }
 
+  // console.log(text);
+
   return text
 }
 
@@ -201,8 +206,8 @@ function tooltip(nodename) {
 }
 
 window.onmousemove = function(e) {
-  let x = e.clientX;
-  let y = e.clientY;
+  let x = e.pageX;
+  let y = e.pageY;
 
   tt.style.left = x + 'px';
   tt.style.top = y + 'px';

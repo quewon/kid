@@ -58,11 +58,12 @@ function loadresources() {
     "img/small_suits.png",
     "img/map.png",
     "img/map_back.png",
+    "img/map_tt.png",
   ];
 
-  sound.flipcard = new Howl({ src: ['sound/card/flip.wav'] });
-  sound.placecard = new Howl({ src: ['sound/card/place.wav'], volume:0.5 });
-  sound.pickupcard = new Howl({ src: ['sound/card/pickup.wav'] });
+  sound.flipcard = new Howl({ src: ['sound/card/flip.mp3'] });
+  sound.placecard = new Howl({ src: ['sound/card/place.mp3'] });
+  sound.pickupcard = new Howl({ src: ['sound/card/pickup.mp3'] });
   sound.takeoutdeck = sound.flipcard;
   sound.shuffle = sound.flipcard;
   // ambience.classroom = new Howl({
@@ -89,6 +90,12 @@ function loadresources() {
     src: ['sound/music/spades.mp3'],
     loop: true,
   });
+}
+
+function sfxVolume(value) {
+  for (sfx in sound) {
+    sound[sfx].volume(value);
+  }
 }
 
 var table = document.getElementById("tabletop");
@@ -639,6 +646,8 @@ function init() {
       zindex: 0,
     };
 
+    Howler.volume(0.5);
+
     compile();
   }
 }
@@ -661,4 +670,16 @@ function palette(mode) {
   }
 
   palettes.current = mode;
+}
+
+function findPos(obj) {
+    var curleft = 0, curtop = 0;
+    if (obj.offsetParent) {
+        do {
+            curleft += obj.offsetLeft;
+            curtop += obj.offsetTop;
+        } while (obj = obj.offsetParent);
+        return { x: curleft, y: curtop };
+    }
+    return undefined;
 }

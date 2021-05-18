@@ -23,7 +23,7 @@
       	{
       		"title": "Start",
       		"tags": "",
-      		"body": "[script]tabletop.items.map = new Item('map', 'map.png', 'map_back.png', 'transparent')[/script]wow, there are a lot of places here that i've never even been to.\n\n[bird]i know, you're kinda terribly unadventurous.[/bird]\n\nsure, dude...\n\n[[the two of you walk a little, kicking stones off the boardwalk.|INTRO]]",
+      		"body": "[script]tabletop.items.map = new Item('map', 'map.png', 'map_back.png', 'transparent', {\n    img: imgsLBRACKET;'img/map_tt.png'RBRACKET;,\n    tts: {\n        \"research facilities, probably\": \"255 0 0\",\n        \"parking lot\": \"31 95 199\",\n        \"cafe corner\": \"255 139 0\",\n        \"cafeteria\": \"184 43 199\",\n        \"generator\": \"43 172 30\",\n        \"buncha greenhouses\": \"88 137 37\",\n        \"dr. boyd's\": \"88 35 37\",\n        \"staff housing\": \"0 255 0\",\n        \"bird's\": \"255 149 39\",\n        \"kitty's\": \"255 149 221\",\n        \"pup's\": \"29 183 221\",\n        \"old home\": \"148 95 199\",\n        \"playground\": \"255 255 0\",\n        \"community area + pool\": \"114 0 37\",\n        \"hillside housing\": \"224 114 150\",\n        \"pili road\": \"148 79 0\",\n        \"out in town\": \"128 110 180\",\n        \"ice cream boutique that has no right to be that good\": \"0 255 255\",\n        \"mall\": \"255 0 255\",\n        \"beachside\": \"0 0 255\",\n    }\n})[/script]wow, there are a lot of places here that i've never even been to.\n\n[bird]i know, you're kinda terribly unadventurous.[/bird]\n\nsure, dude...\n\n[[the two of you walk a little, kicking stones off the boardwalk.|INTRO]]",
       		"position": {
       			"x": 526,
       			"y": 108
@@ -43,7 +43,7 @@
       	{
       		"title": "NOT GONNA MISS YA",
       		"tags": "",
-      		"body": "sorry i lost that deck.\n\n[bird]don't sweat it, dude. all our card games were terrible.[/bird]\n\nand it was such a good time.\n\n[bird]yep.[/bird]\n\n[[bird stops and rummages around his backpack. he digs out a single card.|CARD ONE]]",
+      		"body": "sorry i lost that deck.\n\n[bird]don't sweat it, dude. all our card games were terrible.[/bird]\n\nand it was such a good time.\n\n[bird]yeah.[/bird]\n\n[[bird stops and rummages around his backpack. he digs out a single card.|CARD ONE]]",
       		"position": {
       			"x": 524,
       			"y": 538
@@ -53,10 +53,220 @@
       	{
       		"title": "CARD ONE",
       		"tags": "",
-      		"body": "[script]tabletop.itemsLBRACKET;'clubs J'RBRACKET; = new Card('clubs J')[/script][bird]almost forgot i had this buried in the bottom of my backpack for a couple months now.[/bird]\n\nand you didn't throw it away?\n\n[bird]why would i? it's got value. it's a jack of clubs, to be precise. the guy on the card kinda looks like me, don't you think?[/bird]\n\nbird, you couldn't be further from this image.\n\n[bird]anyway, no one in this place just throws things away. not since... well, not anymore. the cards, they're probably all just lying around somewhere.[/bird]\n\nit's a small town.\n\n[bird]yeah.[/bird]\n\nhey, bird... what do you say to a little last-minute scavenger hunt?",
+      		"body": "[script]tabletop.itemsLBRACKET; 'clubs J'RBRACKET; = new Card('clubs J'); tabletop.items.map.activate();[/script][bird]almost forgot i had this buried in the bottom of my backpack for a couple months now.[/bird]\n\nand you didn't throw it away?\n\n[bird]why would i? it's got value. it's a jack of clubs, to be precise. the guy on the card kinda looks like me, don't you think?[/bird]\n\nnot even a little bit.\n\n[bird]anyway, no one in this place just throws things away. not since... well, not anymore. the cards, they're probably all just lying around somewhere.[/bird]\n\nit's a small town.\n\n[bird]yeah.[/bird]\n\nhey, bird... what do you say to a little [alt (MAP ACTIVATED)]last-minute scavenger hunt[/alt]?",
       		"position": {
       			"x": 525,
       			"y": 755
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "MAP ACTIVATED",
+      		"tags": "",
+      		"body": "[i]use your map to travel to different locations[/i]",
+      		"position": {
+      			"x": 737,
+      			"y": 754
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "research facilities, probably",
+      		"tags": "tt",
+      		"body": "research facilities, probably",
+      		"position": {
+      			"x": 1075,
+      			"y": 293
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "parking lot",
+      		"tags": "tt",
+      		"body": "parking lot",
+      		"position": {
+      			"x": 1287,
+      			"y": 295
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "cafe corner",
+      		"tags": "tt",
+      		"body": "cafe corner",
+      		"position": {
+      			"x": 1075,
+      			"y": 506
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "cafeteria",
+      		"tags": "tt",
+      		"body": "cafeteria",
+      		"position": {
+      			"x": 1287,
+      			"y": 507
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "generator",
+      		"tags": "tt",
+      		"body": "generator",
+      		"position": {
+      			"x": 865,
+      			"y": 294
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "buncha greenhouses",
+      		"tags": "tt",
+      		"body": "buncha greenhouses",
+      		"position": {
+      			"x": 1077,
+      			"y": 85
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "dr. boyd's",
+      		"tags": "tt",
+      		"body": "dr. boyd's",
+      		"position": {
+      			"x": 1287,
+      			"y": 82
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "staff housing",
+      		"tags": "tt",
+      		"body": "staff housing",
+      		"position": {
+      			"x": 1077,
+      			"y": 715
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "bird's",
+      		"tags": "tt",
+      		"body": "bird's",
+      		"position": {
+      			"x": 1285,
+      			"y": 714
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "kitty's",
+      		"tags": "tt",
+      		"body": "kitty's",
+      		"position": {
+      			"x": 1493,
+      			"y": 83
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "pup's",
+      		"tags": "tt",
+      		"body": "pup's",
+      		"position": {
+      			"x": 1496,
+      			"y": 292
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "old home",
+      		"tags": "tt",
+      		"body": "old home",
+      		"position": {
+      			"x": 1490,
+      			"y": 505
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "playground",
+      		"tags": "tt",
+      		"body": "playground",
+      		"position": {
+      			"x": 1494,
+      			"y": 719
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "community area + pool",
+      		"tags": "tt",
+      		"body": "community area + pool",
+      		"position": {
+      			"x": 1702,
+      			"y": 720
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "hillside housing",
+      		"tags": "tt",
+      		"body": "hillside housing",
+      		"position": {
+      			"x": 1705,
+      			"y": 511
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "pili road",
+      		"tags": "tt",
+      		"body": "pili road",
+      		"position": {
+      			"x": 1709,
+      			"y": 292
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "out in town",
+      		"tags": "tt",
+      		"body": "out in town",
+      		"position": {
+      			"x": 1701,
+      			"y": 77
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "ice cream boutique that has no right to be that good",
+      		"tags": "tt",
+      		"body": "ice cream boutique that has no right to be that good",
+      		"position": {
+      			"x": 1909,
+      			"y": 80
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "mall",
+      		"tags": "tt",
+      		"body": "mall",
+      		"position": {
+      			"x": 1915,
+      			"y": 296
+      		},
+      		"colorID": 0
+      	},
+      	{
+      		"title": "beachside",
+      		"tags": "tt",
+      		"body": "beachside",
+      		"position": {
+      			"x": 1916,
+      			"y": 511
       		},
       		"colorID": 0
       	}
