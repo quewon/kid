@@ -18,6 +18,8 @@ class Item {
     if (classname) this.canvas.classList.add(classname);
 
     sound.itemcreated.play();
+
+    this.activate();
   }
   activate() {
     if (this.map) {
@@ -33,44 +35,49 @@ class Item {
 
       this.canvas.onmousemove = function(e) {
         let item = tabletop.items[this.id];
-        if (item.face == "up") {
-          let data = item.map.data;
-          let rect = e.target.getBoundingClientRect();
-          let x = Math.floor(e.clientX - rect.left);
-          let y = Math.floor(e.clientY - rect.top);
-
-          x = Math.floor(x / 1.5);
-          y = Math.floor(y / 1.5);
-
-          let index = (x + (y * this.width)) * 4;
-
-          var r = data[index];
-          var g = data[index + 1];
-          var b = data[index + 2];
-
-          for (let tt in item.map.tts) {
-            let color = item.map.tts[tt];
-            let arr = color.split(" ");
-            if (r == arr[0] && g == arr[1] && b == arr[2]) {
-              this.classList.add("active");
-              tooltip(tt);
-              this.onclick = function() {
-                console.log(tt)
-              }
-              return;
-            }
-            this.classList.remove("active");
-            tooltip("");
-            this.onclick = null;
-          }
-        } else {
-          tooltip("");
-          this.onclick = null;
-        }
+        item.checkMap(e);
       }
 
       this.canvas.onmouseout = function(e) {
         tooltip("")
+      }
+    }
+  }
+  checkMap(e) {
+    if (this.map && 'data' in this.map) {
+      if (this.face == "up") {
+        const data = this.map.data;
+        let rect = this.canvas.getBoundingClientRect();
+        let x = Math.floor(e.clientX - rect.left);
+        let y = Math.floor(e.clientY - rect.top);
+
+        x = Math.floor(x / 1.5);
+        y = Math.floor(y / 1.5);
+
+        const index = (x + (y * this.canvas.width)) * 4;
+
+        var r = data[index];
+        var g = data[index + 1];
+        var b = data[index + 2];
+
+        for (let tt in this.map.tts) {
+          let color = this.map.tts[tt];
+          let arr = color.split(" ");
+          if (r == arr[0] && g == arr[1] && b == arr[2]) {
+            this.canvas.classList.add("active");
+            tooltipSimple(tt);
+
+            document.onclick = function() { jump(tt) }
+            return;
+          }
+          this.canvas.classList.remove("active");
+          document.onclick = null;
+          tooltip("");
+        }
+      } else {
+        this.canvas.classList.remove("active");
+        document.onclick = null;
+        tooltip("");
       }
     }
   }
@@ -106,6 +113,10 @@ class Item {
           card.pos[3] = e.clientY;
 
           document.onmouseup = function() {
+            // var item = tabletop.items[canvas.id];
+
+            // item.checkMap(e);
+
             document.onmouseup = null;
             document.onmousemove = null;
             sound.placecard.play();
@@ -121,12 +132,17 @@ class Item {
 
             canvas.style.top = (canvas.offsetTop - card.pos[1] + "px");
             canvas.style.left = (canvas.offsetLeft - card.pos[0] + "px");
+
+            canvas.classList.remove("active");
+            canvas.onclick = null;
           };
 
           sound.pickupcard.play();
 
           card.bringToFront();
         } else {
+          canvas.classList.remove("active");
+          tooltip("");
           card.flip();
         }
       }
@@ -182,6 +198,8 @@ class Item {
 
 class Card {
   constructor(name) {
+    if (tabletop.items)
+
     this.suit = name.split(" ")[0];
     this.value = name.split(" ")[1];
     this.face = "down";

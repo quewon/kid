@@ -205,6 +205,11 @@ function tooltip(nodename) {
   tt.innerHTML = parsedNodes[nodename].body;
 }
 
+function tooltipSimple(text) {
+  tt.classList.remove("hidden");
+  tt.innerHTML = text;
+}
+
 window.onmousemove = function(e) {
   let x = e.pageX;
   let y = e.pageY;
