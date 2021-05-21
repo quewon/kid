@@ -59,6 +59,16 @@ function loadresources() {
     "img/map.png",
     "img/map_back.png",
     "img/map_tt.png",
+    "img/fishgolem.png",
+    "img/fishgolem1.png",
+    "img/twobucks.png",
+    "img/twobucks_back.png",
+    "img/letter.png",
+    "img/letter_back.png",
+    "img/fishmissingfaded.png",
+    "img/fishmissing_back.png",
+    "img/paper.png",
+    "img/paper_back.png",
   ];
 
   sound.flipcard = new Howl({ src: ['sound/card/flip.mp3'] });
@@ -646,7 +656,7 @@ function init() {
       zindex: 0,
     };
 
-    Howler.volume(0.5);
+    // Howler.volume(0.5);
 
     compile();
   }

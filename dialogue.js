@@ -26,6 +26,8 @@ function jumpnoclear(nodename) {
 
   var body = node.body;
 
+  console.log(body);
+
   if (body.includes("</if>")) {
     let text = body;
 
@@ -129,6 +131,7 @@ function parse(text, node) {
 
   // convert bbcode
   text = text.replace(/\[/g, "<").replace(/]/g, ">");
+  text = text.replace(/&amp;/g, "&");
 
   text = text.replace(/\n/g, "<br />");
   text = text.replace(/LBRACKET;/g, "[").replace(/RBRACKET;/g, "]");
@@ -139,6 +142,7 @@ function parse(text, node) {
   text = text.replace(/<pup\>/g, "<span class='pup'>").replace(/<\/pup\>/g, "</span>");
   text = text.replace(/<rando\>/g, "<span class='rando'>").replace(/<\/rando\>/g, "</span>");
   text = text.replace(/<sa\>/g, "<span class='sa'>").replace(/<\/sa\>/g, "</span>");
+  text = text.replace(/<golem\>/g, "<span class='golem'>").replace(/<\/golem\>/g, "</span>");
 
   if (text.includes("</alt>")) {
     let conditional = text.match(/<alt([\s\S]*?)<\/alt>/g);

@@ -1,6 +1,6 @@
 var v = {
-  firstCardFlipped: false,
-  currentDeckSeen: false,
-  timesFlippedBeforeGuessing: 0,
-  flipCount: 0,
+  metBoydsFriend: false,
+  gaveDadLetter: false,
+  metKitty: false,
+  metShadow: false,
 };

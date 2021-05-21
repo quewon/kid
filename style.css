@@ -13,7 +13,7 @@
   --kitty: #f4617b;
   --fish: #468235;
   --pup: #77c2d1;
-  --random: var(--three);
+  --rando: var(--three);
 
   --text: var(--four);
 }
@@ -25,10 +25,19 @@
 .bird { color: var(--bird); }
 .kitty { color: var(--kitty); }
 .pup { color: var(--pup); }
-.fish { color: var(--fish); }
-.random { color: var(--rando) }
+.fish {
+  color: var(--fish);
+  font-size: 0.7em;
+  text-transform: uppercase;
+}
+.rando { color: var(--rando) }
 .sa {
 
+}
+.golem {
+  color: var(--rando);
+  font-size: 0.7em;
+  text-transform: uppercase;
 }
 
 html {
@@ -62,12 +71,12 @@ html {
 
 #dialogue {
   width: 20em;
-  overflow: scroll;
   padding: 1em;
   /* border: 1px solid var(--three); */
   font-family: inherit;
   text-align: inherit;
   line-height: inherit;
+  overflow: scroll;
 }
 
 #tooltip {
@@ -115,9 +124,11 @@ a:active, a button:active {
 h1, h2 {
   margin: 0;
   line-height: 1em;
-  text-align: left;
+  text-align: justify;
   display: inline-block;
   width: 100%;
+  text-transform: uppercase;
+  font-size: 1.2em;
 }
 
 ol, ul {
@@ -153,7 +164,6 @@ button {
   color: var(--text);
   text-align: inherit;
   line-height: inherit;
-  margin-bottom: 3px;
 }
 button:hover {
   background-color: var(--three);
@@ -182,7 +192,7 @@ button em::before {
   cursor: grab;
   cursor: -moz-grab;
   cursor: -webkit-grab;
-  transition: box-shadow 0.2s, background-color 0.2s, transform 0.2s, opacity 0.2s;
+  transition: filter 0.2s, background-color 0.2s, transform 0.2s, opacity 0.2s;
   transform: translate(-50%, -50%) scale(1.5, 1.5);
 }
 
@@ -191,8 +201,12 @@ button em::before {
   cursor: -moz-grabbing;
   cursor: -webkit-grabbing;
 
-  background-color: var(--three-shadow);
-  box-shadow: var(--three) 0px 0px 15px 1px;
+  /* background-color: var(--three-shadow); */
+  /* box-shadow: var(--three) 0px 0px 15px 1px; */
+  /* -webkit-filter: drop-shadow(12px 12px 25px var(--three));
+  filter: url(#drop-shadow);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#5c5c5c')";
+  filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#5c5c5c')"; */
   transform: translate(-50%, -50%) scale(1.6, 1.6);
 
   opacity: 1;
@@ -200,6 +214,10 @@ button em::before {
 
 .transparent {
   opacity: 0.9;
+}
+
+.cardstock {
+  opacity: 1;
 }
 
 .card {

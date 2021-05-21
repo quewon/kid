@@ -19,7 +19,7 @@ class Item {
 
     sound.itemcreated.play();
 
-    this.activate();
+    // this.activate();
   }
   activate() {
     if (this.map) {
@@ -67,16 +67,16 @@ class Item {
             this.canvas.classList.add("active");
             tooltipSimple(tt);
 
-            document.onclick = function() { jump(tt) }
+            this.canvas.onclick = function() { jump(tt) }
             return;
           }
           this.canvas.classList.remove("active");
-          document.onclick = null;
+          this.canvas.onclick = null;
           tooltip("");
         }
       } else {
         this.canvas.classList.remove("active");
-        document.onclick = null;
+        this.canvas.onclick = null;
         tooltip("");
       }
     }
@@ -132,9 +132,6 @@ class Item {
 
             canvas.style.top = (canvas.offsetTop - card.pos[1] + "px");
             canvas.style.left = (canvas.offsetLeft - card.pos[0] + "px");
-
-            canvas.classList.remove("active");
-            canvas.onclick = null;
           };
 
           sound.pickupcard.play();
@@ -153,28 +150,27 @@ class Item {
     this.bringToFront();
   }
   flip() {
-    if (this.face == "down") {
-      this.face = "up";
-      this.context.clearRect(0, 0, this.front.width, this.front.height);
-      this.context.drawImage(this.front, 0, 0);
-      // this.applyPalette();
-    } else if (this.back) {
-      this.face = "down";
-      this.context.clearRect(0, 0, this.front.width, this.front.height);
-      this.context.drawImage(this.back, 0, 0);
-      // this.applyPalette();
-    }
+    if (this.back) {
+      if (this.face == "down") {
+        this.face = "up";
+        this.context.clearRect(0, 0, this.front.width, this.front.height);
+        this.context.drawImage(this.front, 0, 0);
+        // this.applyPalette();
+      } else {
+        this.face = "down";
+        this.context.clearRect(0, 0, this.front.width, this.front.height);
+        this.context.drawImage(this.back, 0, 0);
+        // this.applyPalette();
+      }
 
-    sound.flipcard.play();
+      sound.flipcard.play();
+    }
 
     this.bringToFront();
   }
   bringToFront() {
     tabletop.zindex++;
     this.canvas.style.zIndex = tabletop.zindex;
-  }
-  removeCanvas() {
-    this.canvas.remove();
   }
   applyPalette() {
     let data = this.context.getImageData(0, 0, 100, 150);
@@ -193,6 +189,10 @@ class Item {
       data.data[i+2] = overlay.b;
     }
     this.context.putImageData(data, 0, 0);
+  }
+  selfDestruct() {
+    this.canvas.remove();
+    delete tabletop.items[this.id];
   }
 }
 
