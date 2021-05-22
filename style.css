@@ -1,19 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
-
 :root {
   --bg: white;
   --one: #ebebeb;
   --two: #a4a4a4;
   --three: #5c5c5c;
-  --three-shadow: #a9a9a9;
   --four: #141414;
+  --names: blue;
   --em: red;
-
-  --bird: #ffa500;
-  --kitty: #f4617b;
-  --fish: #77c2d1;
-  --pup: #468235;
-  --rando: var(--three);
 
   --text: var(--four);
 }
@@ -22,84 +14,52 @@
     display: none;
 }
 
-.bird { color: var(--bird); }
-.kitty { color: var(--kitty); }
-.pup { color: var(--pup); }
-.fish {
-  color: var(--fish);
-  font-size: 0.7em;
-  text-transform: uppercase;
-}
-.rando { color: var(--rando) }
-.sa {
-
-}
-.golem {
-  color: var(--rando);
-  font-size: 0.7em;
-  text-transform: uppercase;
-}
-
 html {
   color: var(--text);
-  background-color: var(--bg);
+  background-color: var(--bg)
+}
 
-  font-family: 'Josefin Sans', sans-serif;
-  text-align: justify;
-  line-height: 1.2em;
-  font-size: 17px;
+h1, h2 {
+  margin: 0;
+  line-height: 1em;
+  display: inline-block;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+.centered {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  margin-left: 0 !important;
 }
 
 .hidden {
   display: none
 }
 
-.container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 70%;
-  display: flex;
-}
-
 #tabletop {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 20%;
+  left: 30%;
 }
 
 #dialogue {
-  width: 20em;
-  padding: 1em;
-  /* border: 1px solid var(--three); */
-  font-family: inherit;
-  text-align: inherit;
-  line-height: inherit;
-  overflow: scroll;
-}
-
-#tooltip {
   position: absolute;
-  margin-top: 0.5em;
-  margin-left: 0.5em;
-  padding: 0.5em;
-  background-color: var(--bg);
-  max-width: 15em;
+  top: 20%;
+  left: calc(30% + 200px);
+  margin-left: 5%;
+  width: 20em;
+  line-height: 1.5em;
+  height: 60%;
+  overflow: scroll;
+  padding: 1em;
+  border: 1px solid var(--three);
   box-sizing: border-box;
-  text-align: justify;
-  /* border: 3px solid var(--em); */
 }
 
-*::selection {
-  background: var(--two);
-  background-color: var(--two);
-  color: var(--bg);
-}
-*::-moz-selection {
-  background: var(--two);
-  background-color: var(--two);
-  color: var(--bg);
+#dialogue p {
+  pointer-events: none;
 }
 
 a button {
@@ -121,38 +81,19 @@ a:active, a button:active {
   opacity: 0.7;
 }
 
-h1, h2 {
-  margin: 0;
-  line-height: 1em;
-  text-align: justify;
-  display: inline-block;
-  width: 100%;
-  text-transform: uppercase;
-  font-size: 1.2em;
-}
-
-ol, ul {
-  margin: 0;
-  color: inherit;
-  display: inline-block;
-}
-
-li {
-  margin-bottom: -1em;
+q {
+  quotes: none;
+  color: var(--names);
 }
 
 blockquote {
   margin-top: 0;
   margin-bottom: 0;
-  color: inherit;
-  display: inline-block;
 }
 
 em {
   font-style: normal;
   color: var(--em);
-  cursor: help;
-  font-weight: bold;
 }
 
 button {
@@ -162,8 +103,7 @@ button {
   border: 1px solid var(--three);
   background-color: var(--bg);
   color: var(--text);
-  text-align: inherit;
-  line-height: inherit;
+  text-align: justify;
 }
 button:hover {
   background-color: var(--three);
@@ -173,17 +113,15 @@ button:active {
   border: 1px solid var(--bg);
 }
 
-button em::before {
-  content: "\00a0\00a0";
-}
-
 .choicemenu {
   margin-top: 1em;
 }
 
-.item {
+.card {
   display: block;
   position: absolute;
+  width: 200px;
+  height: 300px;
   image-rendering: -moz-crisp-edges;
   image-rendering: -webkit-crisp-edges;
   image-rendering: pixelated;
@@ -192,38 +130,9 @@ button em::before {
   cursor: grab;
   cursor: -moz-grab;
   cursor: -webkit-grab;
-  transition: filter 0.2s, background-color 0.2s, transform 0.2s, opacity 0.2s;
-  transform: translate(-50%, -50%) scale(1.5, 1.5);
 }
-
-.item:active {
+.card:active {
   cursor: grabbing;
   cursor: -moz-grabbing;
   cursor: -webkit-grabbing;
-
-  /* background-color: var(--three-shadow); */
-  /* box-shadow: var(--three) 0px 0px 15px 1px; */
-  /* -webkit-filter: drop-shadow(12px 12px 25px var(--three));
-  filter: url(#drop-shadow);
-  -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#5c5c5c')";
-  filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#5c5c5c')"; */
-  transform: translate(-50%, -50%) scale(1.6, 1.6);
-
-  opacity: 1;
-}
-
-.transparent {
-  opacity: 0.9;
-}
-
-.cardstock {
-  opacity: 1;
-}
-
-.card {
-  border-radius: 10px;
-}
-
-.active {
-  cursor: pointer;
 }

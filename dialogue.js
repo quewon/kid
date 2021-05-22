@@ -1,7 +1,6 @@
 /* eslint-env browser */
 
 var music = {};
-var bgm;
 var ambience = {};
 
 var yarnTextField;
@@ -11,22 +10,8 @@ var parsedNodes = {};
 var optNum = 0;
 
 function jump(nodename) {
-  displayArea.innerHTML = "";
-  displayArea.scrollTop = 0;
-
-  jumpnoclear(nodename);
-}
-
-function jumpnoclear(nodename) {
-  if (displayArea.innerHTML != "" && !displayArea.innerHTML.endsWith("<br><br>")) {
-    displayArea.innerHTML += "<br><br>"
-  }
-
   let node = parsedNodes[nodename];
-
   var body = node.body;
-
-  console.log(body);
 
   if (body.includes("</if>")) {
     let text = body;
@@ -72,44 +57,36 @@ function jumpnoclear(nodename) {
     body = text;
   }
 
+  displayArea.innerHTML = body;
+
   dialogue.currentNode = nodename;
 
-  if (body.includes("<script>")) {
-    let func = body.match(/<script>(.*?)\<\/script>/g);
+  if (node.onjump) node.onjump();
 
-    for (num in func) {
-      let f = func[num];
-      body = body.replace(f, "");
-      f = f.replace("<script>", "").replace("</script>", "");
-      f = f.replace(/<br \/>/g, "");
-      f = new Function(f);
-
-      // console.log(f);
-
-      f();
-    }
-  }
-
-  displayArea.innerHTML += body;
-
-  // if (node.tags.includes("centered")) {
-  //   if (!displayArea.classList.contains("centered")) {
-  //     displayArea.classList.add("centered");
-  //     table.classList.add("hidden");
-  //   }
-  // } else {
-  //   if (displayArea.classList.contains("centered")) {
-  //     displayArea.classList.remove("centered");
-  //     table.classList.remove("hidden");
-  //   }
-  // }
-  if (node.tags.includes("bookmark") || node.tags.includes("card")) {
-    dialogue.bookmark = dialogue.currentNode;
+  switch(node.tags) {
+    case "centered":
+      if (!displayArea.classList.contains("centered")) {
+        displayArea.classList.add("centered")
+        table.classList.add("hidden");
+      }
+      break;
+    default:
+      if (displayArea.classList.contains("centered")) {
+        displayArea.classList.remove("centered");
+        table.classList.remove("hidden");
+      }
+      break;
   }
 }
 
 function parse(text, node) {
   text = text.replace(/&gt;/g, ">").replace(/&lt;/g, "<");
+
+  // cleaning up function
+  if (text.includes("[script]")) {
+    let func = text.match(/\[script](.*?)\[\/script]/g);
+    text = text.replace(func[0], "");
+  }
 
   if (text.includes("[[")) {
     let options = text.match(/\[\[(.*?)\]]/g);
@@ -131,40 +108,8 @@ function parse(text, node) {
 
   // convert bbcode
   text = text.replace(/\[/g, "<").replace(/]/g, ">");
-  text = text.replace(/&amp;/g, "&");
 
   text = text.replace(/\n/g, "<br />");
-  text = text.replace(/LBRACKET;/g, "[").replace(/RBRACKET;/g, "]");
-
-  text = text.replace(/<bird\>/g, "<span class='bird'>").replace(/<\/bird\>/g, "</span>");
-  text = text.replace(/<kitty\>/g, "<span class='kitty'>").replace(/<\/kitty\>/g, "</span>");
-  text = text.replace(/<fish\>/g, "<span class='fish'>").replace(/<\/fish\>/g, "</span>");
-  text = text.replace(/<pup\>/g, "<span class='pup'>").replace(/<\/pup\>/g, "</span>");
-  text = text.replace(/<rando\>/g, "<span class='rando'>").replace(/<\/rando\>/g, "</span>");
-  text = text.replace(/<sa\>/g, "<span class='sa'>").replace(/<\/sa\>/g, "</span>");
-  text = text.replace(/<golem\>/g, "<span class='golem'>").replace(/<\/golem\>/g, "</span>");
-
-  if (text.includes("</alt>")) {
-    let conditional = text.match(/<alt([\s\S]*?)<\/alt>/g);
-
-    for (tex in conditional) {
-      let t = conditional[tex];
-
-      let opener = t.match(/<alt([\s\S]*?)\)>/g);
-
-      let alt_text = t.match(/\(([\s\S]*?)\)/g)[0];
-      alt_text = alt_text.slice(0, -1);
-      alt_text = alt_text.substring(1);
-
-      let em = "<em onmouseover='tooltip(`" + alt_text + "`)' onmouseout='tooltip()'>";
-
-      text = text.replace(opener, em);
-
-      text = text.replace("</alt>", "</em>")
-    }
-  }
-
-  // console.log(text);
 
   return text
 }
@@ -188,6 +133,13 @@ function compile() {
     let n = parsedNodes[node];
     n.tags = origin.tags;
 
+    n.onjump = null;
+    if (origin.body.includes("[script]")) {
+      let func = origin.body.match(/\[script](.*?)\[\/script]/g);
+      func = func[0].replace("[script]", "").replace("[/script]", "");
+      n.onjump = new Function(func);
+    }
+
     n.body = parse(origin.body);
   }
 
@@ -198,26 +150,9 @@ function compile() {
   // jump("i'm ready");
 }
 
-let tt = document.getElementById("tooltip");
-function tooltip(nodename) {
-  if (!nodename) {
-    tt.classList.add("hidden");
-    return
-  }
-
-  tt.classList.remove("hidden");
-  tt.innerHTML = parsedNodes[nodename].body;
+function showOptions() {
 }
 
-function tooltipSimple(text) {
-  tt.classList.remove("hidden");
-  tt.innerHTML = text;
+function setBookmark() {
+  dialogue.bookmark = dialogue.currentNode;
 }
-
-window.onmousemove = function(e) {
-  let x = e.pageX;
-  let y = e.pageY;
-
-  tt.style.left = x + 'px';
-  tt.style.top = y + 'px';
-};

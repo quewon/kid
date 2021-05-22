@@ -7,986 +7,228 @@
   </head>
 
   <body>
-    <div class="container">
-      <div id="tabletop"></div>
-      <div id="dialogue"></div>
-    </div>
-
-    <div id="map">
-
-    </div>
-
-    <div id="tooltip" class="hidden"></div>
+    <div id="tabletop"></div>
+    <div id="dialogue"></div>
 
     <span style="display:none" id="yarnscript">
       [
       	{
       		"title": "Start",
-      		"tags": "",
-      		"body": "[script]tabletop.items.map = new Item('map', 'map.png', 'map_back.png', 'transparent', {\n    img: imgsLBRACKET;'img/map_tt.png'RBRACKET;,\n    tts: {\n        \"research facilities, probably\": \"255 0 0\",\n        \"conference hall\": \"133 0 0\",\n        \"where dad used to work\": \"184 0 0\",\n        \"cafe corner\": \"255 43 43\",\n        \"bookstore\": \"194 33 33\",\n        \"cafeteria\": \"128 22 22\",\n        \"generator\": \"117 95 95\",\n        \"parking lot\": \"122 71 71\",\n\n        \"big greenhouse\": \"164 164 255\",\n        \"small greenhouse #1\": \"135 135 209\",\n        \"small greenhouse #2\": \"102 102 158\",\n        \"small greenhouse #3\": \"66 66 102\",\n        \"small greenhouse #4\": \"104 104 128\",\n        \"small greenhouse #5\": \"194 194 255\",\n        \"small greenhouse #6\": \"151 151 194\",\n\n        \"dr. boyd's\": \"0 0 255\",\n        \"snail's\": \"0 0 219\",\n        \"bird's\": \"0 0 184\",\n        \"kitty's\": \"0 0 148\",\n        \"crab's\": \"0 0 107\",\n        \"bee's\": \"30 30 255\",\n        \"apt #7\": \"29 29 214\",\n        \"apt #8\": \"21 21 158\",\n        \"apt #9\": \"15 15 107\",\n        \"bun's\": \"11 11 71\",\n        \"apt #11\": \"65 65 255\",\n        \"apt #12\": \"53 53 209\",\n        \"apt #13\": \"40 40 158\",\n        \"old home\": \"27 27 112\",\n        \"del's\": \"108 108 255\",\n        \"apt #16\": \"255 0 255\",\n        \"apt #17\": \"199 0 199\",\n        \"pup's\": \"153 0 153\",\n        \"security house\": \"189 26 189\",\n        \"guest house\": \"255 35 255\",\n        \"apt #21\": \"107 0 107\",\n\n        \"playground\": \"86 86 204\",\n        \"community area\": \"54 54 128\",\n        \"pool\": \"72 72 163\",\n        \"graveyard\": \"199 255 199\",\n        \n        \"elementary school\": \"0 255 0\",\n        \"tiny lot\": \"0 153 0\",\n        \"what is this building even for\": \"0 204 0\",\n        \"beachside\": \"59 97 59\",\n\n        \"some building out of town\": \"0 107 0\",\n        \"ice cream boutique that has no right to be that good\": \"22 143 22\",\n        \"some out of town building\": \"21 82 21\",\n        \"some building not in this town\": \"0 71 0\",\n        \"convenience store\": \"39 255 39\",\n        \"boring house\": \"12 87 12\",\n        \"official looking building\": \"34 133 34\",\n        \"another building\": \"104 255 104\",\n        \"small house\": \"45 102 45\",\n        \"mansion\": \"65 153 65\",\n        \"building number whatever\": \"31 204 31\",\n        \"probably a building\": \"69 255 69\",\n        \"building or something\": \"49 194 49\",\n        \"just a building\": \"89 209 89\",\n        \"mall\": \"87 143 87\",\n        \"suspicious building\": \"121 199 121\",\n        \"small building\": \"156 255 156\",\n    }\n})[/script]wow, there are a lot of places here that i've never even been to.\n\n[bird]i know, you're kinda terribly unadventurous.[/bird]\n\nsure dude.\n\n[[the two of you walk a little, kicking stones off the boardwalk.|INTRO]]",
-      		"position": {
-      			"x": 480,
-      			"y": 80
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "INTRO",
-      		"tags": "",
-      		"body": "can't believe it's already been a year.\n\n[bird]serious? i can't believe it's [i]only[/i] been a year. you're like, the one kid here that hasn't lived here forever. you better keep in touch. tell me what it's like out there, so i don't look like a fool when i'm finally out for college.[/bird]\n\nha. that's not gonna be enough to stop you from being a fool.\n\n[bird]what![/bird]\n\n[[you don't say it, but you think this town is not gonna miss you.|NOT GONNA MISS YA]]",
-      		"position": {
-      			"x": 480,
-      			"y": 320
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "NOT GONNA MISS YA",
-      		"tags": "",
-      		"body": "sorry i still haven't found that deck.\n\n[bird]aw, don't sweat it, dude. all our card games were terrible.[/bird]\n\nand it was such a good time.\n\n[bird]yeah.[/bird]\n\n[[bird stops and rummages around his backpack. he digs out a single card.|clubs J]]",
-      		"position": {
-      			"x": 480,
-      			"y": 560
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "clubs J",
-      		"tags": "",
-      		"body": "[script]tabletop.itemsLBRACKET; 'clubs J'RBRACKET; = new Card('clubs J'); tabletop.items.map.activate();[/script][bird]almost forgot i had this guy buried in the bottom of my backpack. it has to have been a couple months now.[/bird]\n\nand you didn't throw it away?\n\n[bird]why would i? it's got value. it's a jack of clubs, to be precise. he kinda looks like me, don't you think?[/bird]\n\nnot even a little bit.\n\n[bird]hmm. anyway, no one in this place just throws things away. not since... well, not anymore. the cards, they're probably all just lying around somewhere.[/bird]\n\nit's a small town.\n\n[bird]well, yeah.[/bird]\n\nhey, bird... what do you say to a little [alt (MAP ACTIVATED)]last-minute scavenger hunt[/alt]?",
-      		"position": {
-      			"x": 480,
-      			"y": 800
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "MAP ACTIVATED",
-      		"tags": "",
-      		"body": "[i]use your map to travel to different locations[/i]",
-      		"position": {
-      			"x": 720,
-      			"y": 800
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "research facilities, probably",
-      		"tags": "",
-      		"body": "[h1]in the first floor of the institute laboratories[/h1]\n\n[if (tabletop.itemsLBRACKET;'clubs 10'RBRACKET; == undefined)][rando]Hey there. Bird, and... the new kid, right? I'm gonna have to stop you two. Only researchers past this point, you know?[/rando]\n\n(not a new kid)\n\n[bird]oh, we were just looking for playing cards.[/bird]\n\n[rando]Cards? Weird thing to look for in a lab, but you know what, I think I've actually seen that somewhere. Be right back.[/rando]\n\n[[the scientist walks upstairs. you and bird sit down on a bench. as you wait, you hear sounds from above: footsteps, chatter, busywork. rapidfire, restless conversations that are just muffled enough that you can't make out the words.|clubs 10]][/if][if ('clubs 10' in tabletop.items)]this place is so busy.\n\n[bird]yeah, i love it.[/bird][/if]",
-      		"position": {
-      			"x": -633,
-      			"y": 1120
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "parking lot",
-      		"tags": "",
-      		"body": "[h1]three half-melted ice cream sandwiches in the middle of the institute parking area[/h1]\n\n[if (tabletop.itemsLBRACKET;'hearts 4'RBRACKET; == undefined)][[you find a card stuck between a crack in the asphalt.|hearts 4]]\n\n[/if][if (!v.metShadow)][bird]aw, geez. fresh, too. can't believe somebody tried to summon Sa again.[/bird]\n\nwith... ice cream sandwiches?\n\n[bird]it's worked before. in this exact spot. yeah, the goddess of death likes ice cream and gelato, who would have guessed?[/bird]\n\ndid this one work?\n\n[bird]... not a chance. she doesn't answer these days.[/bird]\n\nyou sure know an awful lot about this, bird.\n\n[bird]i read a lot of my dad's books.[/bird][/if][if ('fishgolem' in tabletop.items && !v.metShadow)]hey, you can summon things here, right? \n\n[bird]... yeah? is this why you asked for the golem?[/bird]\n\ni'm gonna try something, but i don't know that much about golems and gods and ghosts and whatnot, so you're gonna have to make sure i don't accidentally make the apocalypse happen or something, ok?\n\n[bird]this is a terrible idea. i'm getting deja vu.[/bird]\n\n[[you place your golem in the center of the parking lot.|SHADOW]][/if][if (v.metShadow)]lighten up, bird!![/if][if (tabletop.itemsLBRACKET;'hearts J'RBRACKET; == undefined && v.metShadow)]\n\n[[there's a card in the bushes that you forgot to pick up.|hearts J]][/if]",
-      		"position": {
-      			"x": -211,
-      			"y": 1543
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "cafe corner",
-      		"tags": "",
-      		"body": "[h1]the big bean[/h1]\n\n[if (tabletop.itemsLBRACKET;'clubs 5'RBRACKET; == undefined)][rando]hey hey hey welcome to the big bean how can i help you[/rando]\n\nhi have you seen any cards around here?\n\n[rando]cards like credit cards...?[/rando]\n\nno no, like playing cards.\n\n[rando]let me check our lost and found box. you can sit at one of those free seats over in the back while you wait.[/rando]\n\n[[the cafe has a back door connected to a small garden with a pond. five fish swim around near the surface, and as you get close, they somehow start to move in more deliberate ways, almost like they've noticed you.|clubs 5]][/if][if ('clubs 5' in tabletop.items)][rando]hey if you wanna order anything just let me know[/rando]\n\nuh... what's the cheapest thing here?\n\n[rando]that would be the bottled water, which is five bucks.[/rando]\n\n[bird]why?[/bird]\n\n[rando]hey, i don't set the prices. i just extend my sympathy to thirsty customers.[/rando][/if]",
-      		"position": {
-      			"x": -423,
-      			"y": 1332
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "generator",
-      		"tags": "",
-      		"body": "[h1]the generator[/h1]\n\n[if (!v.metShadow)]yo this place is awesome. you can see the whole town from here. why didn't we hang out here more?\n\n[bird]this is where me and my old friends would hang out.[/bird]\n\nold friends, as in like, kids from school that you still talk to?\n\n[bird]nah, i don't talk to some of them anymore.[/bird]\n\ndang. i thought the town was too small for there to be fights or breakups. guess i was wrong.[/if][if (v.metShadow && tabletop.itemsLBRACKET;'hearts K'RBRACKET; == undefined)][fish]yo yo yo what up broskis its ya girl lil fishy in the house[/fish]\n\n[bird]yep just how i remember fish.[/bird]\n\n[fish]yo yo yo why u no call me birdo boy weren't we pals weren't we the bee eff of effs :([/fish]\n\n[[take card this card :(|hearts K]][/if][if ('hearts K' in tabletop.items)][fish]join my rap crew[/fish]\n\n[bird]you don't even know how to rap.[/bird]\n\n[fish]nuh uh my new bff (gasp!) spirit guy taught me. soundcloud rapper while he was alive. ten thousand plays. can u believe it[/fish]\n\n[bird](i can't do this)[/bird][/if]",
-      		"position": {
-      			"x": 0,
-      			"y": 1117
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "big greenhouse",
-      		"tags": "",
-      		"body": "[h1]a groundskeeper hacking away at overgrown vines in this big greenhouse[/h1]\n\n[rando]Don't come in.[/rando]\n\n[if (tabletop.itemsLBRACKET;'hearts 5'RBRACKET; == undefined)][bird]huh?[/bird]\n\n[rando]Oh! Sorry, most of the visitors I get are dumb hunters trying to fight me or sell me something. What's up, squirt? What can I do for ya?[/rando]\n\n[bird]... squ—[/bird]\n\nyeah we were just looking for my playing cards. have you seen any around?\n\n[rando]Oh yeah, funny you should say that. I just found this card stuck to the bottom of one of my pots, swear to god, no idea how it got there. Here, take it.[/rando]\n\n[[the groundskeeper digs the card out of his enormous pants pockets.|hearts 5]][/if][if ('hearts 5' in tabletop.items)]just us again.\n\n[rando]Right. Holler if ya need anything.[/rando][/if]",
-      		"position": {
-      			"x": 337,
-      			"y": 1117
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "dr. boyd's",
-      		"tags": "",
-      		"body": "[if (tabletop.itemsLBRACKET;'diamonds K'RBRACKET; == undefined)][h1]there's a limo in front of dr. boyd's big white house[/h1]\n\n[bird]wow. you look really different, mr. boyd. i can't quite put my finger on it...[/bird]\n\n[rando]That's because I'm not Dr. Boyd, kid. I'm his friend.[/rando]\n\n(i didn't know he had friends)\n\n[bird](scientists have non-scientist friends?)[/bird]\n\n[rando]Do you... know that I can hear you? Oh, whatever.[/rando]\n\n[bird]are you gonna keep waiting outside his house?[/bird]\n\n[rando]Yeah, pretty much. I mean, uh, no, of course not, I'm a busy man. With things to do.[/rando]\n\nohh. you're that rich guy that commissions the institute, aren't you?\n\n[rando]How do you know about that?[/rando]\n\nmy dad used to work there. used to talk about this sponsor that kept commissioning, uh... i forget what it's called.\n\n[bird]it's really impressive how little you care about what goes on around here.[/bird]\n\n[rando]I didn't know staff members went around talking about confidential work with their children.[/rando]\n\n(well. that's probably why he got fired.)\n\n[rando]Goes to show how much trust I put in the people I know personally. Well, I suppose I don't care all that much. He's the only one I know who does this kind of work, who indulges me in my lonely little habit. ... Or, I guess, the only one that [i]did[/i]. Missing another meeting, can't say that's very professional of him. I... think I'm just gonna go. See you kids.[/rando][script]v.metBoydsFriend = true[/script]\n\n[[the stranger rolls up his window and signals at his driver, who's made of clay. the two of you watch as his pristine black car rolls away. there's a card stuck onto the asphalt where the car used to be. you peel it off.|diamonds K]][/if][if ('diamond K' in tabletop.items)][h1]dr. boyd's big white house[/h1]\n\n[bird]this is a really big house.[/bird]\n\ndr. boyd lives alone, right?\n\n[bird]yeah.[/bird][/if]",
-      		"position": {
-      			"x": 1047,
-      			"y": 1124
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "bird's",
-      		"tags": "",
-      		"body": "[h1]bird's place[/h1]\n\n[if (tabletop.itemsLBRACKET;'diamonds Q'RBRACKET; == undefined)][bird]i think i'd know if there was a card here.[/bird]\n\ni don't know dude, have you checked all eleven of your bookshelves? have you looked through the pages of all two hundred of your books in case you used one of the cards as a bookmark once?\n\n[bird]excuse me, this library has a strict please-shut-up policy.[/bird]\n\nman, [i]The Golem: An Incomplete Theory[/i]? this is definitely something i'd find in my dad's office.\n\n[bird]yeah, you're not the only one who has a dad that works at the institute. i think this is actually just my dad's book that i stole. cool read though. i'd recommend it to you if you weren't such an asshole about books.[/bird]\n\nyou know i don't mean it. just a small rebellion against my dad for choosing to read me bedtime stories like [i]Guns, Germs, and Steel[/i] instead of, i don't know, [i]The Little Prince.[/i]\n\n[[what are the chances. there's a card sticking out of the top of one of bird's bookshelves.|diamonds Q]][/if][if ('diamonds Q' in tabletop.items)][bird]i still can't believe there was a card just right there, right above my bed.[/bird]\n\nyeah, how did it even get up there??[/if]",
-      		"position": {
-      			"x": 1462,
-      			"y": 1124
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "kitty's",
-      		"tags": "",
-      		"body": "[h1]kitty's place[/h1]\n\n[if (tabletop.itemsLBRACKET;'diamonds 6'RBRACKET; == undefined)]hey doctor, have you seen any cards around?\n\n[rando]Hello, there! :) Let me check. There may be some in Kitty's room—we like to call it the storage room, you see, because she likes to collect all sorts of things from rocks and minerals to lightbulbs and table clocks and... Look at me, talking on and on when you're so patiently waiting![/rando]\n\n[[kitty's mom rushes into the house and comes out, triumphantly, holding up a playing card between her fingers.|diamonds 6]]\n\n[/if][if (tabletop.itemsLBRACKET;'fishgolem'RBRACKET; == undefined && 'fishgolem1' in tabletop.items)][rando]Dear, that rock you're holding... could I see that?[/rando]\n\nthis? um, ok...?\n\n[[you hand kitty's mom the piece of clay. she goes inside, briefly, before returning outside with a vaguely humanoid clay model that's missing a limb. she glues on the piece that kitty gave you.|FISHGOLEM]][/if][if (!v.metKitty)][rando]Hello, Bird! :) Are you here to see Kitty? Sorry, but I'm afraid she's yet to come home from the beach![/rando]\n\n[bird]oh, thanks for letting us know, ma'am![/bird]\n\nhuh. kitty's mom is so nice.\n\n[bird]like mom like daughter, i guess.[/bird]\n\nyeah?\n\n[/if][if ('fishgolem' in tabletop.items)][rando]It was nice meeting you, dear. Hope your new home treats you well. :)[/rando][/if]",
-      		"position": {
-      			"x": 1043,
-      			"y": 1332
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "pup's",
-      		"tags": "",
-      		"body": "[h1]pup's place[/h1]\n\n[if (tabletop.itemsLRBACKET;'clubs 8'RBRACKET; == undefined)][[there's a card stuck to a faded poster on their front door. bird takes it down and hands it to you.|clubs 8]][/if][if ('clubs 8' in tabletop.items)]where's pup? i feel like i've been asking that a lot lately.\n\n[bird]dunno. his folks are probably out working, but...[/bird]\n\naren't you guys super close?\n\n[bird]where'd you get that idea?[/bird][/if]",
-      		"position": {
-      			"x": 1457,
-      			"y": 2171
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "old home",
-      		"tags": "",
-      		"body": "[h1]the old home, in boxes[/h1]\n\n[if (tabletop.itemsLBRACKET;'diamonds 3'RBRACKET; == undefined)][[atop a dusty dining table is a single dusty playing card.|diamonds 3]]\n\n[/if][if (!v.metDad)][script]v.metDad = true[/script][rando]There you are. Shouldn't you be packing?[/rando]\n\nnope i'm hanging out with my bud bird today. [/if][if ('letter' in tabletop.items)]dad, i think this letter's for you.\n\n[[you hand him the letter you found at the office. dad looks over the unsent letter for a long moment.|TWO BUCKS]]\n\n[/if][if (v.metDad && tabletop.itemsLBRACKET;'letter'RBRACKET; == undefined)][bird]where's your dad?[/bird]\n\nprobably around the house. let's go look somewhere else.[/if]",
-      		"position": {
-      			"x": 1252,
-      			"y": 1963
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "playground",
-      		"tags": "",
-      		"body": "[h1]playground[/h1]\n\n[if (tabletop.itemsLBRACKET;'clubs 9'RBRACKET; == undefined)]there's a card under this sandbox. i can feel it.\n\n[bird]what?? this sandbox is like, big. you're not gonna be able to find it even if you dug through the whole thing.[/bird]\n\n[[it takes half an hour to dig through the whole thing.|clubs 9]][/if][if ('clubs 9' in tabletop.items)][bird]this sandbox is such a mess.[/bird]\n\nyeah i wonder who messed it up. what a menace.[/if]",
-      		"position": {
-      			"x": 1720,
-      			"y": 1544
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "community area",
-      		"tags": "",
-      		"body": "[h1]community area[/h1]",
-      		"position": {
-      			"x": 1724,
-      			"y": 1124
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "ice cream boutique that has no right to be that good",
-      		"tags": "",
-      		"body": "[h1]gelato joy[/h1]\n\n[bird]even the air in here tastes sweet. ahh, gelato joy. the ice cream of the gods, literally.[/bird][if ('twobucks' in tabletop.items || 'twobucksmore' in tabletop.items)]\n\n[[get an ice cream for two bucks|BUY ICE CREAM]][/if][if (tabletop.itemsLBRACKET;'diamonds 4'RBRACKET; == undefined)]\n\n[[you almost miss it: there's a playing card on the ground in front of the counter.|diamonds 4]][/if]",
-      		"position": {
-      			"x": 2685,
-      			"y": 1111
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "mall",
-      		"tags": "",
-      		"body": "[h1]mall[/h1]",
-      		"position": {
-      			"x": 2679,
-      			"y": 1760
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "beachside",
-      		"tags": "",
-      		"body": "[h1]beachside[/h1]\n\n[if (tabletop.itemsLBRACKET;'hearts 7'RBRACKET; == undefined)][[seven muddy footprints off the edge of this old boardwalk. there's a card floating in the water.|hearts 7]]\n\n[/if][if (tabletop.itemsLBRACKET;'hearts A'RBRACKET; == undefined)][bird]that's kitty.[/bird]\n\ni don't think i've ever talked to her. we live in the same town but barely anyone even talks about her. which is weird, you know, since i know everyone except for me pretty much grew up together. the number of times i've heard the moms talk about like, shared baby baths. unreal.\n\n[bird]why are you so interested in her?[/bird]\n\ni'm not interested in [i]her,[/i] bird. you're the guy that can't take your eyes off her. talk about hidden intentions, huh??\n\n[bird]oh my god.[/bird]\n\nare you seriously walking away from your crush. face your fears man!!!\n\n[kitty]oh...! hi :3 you're the new kid right??[/kitty]\n\nstill??\n\n[kitty]once a new kid, always a... you know how it goes. hey, i see. you're the one i've been waiting for![/kitty]\n\nyou sure that's not my friend over there?\n\n[kitty]haha. no. you're the one who's come looking. well, i hear you're in the right place, new kid :3 you've got a loud shadow, you know. it wants you to keep searching.[/kitty]\n\nnot sure i get what you mean, but i'm starting to understand [i]something[/i].\n\n[kitty]that's the spirit!! get it? :3[/kitty]\n\nnot really :)[script]v.metKitty = true;[/script]\n\n[[kitty kicks around a couple rocks on the shore, then bends down to pick one up. upon closer inspection, you see that it isn't a shell or a pebble, but a piece of broken clay. she has an unreadable expression when she hands the piece of clay to you, along with a card that she's apparently been holding this entire time.|hearts A]][/if][if ('hearts A' in tabletop.items)][bird]kitty doesn't like me.[/bird]\n\nyeah man, i don't know how you managed that.\n\n[bird]i don't know either.[/bird][/if]",
-      		"position": {
-      			"x": 1973,
-      			"y": 1340
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "conference hall",
-      		"tags": "",
-      		"body": "[h1]conference hall[/h1]\n\n[if (tabletop.itemsLBRACKET;'clubs 2'RBRACKET; == undefined)][[there's a single sheet of paper that somebody left on the front desk. when bird picks it up to read it, a card slips out from underneath.|clubs 2]]\n\n[/if][if ('clubs 2' in tabletop.items)][bird]my god... i just noticed they still haven't taken down the decorations. is that a christmas tree tucked behind that podium??[/bird][/if]",
-      		"position": {
-      			"x": -423,
-      			"y": 1120
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "where dad used to work",
-      		"tags": "",
-      		"body": "[h1]walking through quiet linoleum office halls[/h1]\n\n[if (tabletop.itemsLBRACKET;'clubs K'RBRACKET; == undefined)][bird]what are you doing behind that scanner, mr. boyd?[/bird]\n\n[rando]oh!!! hi Kids!!! Don't you know you're meant to Schedule a meeting with me first?[/rando]\n\nyou're the director of the institute, right?\n\n[rando]ahem. . That I am. Sorry, I've just been so busy with important work, and... contracts, and Meetings, and... What was it you wanted?[/rando]\n\nhave you seen any playing cards around the office?\n\n[rando]Oh, I'm so glad you say that. I've been worried it was a bad omen, a cruel gift from Sa Herself, or... Here, take it.[/rando]\n\n[[dr. boyd, covered in sweat, digs through drawers and eventually pulls out a single card.|clubs K]]\n\n[/if][if (v.metBoydsFriend)]dr. boyd. do you know you're standing up your friend?\n\n[rando]What friend? Oh, no, I know who you're talking about. Let him know there's nothing I can do, with those damn hunters having ruined it for everyone. Maybe when our test results come in...[/rando]\n\n[bird]uh, he already left, sir.[/bird]\n\n[rando]Oh. [/rando]\n\n[/if][if ('clubs K' in tabletop.items && !v.metBoydsFriend)][rando]Run along, kids... and try not to disturb the other doctors.[/rando]\n\n[/if][if (tabletop.itemsLBRACKET;'letter'RBRACKET; == undefined && !v.gaveDadLetter)][[you spot a piece of paper in a recycling bin with dad's name on it.|LETTER TO DAD]][/if]",
-      		"position": {
-      			"x": -633,
-      			"y": 1332
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "bookstore",
-      		"tags": "",
-      		"body": "[h1]books & souveniers[/h1]",
-      		"position": {
-      			"x": -423,
-      			"y": 1540
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "cafeteria",
-      		"tags": "",
-      		"body": "[h1]cafeteria[/h1]",
-      		"position": {
-      			"x": -213,
-      			"y": 1332
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "small greenhouse #1",
-      		"tags": "",
-      		"body": "[h1]small greenhouse #1[/h1]",
-      		"position": {
-      			"x": 550,
-      			"y": 1121
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "small greenhouse #2",
-      		"tags": "",
-      		"body": "[h1]small greenhouse #2[/h1]",
-      		"position": {
-      			"x": 761,
-      			"y": 1120
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "small greenhouse #3",
-      		"tags": "",
-      		"body": "[h1]small greenhouse #3[/h1]",
-      		"position": {
-      			"x": 544,
-      			"y": 1328
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "small greenhouse #4",
-      		"tags": "",
-      		"body": "[h1]a van full of scientists (?) outside small greenhouse #4[/h1]\n\n[if (tabletop.itemsLBRACKET;'diamonds 5'RBRACKET; == undefined)][rando]Hey kids. Don't mind us. Just here for some research.[/rando]\n\n[bird]don't you wanna talk to the groundskeeper instead of just, uh, sitting in the van?[/bird]\n\n[rando]... No, we're fine just sitting here.[/rando]\n\n[bird]...[/bird]\n\n[rando]...[/rando]\n\n...\n\n[rando]That groundskeeper has been trimming those vines every single day of every single week since we've discovered this site. Those vines do not stop growing. It's an unnatural speed of growth. Golem-like movement.[/rando]\n\n[rando]And when we asked to buy the greenhouse for more experiments, he uh, declined our offer.[/rando]\n\n[rando]He told us to screw off, to be precise.[/rando]\n\n[rando]Doctor. We're talking to kids.[/rando]\n\n[rando]Yeah, that's why I said screw off instead of the... [i]f bomb.[/i][/rando]\n\n[[you and bird decide to leave them be. that's when you find a card hidden in the grass. must've been the right choice after all.|diamonds 5]][/if][if ('diamonds 5' in tabletop.items)][rando]... Feel free to ignore us.[/rando][/if]",
-      		"position": {
-      			"x": 764,
-      			"y": 1328
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "small greenhouse #5",
-      		"tags": "",
-      		"body": "[h1]small greenhouse #5[/h1]",
-      		"position": {
-      			"x": 550,
-      			"y": 1542
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "small greenhouse #6",
-      		"tags": "",
-      		"body": "[h1]small greenhouse #6[/h1]",
-      		"position": {
-      			"x": 764,
-      			"y": 1547
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "graveyard",
-      		"tags": "",
-      		"body": "[h1]eleven headstones in this small hillside graveyard[/h1]\n\ndo you know anyone buried here?\n\n[bird]nah. almost did. but uh, i don't know any of these people.[/bird][if (tabletop.itemsLBRACKET;'hearts 10'RBRACKET; == undefined)][[how'd a card get here, between the dried flowers?|hearts 10]][/if][if ('hearts 10' in tabletop.items)][rando]If you kids ain't here to mourn, then get off the yard!! You're disturbing the spirits!![/rando]\n\n[bird]whoa, ok sir, we're on our way.[/bird][/if]",
-      		"position": {
-      			"x": 1979,
-      			"y": 1126
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "snail's",
-      		"tags": "",
-      		"body": "[h1]snail's place[/h1]\n\n[rando]u looking for snail? she's out swimming. or, like, sitting on the diving board. idk.[/rando]\n\nactually slug, i was looking for my playing cards. you seen one that has this kinda design on the back?\n\n[rando]ohh. nah.[/rando]\n\nthanks anyway.",
-      		"position": {
-      			"x": 1254,
-      			"y": 1127
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "crab's",
-      		"tags": "",
-      		"body": "[h1]crab's place[/h1]",
-      		"position": {
-      			"x": 1253,
-      			"y": 1335
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "bee's",
-      		"tags": "",
-      		"body": "[h1]bee's place[/h1]",
-      		"position": {
-      			"x": 1461,
-      			"y": 1337
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "apt #7",
-      		"tags": "",
-      		"body": "[h1]apt #7[/h1]",
-      		"position": {
-      			"x": 1044,
-      			"y": 1541
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "apt #8",
-      		"tags": "",
-      		"body": "[h1]apt #8[/h1]",
-      		"position": {
-      			"x": 1251,
-      			"y": 1544
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "apt #9",
-      		"tags": "",
-      		"body": "[h1]apt #9—or, according to bird and the other kids, the home of a girl named fish[/h1]",
-      		"position": {
-      			"x": 1459,
-      			"y": 1546
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "bun's",
-      		"tags": "",
-      		"body": "[h1]bun's place[/h1]",
-      		"position": {
-      			"x": 1041,
-      			"y": 1749
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "apt #11",
-      		"tags": "",
-      		"body": "[h1]apt #11[/h1]",
+      		"tags": "centered",
+      		"body": "[b]bird:[/b] [i]psst. hey[/i]\n\n[[what's up]]\n[[shush we're in class]][script]ambience.classroom.play();[/script]",
       		"position": {
-      			"x": 1250,
-      			"y": 1751
+      			"x": 603,
+      			"y": 286
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "apt #12",
-      		"tags": "",
-      		"body": "[h1]apt #12[/h1]",
-      		"position": {
-      			"x": 1460,
-      			"y": 1754
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "apt #13",
-      		"tags": "",
-      		"body": "[h1]apt #13[/h1]",
-      		"position": {
-      			"x": 1041,
-      			"y": 1958
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "del's",
-      		"tags": "",
-      		"body": "[h1]del's place[/h1]",
-      		"position": {
-      			"x": 1457,
-      			"y": 1963
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "pool",
-      		"tags": "",
-      		"body": "[h1]snail, sitting atop the 10 meter diving board[/h1]\n\n[rando]hey guys.[/rando]\n\n[bird]hey snail. what's up?[/bird]\n\n[rando]not much. just waiting for them to fill up the pool for the summer... do you think if it rained heavy enough, it would fill up enough for me to take a dive?[/rando]\n\n[bird]i don't think so.[/bird]\n\n[rando]aw. i've never been able to muster the guts to jump from this high, you know. but maybe this year, i'll be old enough that i'm not scared anymore.[/rando]\n\n[bird]i think you'll be able to do it.[/bird]\n\n[rando]thanks, bird. i won't know til there's water down there, but i've got a good feeling.[/rando][if (tabletop.itemsLBRACKET;'diamonds 10'RBRACKET; == undefined)]\n\n[[when you ask snail about playing cards, she points you toward the edge of the pool, where there's a passage carved into the wall for water to overflow into. you stick your hand in there.|diamonds 10]]",
-      		"position": {
-      			"x": 1722,
-      			"y": 1334
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "apt #16",
-      		"tags": "",
-      		"body": "[h1]apt #16[/h1]",
-      		"position": {
-      			"x": 1043,
-      			"y": 2175
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "apt #17",
-      		"tags": "",
-      		"body": "[h1]apt #17[/h1]",
-      		"position": {
-      			"x": 1247,
-      			"y": 2172
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "security house",
-      		"tags": "",
-      		"body": "[h1]atop the security house front desk is a pile of missing persons posters[/h1]\n\n[if (tabletop.itemsLBRACKET;'spades K'RBRACKET; == undefined)][rando]Hello, children. Are you going out to town?[/rando]\n\n[bird]can we get that card in your hand?[/bird]\n\n[rando]Oh. [i]You.[/i] Didn't I tell you not to talk to me unless you had anything better to say? I better hear something good now, or else your mama will know you're trying to leave staff housing without supervision.[/rando]\n\n[bird]hey, i have supervision![/bird]\n\n[rando]... If you're talking about your friend here, they look younger than you.[/rando]\n\nuh, same age, actually. (if we're being technical, my birthday's faster than his...)\n\n[bird]when will you let this go?? it's been, like, two years. look sir, we were just looking for that card. it's not even for me. you know they're leaving tomorrow, right? the card that deck is in is the only memento they'll have of this place.[/bird]\n\n[rando]Clever boy.[/rando]\n\n[[the guard stands with a long sigh and reaches over the counter to pass you the card.|spades K]][/if][if ('spades K' in tabletop.items)][rando]For Bird: No info, no service. For new kid: Ask if you need anything.[/rando][/if]",
-      		"position": {
-      			"x": 1043,
-      			"y": 2384
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "guest house",
-      		"tags": "",
-      		"body": "[h1]guest house[/h1]",
-      		"position": {
-      			"x": 1248,
-      			"y": 2383
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "apt #21",
-      		"tags": "",
-      		"body": "[h1]apt #21[/h1]",
-      		"position": {
-      			"x": 1454,
-      			"y": 2384
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "some building out of town",
-      		"tags": "",
-      		"body": "[h1]some building out of town[/h1]",
-      		"position": {
-      			"x": 2475,
-      			"y": 1114
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "some out of town building",
-      		"tags": "",
-      		"body": "[h1]some out of town building[/h1]",
-      		"position": {
-      			"x": 3296,
-      			"y": 1118
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "some building not in this town",
-      		"tags": "",
-      		"body": "[h1]some building not in this town[/h1]",
-      		"position": {
-      			"x": 2263,
-      			"y": 1435
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "convenience store",
-      		"tags": "",
-      		"body": "[h1]convenience store[/h1]",
-      		"position": {
-      			"x": 2472,
-      			"y": 1334
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "building number whatever",
-      		"tags": "",
-      		"body": "[h1]building number whatever[/h1]",
-      		"position": {
-      			"x": 2472,
-      			"y": 1543
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "boring house",
-      		"tags": "",
-      		"body": "[h1]at the porch of this faded blue box house[/h1]\n\n[if (tabletop.itemsLBRACKET;'spades 5'RBRACKET; == undefined)][rando]what, what are you kids staring at?? i'll have you know i'm a hunter with some experience round these parts. i could have y'all on your asses in a second flat!!! don't let me in my old rocking chair fool you. in fact, the rocking chair Greatly increases my—my mobility, so you better watch it. you see these scars, sonny?? i've faced off worse than you. this here, this one's from one of five times i tried to fight off this gardener—and don't you laugh now, he was a big one, a big fellow—five times i tried to help the guy, i kid you not. just goes to show how important it is to have a bit of determination. kids these days, they're so flighty... i don't know how any of you are going to make it out there in the real world...[/rando]\n\n[[you and bird skirt past the old man to pick up the card sticking out of his bush.|spades 5]][/if][if ('spades 5' in tabletop.items)][rando]you kids ever gonna stop loitering and leave me be??[/rando][/if]",
-      		"position": {
-      			"x": 2683,
-      			"y": 1332
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "building or something",
-      		"tags": "",
-      		"body": "[h1]building or something[/h1]",
-      		"position": {
-      			"x": 2886,
-      			"y": 1542
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "probably a building",
-      		"tags": "",
-      		"body": "[h1]probably a building[/h1]",
-      		"position": {
-      			"x": 2680,
-      			"y": 1543
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "suspicious building",
-      		"tags": "",
-      		"body": "[h1]suspicious building[/h1]",
-      		"position": {
-      			"x": 2887,
-      			"y": 1764
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "small building",
-      		"tags": "",
-      		"body": "[h1]small building[/h1]",
-      		"position": {
-      			"x": 3095,
-      			"y": 1756
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "official looking building",
-      		"tags": "",
-      		"body": "[h1]official looking building[/h1]",
-      		"position": {
-      			"x": 2890,
-      			"y": 1332
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "another building",
-      		"tags": "",
-      		"body": "[if (tabletop.itemsLBRACKET;'diamonds J'RBRACKET; == undefined)][h1]turning the corner in an alley to see a towering clay man with deep, unblinking grooves for eyes[/h1]\n\n[golem]you better not be hunters.[/golem]\n\n(it's a guy made of clay.)\n\n[bird](it's a golem.)[/bird]\n\n[golem]impressive read, sherlock. you're clearly not here for business, so unless you're looking to pick a fight—though i hear that's not your style, bird—i would appreciate you turning right around and pretending you didn't see anything.[/golem]\n\n[bird]what sort of business do you do?[/bird]\n\n[golem]what sort of business do you think i can partake in, in a town crawling with hunters? your neighbors don't exactly see anything past this big red vessel.[/golem]\n\n[bird]you haven't answered the question??[/bird]\n\n[golem]... i will tell you this, bird, so you'll leave me alone: every once in a while i'll run into ccs and, well, they're softies, they're either too scared to fight or reckless enough to hear me through. doesn't take much to convince them to let me in on connections and commission the institute.[/golem]\n\n[bird]so you're a golem that buys golems?? how? why?[/bird]\n\n[golem]curious, aren't you? if we meet again in more favorable circumstances, maybe i'll let you in on my secrets. but my nonexistent skin is starting to crawl, there's nosy eavesdroppers all around us. i can't be seen talking to someone with a reputation as low as yours. don't take it personally, kid. it's just business sense.[/golem]\n\n[bird]i... what????[/bird]\n\n[[the golem stands with a long, loud sigh and lumbers away. to find a new alleyway to hide in, you suppose. there's a playing card on the spot where he was standing. it was under his left foot this entire time.|diamonds J]][/if][if ('diamonds J' in tabletop.items)][h1]two footprints set into the mud in the alleyway where you found a clay guy[/h1]\n\n[bird]don't say it...[/bird]\n\nchill, i wasn't gonna say anything about the time you got dunked on by a guy that isn't even alive.[/if]",
-      		"position": {
-      			"x": 3093,
-      			"y": 1333
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "just a building",
-      		"tags": "",
-      		"body": "[if (tabletop.itemsLBRACKET;'clubs 6'RBRACKET; == undefined)][h1]six old missing persons posters still hung up around here[/h1]\n\n[[there's a card stuck to the back of one of these posters. you peel them both off the brick wall.|clubs 6]][/if][if ('clubs 6' in tabletop.items)][h1]five old missing persons posters still hung up around here[/h1]\n\nyou think they'll ever find her?\n\n[bird]who's they? it's up to us to find her.[/bird][/if]",
-      		"position": {
-      			"x": 3094,
-      			"y": 1545
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "mansion",
-      		"tags": "",
-      		"body": "[h1]mansion[/h1]\n\n[if (tabletop.itemsLBRACKET;'clubs Q'RBRACKET; == undefined)][rando]Moving here was the best decision I ever made. New town, new faces, new stories. Say, what do you have for me, kids? Playground gossip? Town rumors? Another institute scandal?[/rando]\n\nplayground gossip? how young do you think we are?\n\n[bird]we're just looking for some playing cards, ma'am.[/bird]\n\n[rando]Ah, cards like this one?[/rando]\n\n[[the lady holds up a single card, the back facing you. yep, that's your card alright.|clubs Q]][/if][if ('clubs Q' in tabletop.items)][rando]Wanna hear a juicy story?[/rando]\n\n[bird]yeah![/bird]\n\n[rando]Me too, kid. Me too.[/rando][/if]",
-      		"position": {
-      			"x": 3303,
-      			"y": 1445
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "small house",
-      		"tags": "",
-      		"body": "[h1]small house[/h1]",
-      		"position": {
-      			"x": 3509,
-      			"y": 1331
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "elementary school",
-      		"tags": "",
-      		"body": "[h1]elementary school[/h1]\n\n[bird]aw man, i [i]miss[/i] this place. it still smells like, i don't know, crayons and plastic and air con coolant. look, and the chairs are so tiny! and the tables![/bird]\n\nhaha. i'm trying to picture you as an elementary schooler.\n\n[bird]i was pretty much the same back then, you know. oh wait, i actually forgot we haven't known each other forever. what were you like as a kid??[/bird]\n\nme? i was the cutest in class, bird. it was good times.\n\n[bird]by class do you mean, like, a solo tutoring session? because then i could see it.[/bird][if (tabletop.itemsLBRACKET;'hearts 9'RBRACKET; == undefined)][[after a couple passes around bird's old classroom, you find a playing card under one of the tables.|hearts 9]][/if]",
-      		"position": {
-      			"x": 1973,
-      			"y": 1786
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "tiny lot",
-      		"tags": "",
-      		"body": "[h1]elementary school parking lot[/h1]",
-      		"position": {
-      			"x": 2182,
-      			"y": 1781
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "what is this building even for",
-      		"tags": "",
-      		"body": "[h1]what is this building even for[/h1]",
-      		"position": {
-      			"x": 1969,
-      			"y": 1989
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "spades 5",
-      		"tags": "",
-      		"body": "sweet. that was easy.[script]tabletop.itemsLBRACKET;'spades 5'RBRACKET; = new Card('spades 5')[/script]",
-      		"position": {
-      			"x": 2672,
-      			"y": 3245
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "diamonds K",
-      		"tags": "",
-      		"body": "weird guy.[script]tabletop.itemsLBRACKET;'diamonds K'RBRACKET; = new Card('diamonds K')[/script]",
-      		"position": {
-      			"x": 1045,
-      			"y": 2990
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "hearts 7",
-      		"tags": "",
-      		"body": "[bird]whew. for a moment i thought that card was gonna drift away.[/bird]\n\nwhoa. i didn't know you drew me such a high quality deck, this card is practically waterproof![if (tabletop.itemsLBRACKET;'hearts A'RBRACKET; == undefined)]\n\n[[when he doesn't respond, you look up to see bird staring at the girl walking along the beach.|beachside]][/if][script]tabletop.itemsLBRACKET;'hearts 7'RBRACKET; = new Card('hearts 7')[/script]",
-      		"position": {
-      			"x": 1951,
-      			"y": 3238
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "hearts A",
-      		"tags": "",
-      		"body": "thanks.\n\n[kitty]byebye!![/kitty][if (tabletop.itemsLBRACKET;'hearts 7'RBRACKET; == undefined)]\n\n[[you turn back; there was something on the boardwalk.|beachside]][/if][script]tabletop.itemsLBRACKET;'hearts A'RBRACKET; = new Card('hearts A'); tabletop.items.fishgolem1 = new Item('fishgolem1', 'fishgolem1.png', null, 'fishgolem')[/script]",
-      		"position": {
-      			"x": 1954,
-      			"y": 3329
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "clubs K",
-      		"tags": "",
-      		"body": "[bird](careful, it's a [i]cursed card.)[/i][/bird][if (tabletop.itemsLBRACKET;'letter'RBRACKET; == undefined && v.gaveDadLetter == false)]\n\n[[dr. boyd turns back to whatever he was doing in the hallway.|where dad used to work]][/if][script]tabletop.itemsLBRACKET;'clubs K'RBRACKET; = new Card('clubs K')[/script]",
-      		"position": {
-      			"x": -653,
-      			"y": 3227
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "LETTER TO DAD",
-      		"tags": "",
-      		"body": "(a letter for dad?)[if (tabletop.itemsLBRACKET;'clubs K'RBRACKET; == undefined)]\n\n[[you turn back to dr. boyd, who's somehow distracted enough that he doesn't notice what you've just fished out of the bin.|where dad used to work]][/if][script]tabletop.items.letter = new Item('letter', 'letter.png', 'letter_back.png', 'cardstock')[/script]",
-      		"position": {
-      			"x": -652,
-      			"y": 3297
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "TWO BUCKS",
-      		"tags": "",
-      		"body": "[script]tabletop.items.letter.selfDestruct(); v.gaveDadLetter = true; tabletop.items.twobucks = new Item('twobucks', 'twobucks.png', 'twobucks_back.png')[/script][rando]Here's two bucks. Why don't you go get something to eat with your friend?[/rando]\n\nawesome.[if (tabletop.itemsLBRACKET;'diamonds 3'RBRACKET; == undefined)]\n\n[[don't forget to grab the card on your way out.|old home]][/if]",
-      		"position": {
-      			"x": 1263,
-      			"y": 2970
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "diamonds 3",
-      		"tags": "",
-      		"body": "ay. thanks dad.[if ('letter' in tabletop.items && !v.gaveDadLetter)]\n\n[[dad shrugs and goes back to packing.|old home]][/if][script]tabletop.itemsLBRACKET;'diamonds 3'RBRACKET; = new Card('diamonds 3')[/script]",
-      		"position": {
-      			"x": 1263,
-      			"y": 3059
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "clubs 6",
-      		"tags": "",
-      		"body": "[script]tabletop.items.poster = new Item('poster', 'fishmissingfaded.png', 'fishmissing_back.png'); tabletop.itemsLBRACKET;'clubs 6'RBRACKET; = new Card('clubs 6')[/script]man, who vandalizes missing persons posters.\n\n[bird]the posters are faded, not vandalized. ... it's been a year and a half now since fish has gone.[/bird]",
-      		"position": {
-      			"x": 3076,
-      			"y": 3007
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "clubs 2",
-      		"tags": "",
-      		"body": "(wow these cards are in such convenient places. if i didn't know better i'd say someone deliberately placed them around to give me a fair chance at finding every card!)[script]tabletop.items.paper = new Item('paper', 'paper.png', 'paper_back.png', 'transparent'); tabletop.itemsLBRACKET;'clubs 2'RBRACKET; = new Card('clubs 2')[/script]",
-      		"position": {
-      			"x": -429,
-      			"y": 3015
-      		},
-      		"colorID": 0
-      	},
-      	{
-      		"title": "spades K",
-      		"tags": "",
-      		"body": "thanks.\n\n[rando]My pleasure.[/rando]\n\n[bird]huh?? is this is what you're like to other kids? [i]nice??[/i][/bird]\n\n[rando]No service for bull-headed keepers of his own counsel.[/rando]\n\n[bird]don't worry, i'll just file a complaint to the... institute!![/bird]\n\n[rando]Sixteen months, Bird. That is how long it has been. Not two years.[/rando][script]tabletop.itemsLBRACKET;'spades K'RBRACKET; = new Card('spades K')[/script]",
+      		"title": "what's up",
+      		"tags": "centered",
+      		"body": "[b]bird:[/b] [i]im starting a card game club[/i]\n\n[[a card game club?]]\n[[for the last time dude you have to stop making clubs you have like five already|exasperated]]",
       		"position": {
-      			"x": 1042,
-      			"y": 3062
+      			"x": 478,
+      			"y": 569
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "FISHGOLEM",
-      		"tags": "",
-      		"body": "[bird]you had that this whole time?[/bird]\n\n[rando]Oh, don't ask me, dear. I found it in Kitty's room. God knows why she's got a broken golem in her closet, but I haven't exactly had the guts to throw it out, so here we are![/rando]\n\nwhat's a golem?\n\n[bird]how do you not know this?? it's your dad's job![/bird]\n\ncome on bird, you're the only kid that's actually pays attention in science class.\n\n[bird]no, you're the kid that sleeps through every single documentary so what you just said is completely unwarranted.[/bird]\n\nlook who's bringing out the big institute words!!\n\n[bird][i]unwarranted[/i] is not a [q]big institute word[/q]???[/bird]\n\n[rando]Haha, you two. You're both too young to be dealing with any golems any time soon. Well, unless they've been unloaded, like this one. But... I'll still have to dispose of it somewhere safe. :P[/rando]\n\ncan i have it?\n\n[bird]wait, what?[/bird]\n\n[rando]I don't know...[/rando]\n\ni'm leaving tomorrow! can you make an exception for a going-away gift?\n\n[rando]Ah, young curiosity. :) I suppose I [i]could[/i] make a teeny little exception... if you make me a teeny little promise that you'll be [i]really[/i] careful with this. It may be properly unloaded, but it's still ripe, so you never know what could happen![/rando]\n\n[bird]that seems very reckless of you, ma'am.[/bird]\n\n[rando]Reckless! Call it trust, Bird.[/rando][if (tabletop.itemsLBRACKET;'diamonds 6'RBRACKET; == undefined)]\n\n[[don't forget the card.|kitty's]][/if][script]tabletop.items.fishgolem1.selfDestruct(); tabletop.items.fishgolem = new Item('fishgolem', 'fishgolem.png')[/script]",
+      		"title": "shush we're in class",
+      		"tags": "centered",
+      		"body": "[b]bird:[/b] [i]ms math hasnt turned around for fifteen minutes[/i]\n\n[b]you:[/b] [i]so?[/i]\n\n[b]bird:[/b] [i]im starting a card game club[/i]\n\n[[a card game club?]]\n[[for the last time dude you have to stop making clubs you have like five already|exasperated]]",
       		"position": {
-      			"x": 1040,
-      			"y": 3304
+      			"x": 718,
+      			"y": 570
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "diamonds 6",
-      		"tags": "",
-      		"body": "[rando]So I'm guessing this is yours?[/rando]\n\nyep, lost it a long time ago. that was real impressive, how fast you found it.\n\n[rando]Oh, sweetheart, you get to be pretty quick if you're as experienced as losing things as I am :)[/rando][if (tabletop.itemsLBRACKET;'fishgolem'RBRACKET; == undefined && 'fishgolem1' in tabletop.items)]\n\n[[there was something else kitty's mom wanted to get you.|kitty's]][/if][script]tabletop.itemsLBRACKET;'diamonds 6'RBRACKET; = new Card('diamonds 6')[/script]",
+      		"title": "a card game club?",
+      		"tags": "centered",
+      		"body": "[b]bird:[/b] [i]hell yeah dude it's gonna be great. i've already got a sick game idea. i'm gonna be making all the games by the way. so what do you say? you in?[/i]\n\n[[in|wah]]\n[[out]]",
       		"position": {
-      			"x": 1040,
-      			"y": 3387
+      			"x": 383,
+      			"y": 829
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "diamonds Q",
-      		"tags": "",
-      		"body": "[script]tabletop.itemsLBRACKET;'diamonds Q'RBRACKET; = new Card('diamonds Q')[/script]score!\n\n[bird]no way.[/bird]",
+      		"title": "out",
+      		"tags": "centered",
+      		"body": "[b]bird:[/b] [i]oh ok that's cool but if you ever wanna join u let me know yeah?[/i]\n\n[b]you:[/b] [i]ok yeah[/i]\n\n[b]bird:[/b] ...\n\n[b]you:[/b] ...\n\n[b]bird:[/b] ..\n\n[b]you:[/b] .\n\n[b]bird:[/b] [i]ok are you really not gonna join[/i]\n\n[[... do i have a choice?|wah]]",
       		"position": {
-      			"x": 1484,
-      			"y": 2997
+      			"x": 471,
+      			"y": 1093
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "SHADOW",
-      		"tags": "",
-      		"body": "[bird]you can't exactly control what happens. the best you can do is... catch the moment. if you're trying to, i don't know, talk to a deceased friend, or relative, or whatever, you can't yank 'em into the vessel, you have to give them space and wait. most of the time, you'll get someone you don't even care to talk to. a stranger, an onlooker—[/bird]\n\n[golem]this feels a little bit disrespectful, to be frank.[/golem]\n\nyou work!\n\n[golem]i am speaking and moving about, yes. you are a natural. however: i have no plans of occupying the vessel of the past master for too long. even as she does not use it any longer. even as it is held together by this flimsy superglue that is not quite as super as its name suggests.[/golem]\n\nyou know kitty's mom used superglue. kitty wasn't crazy after all. you're the shadow she was talking about.\n\n[bird]what? wait. hold on. your [i]master[/i]—i didn't know spirits had masters—but your master is fish??[/bird]\n\n[golem]bird. you are not my audience now, so i will be brief: my master does not speak it, but she expects... no, awaits... no, longs for your arrival.[/golem]\n\noh, you don't have to be brief. i called you here because bird's been acting weird all day.\n\n[bird]says the kid that spontaneously decided to hunt down an entire scattered deck of cards.[/bird]\n\ni don't mean weird like [i]my bff is leaving and that's sad[/i] weird, and i don't mean weird like in the way this town is the weirdest town i've lived in. i mean weird like [i]there's a secret that i'm too lame to talk about.[/i] so what do you say, bird, golem?\n\n[golem]speak to fish. she will be waiting at the generator.[/golem]\n\n[[the glue holding the golem together crumbles apart. bird jumps forward to catch the pieces in both hands. it takes deliberate effort to let the spirit go, like loosening a tense muscle. you get a vague sense of its direction as it disappears, and when you turn to look that way, you notice a card in the bushes that you hadn't seen before.|hearts J]][script]v.metShadow = true[/script]",
+      		"title": "wah",
+      		"tags": "centered",
+      		"body": "[[you both agree to meet at [b]lunch.[/b]|BEGIN CARD GAME]]",
       		"position": {
-      			"x": -215,
-      			"y": 3007
+      			"x": 788,
+      			"y": 1122
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "hearts J",
-      		"tags": "",
-      		"body": "[script]tabletop.itemsLBRACKET;'hearts J'RBRACKET; = new Card('hearts J')[/script]that was nice of them. to find me this card.",
+      		"title": "exasperated",
+      		"tags": "centered",
+      		"body": "[b]bird:[/b] [i]nah dude dad got me a deck of cards so im making a card game club and theres nothing you or anyone else can do about it[/i]\n\n[b]you:[/b] ...\n\n[b]bird:[/b] [i]you’ll regret it if u ignore me bro everyones gonna be talking about this club in a couple days[/i]\n[b]bird:[/b] [i]i dont care about math and you've already studied this stuff two years in advance[/i]\n[b]bird:[/b] [i]i know youre bored[/i]\n\n[[... fine, let's hear it|wah]]",
       		"position": {
-      			"x": -217,
-      			"y": 3082
+      			"x": 747,
+      			"y": 812
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "hearts K",
-      		"tags": "",
-      		"body": "[fish]i've been replaced :( i hate u bird[/fish][script]tabletop.itemsLBRACKET;'hearts K'RBRACKET; = new Card('hearts K')[/script]\n\n[bird]well fish i would say something dumb like [q]screw this i'm not gonna take this slander[/q] but to be honest i'm just happy to see you again man. how have you been. why have you been gone. why do you talk like a wannabe rapper.[/bird]\n\n[fish]well BRO i've just been working on myself yknow jk jk thats all excuses what i rly mean to say is that i fucking (oh shit!! f-bomb!!) hate my job and i would like to create a workers union for messengers of the goddess of death thank u very much. not that i can do much about that seeing as im the only member. on an unrelated note, wanna join my secret club that totally isn't rebelling against death itself wowow sounds cool sounds fun[/fish]\n\ncan i regroup with you after a moment alone with my buddy over here.\n\n[fish]for sure go ahead glhf hags ttyl[/fish]\n\n[bird](she's gone mad)[/bird]\n\n(she's a lot cooler than i thought she'd be)\n\n[bird](nope you are wrong)[/bird]\n\nok fish i'm back. would you like to come back to town and... give your friends and family some good news?\n\n[fish]nope i have everything to lose by doing so and ive decided that i'm going to stop doing things that are terrible for me. seeya[/fish]\n\n[bird]that went well.[/bird]\n\nbird this is [i]your[/i] friend. i can't get through to her. i still don't really understand what happened. go do your thing.\n\n[bird]no way dude, i'm too scared she's gonna challenge me to a rap battle or something.[/bird]\n\noh yeah that would be pretty terrible, you're not the best rhymer in town... is what i [i]would[/i] say if i were kidding right now!!! and i am never kidding.",
+      		"title": "BEGIN CARD GAME",
+      		"tags": "centered",
+      		"body": "[script]ambience.classroom.stop();ambience.lunch.play();[/script][b]you:[/b] ok i'm here what's this great card game you've come up with?\n\n[b]bird:[/b] check [a][[this|create deck]][/a] out.",
       		"position": {
-      			"x": 9,
-      			"y": 3015
+      			"x": 603,
+      			"y": 1352
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "hearts 4",
+      		"title": "create deck",
       		"tags": "",
-      		"body": "nice.[script]tabletop.itemsLBRACKET;'hearts 4'RBRACKET = new Card('hearts 4')[/script][if ('fishgolem' in tabletop.items && !v.metShadow)]\n\n[[you came here to test something.|parking lot]][/if]",
+      		"body": "[script]tabletop.deck=new Deck();sound.takeoutdeck.play()[/script][b]bird:[/b] pretty cool huh??\n\n[[no]]\n[[yea]]\n[[what now|introducing red or black]]",
       		"position": {
-      			"x": -212,
-      			"y": 3080
+      			"x": 631,
+      			"y": 1585
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "clubs 8",
+      		"title": "no",
       		"tags": "",
-      		"body": "now that looks deliberate.\n\n[bird]a card stuck to a poster on a wall? no way someone just put that there for us to find.[/bird]\n\nyeah, it was probably the wind.[script]tabletop.itemsLBRACKET;'clubs 8'RBRACKET; = new Card('clubs 8'); tabletop.ccsrecruitment = new Item('ccsrecruitment', 'ccsrecruitment.png', 'ccsrecruitment_back.png', 'transparent');",
+      		"body": "[b]bird:[/b] that's fine i didn't spend two days coding this in anyway\n\n[[whatever dude just tell me what we're about to do|introducing red or black]]",
       		"position": {
-      			"x": 1481,
-      			"y": 3391
+      			"x": 325,
+      			"y": 1568
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "diamonds J",
+      		"title": "yea",
       		"tags": "",
-      		"body": "i can't believe you have bad business standing in the world of clay guys.\n\n[bird]... let's never talk about this.[/bird][script]tabletop.itemsLBRACKET;'diamonds J'RBRACKET; = new Card('diamonds J')[/script]",
+      		"body": "[b]bird:[/b] ay im glad you agree[if (v.firstCardFlipped == false)]. so u know how u can flip cards over by [em]right-clicking[/em] them?\n\n[b]you:[/b] yeah of course\n[/if]\n[b]bird:[/b] well, here's a game i came up with last night called [a][q][[red or black.|red or black]][/q][/a]",
       		"position": {
-      			"x": 3070,
-      			"y": 3234
+      			"x": 485,
+      			"y": 1818
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "clubs 9",
+      		"title": "red or black",
       		"tags": "",
-      		"body": "drumroll please... \n\n[bird]dddbbrdbrbbbdbrdbrbdbrdbdbrdbrbdbrdbbdrbdbrdddbbrdbrbbbdbrdbrbdbrdbdbrdbrbdbrdbbdrbdbr[/bird]\n\nin this sandbox we have found:\n(2) bucks\n(6) deformed clay figurines (?)\n(1) playing card\nit's been incredibly profitable if i do say so myself.\n\n[script]tabletop.itemsLBRACKET;'clubs 9'RBRACKET; = new Card('clubs 9'); tabletop.items.twobucksmore = new Item('twobucksmore', 'twobucks.png', 'twobucks_back.png');[/script]",
+      		"body": "[blockquote][q]red or black[/q]\n1. guess the color of the card\n2. if you guess correctly, you win![/blockquote]\n[b]bird:[/b] did you get that?\n\n[[i'm ready]]\n[[this game is stupid|i'm ready]]",
       		"position": {
-      			"x": 1718,
-      			"y": 3195
+      			"x": 601,
+      			"y": 2125
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "hearts 10",
+      		"title": "introducing red or black",
       		"tags": "",
-      		"body": "hmm.[script]tabletop.itemsLBRACKET;'hearts 10'RBRACKET; = new Card('hearts 10')[/script]",
+      		"body": "[if (v.firstCardFlipped == false)][b]bird:[/b] so u know how u can flip cards over by [em]right-clicking[/em] them?\n\n[b]you:[/b] yeah of course\n\n[/if][b]bird:[/b] well, here's a game i came up with last night called [q][a][[red or black.|red or black]][/a][/q]",
       		"position": {
-      			"x": 1942,
-      			"y": 3015
+      			"x": 775,
+      			"y": 1809
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "hearts 9",
+      		"title": "i'm ready",
       		"tags": "",
-      		"body": "[bird]is it actually a part of your deck??[/bird]\n\nyes! what are the chances.[script]tabletop.itemsLBRACKET;'hearts 9'RBRACKET; = new Card('hearts 9')[/script]",
+      		"body": "[if (v.currentDeckSeen)][b]bird:[/b] let me just reshuffle this deck...\n[/if][b]bird:[/b] ok, make your move!\n\nthis next card is...\n[[red]]\n[[black]][script]if (v.currentDeckSeen) { tabletop.deck.reshuffle() }; startBirdsGame();[/script]",
       		"position": {
-      			"x": 1951,
-      			"y": 3864
+      			"x": 606,
+      			"y": 2440
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "diamonds 10",
+      		"title": "red",
       		"tags": "",
-      		"body": "thanks, snail.\n\n[rando]no prob, new kid. it's too bad i can't show you my dive before you go. i'm gonna miss ya.[/rando][script]tabletop.itemsLBRACKET;'diamonds 10'RBRACKET; = new Card('diamonds 10')[/script]",
+      		"body": "[b]bird: [/b]now flip the card...[script]birdWaitsForFlip('red')[/script]",
       		"position": {
-      			"x": 1715,
-      			"y": 3420
+      			"x": 493,
+      			"y": 2699
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "clubs 10",
+      		"title": "black",
       		"tags": "",
-      		"body": "thanks, doctor.\n\n[rando]Alright. Oh, Bird, have your parents talked to you about joining the CCS?[/rando]\n\n[bird]um... no?[/bird]\n\n[rando]Ah. Let's talk about that later. I think you'd be a good fit.[/rando]\n\n[bird]really?[/bird][script]tabletop.itemsLBRACKET;'clubs 10'RBRACKET; = new Card('clubs 10')[/script]",
+      		"body": "[b]bird: [/b]now flip the card...[script]birdWaitsForFlip('black')[/script]",
       		"position": {
-      			"x": -651,
-      			"y": 3012
+      			"x": 716,
+      			"y": 2701
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "clubs Q",
+      		"title": "flipped before guessing",
       		"tags": "",
-      		"body": "thanks. sorry we haven't gotten anything interesting to tell you.\n\n[rando]It is what it is, kid. But I'm pretty stoked that I figured out the mystery of who that card belongs to.[/rando][script]tabletop.itemsLBRACKET;'clubs Q'RBRACKET; = new Card('clubs Q')[/script]",
+      		"body": "[script]v.timesFlippedBeforeGuessing++;[/script][b]bird: [/b] hey! dont flip before guessing\n\n[if (v.timesFlippedBeforeGuessing == 0)][[whoops my bad|RETURN]][/if][if (v.timesFlippedBeforeGuessing == 1)][[yeah i got it|RETURN]][/if][if (v.timesFlippedBeforeGuessing >= 2)][[this game sucks|RETURN]][/if]",
       		"position": {
-      			"x": 3310,
-      			"y": 3091
+      			"x": 1072,
+      			"y": 2450
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "hearts 5",
+      		"title": "RETURN",
       		"tags": "",
-      		"body": "cool, thanks.\n\n[rando]No prob bob.[/rando][script]tabletop.itemsLBRACKET;'hearts 5'RBRACKET; = new Card('hearts 5')[/script]",
+      		"body": "[script]jump(dialogue.bookmark)[/script]",
       		"position": {
-      			"x": 348,
-      			"y": 3022
+      			"x": 1190,
+      			"y": 2230
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "diamonds 5",
+      		"title": "peeked at other cards",
       		"tags": "",
-      		"body": "ay.[script]tabletop.itemsLBRACKET;'diamonds 5'RBRACKET; = new Card('diamonds 5')[/script]",
+      		"body": "[script]v.timesFlippedBeforeGuessing++;[/script][b]bird: [/b] are you... peeking?\n\n[if (v.timesFlippedBeforeGuessing == 0)][[whoops my bad|RETURN]][/if][if (v.timesFlippedBeforeGuessing == 1)][[yeah i got it|RETURN]][/if][if (v.timesFlippedBeforeGuessing >= 2)][[this game sucks|RETURN]][/if]",
       		"position": {
-      			"x": 753,
-      			"y": 3027
+      			"x": 1310,
+      			"y": 2505
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "clubs 5",
+      		"title": "outcome_correct",
       		"tags": "",
-      		"body": "[rando]one five of clubs, coming right up.[/rando]\n\nthanks so much.\n\n[rando]i see you've discovered our fish. weird, aren't they? i stopped feeding them like, a month ago, because i noticed they weren't eating at all. which was probably dumb of me, but they definitely haven't eaten anything for a month now and they're still alive and well.[/rando]\n\n[bird]maybe they're being fed when you're off work.[/bird]\n\n[rando]hmm. maybe. good hypothesis.[/rando]",
+      		"body": "[b]bird:[/b] you got it!\n\nthis next card is...\n[[red]]\n[[black]]\n\n[[i'm done with this game]][script]birdsgame.timeToFlip = false[/script]",
       		"position": {
-      			"x": -433,
-      			"y": 3228
+      			"x": 489,
+      			"y": 2927
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "BUY ICE CREAM",
+      		"title": "outcome_incorrect",
       		"tags": "",
-      		"body": "[bird]the ice cream sandwich: good choice.[/bird][script]balance -= 2; if (tabletop.items.twobucks) { tabletop.items.twobucks.selfDestruct(); tabletop.items.icecream = new Item('icecream', 'icecream.png', 'icecream_back.png') } else { tabletop.items.twobucksmore.selfDestruct(); tabletop.items.icecreammore = new Item('icecreammore', 'icecream.png', 'icecream_back.png') }[/script]",
+      		"body": "[b]bird: [/b]damn\n[b]bird:[/b] u got [v]birdsgame.cardsFlipped[/v] right[if (birdsgame.newHighscore)]\n[b]bird: [/b]that's your new high score![/if]\n[b]bird: [/b]wanna try again?[if (birdsgame.timesPlayed == 2)][script]v.encounteredKitty = true[/script]\n\nyou notice [b]kitty[/b] watching over your shoulder.\n\n[b]kitty:[/b] what's up? :3\n\n[b]bird:[/b] we're playing a game called [q]red or black[/q]\n\n[b]kitty:[/b] tsk tsk. what an uncreative title 3:\n\n[b]bird:[/b] hey!! ... how did u even know i made it?\n\n[b]kitty:[/b] wdym :3 u make literally every game u play\n[b]kitty:[/b] anyway can i stay and watch??\n\n[b]you:[/b] make yourself comfortable.\n\nit looks like she already has, anyway.[/if][if (birdsgame.timesPlayed == 3)][script]v.encounteredPup = true[/script]\n\na shadow falls over the table. you look up to see [b]pup[/b] looming over the three of you, a sandwich in his hands.\n\n[b]pup: [/b] ?\n\n[b]kitty: [/b]oh hey puppy!\n[b]kitty: [/b]wait.... did i ditch u??? 3: sorry i got so caught up watching bird's game\n\n[b]pup: [/b]...\n\npup seems entranced by the cards. he sits down at the table and watches the game intently.[/if][if (birdsgame.timesPlayed == 4)]\n\na [b]gang of kids[/b] over on the other table have started whispering intensely, and by the way they keep glancing over at your table, you have the nagging feeling they're talking about bird's game.[/if][if (birdsgame.timesPlayed == 5)][script]v.encounteredGang = true[/script]\n\n[b]gang of kids:[/b] [i](collectively)[/i] u guys playing a game?\n\n[b]bird:[/b] u guys wanna watch?\n\n[b]gang of kids:[/b] (do we wanna watch) (the game looks kinda boring) (no it looks fun) (these kids look like losers)\n\n[b]you:[/b] ...\n\n[b]gang of kids:[/b] [i](collectively)[/i] yeah ok\n\nthe whole gang brings their lunches over and takes up so much space. the table is getting more and more crowded.[/if][if (birdsgame.timesPlayed == 6)]\n\nthere's a circle of kids you've never talked to that have gathered around your table.[/if][if (birdsgame.timesPlayed > 6)]\n\nit is way too crowded here.[/if][if (birdsgame.timesPlayed == 7)]\n\nsome kids have started betting on your next score.[/if][if (birdsgame.timesPlayed > 7)]\n\n[b]rando:[/b] hey bird, can i play\n\n[b]bird:[/b] sorry dude i've only got one deck. if u bring ur own ill teach u the rules[/if][if (birdsgame.timesPlayed > 10)]\n[b]bird:[/b] (wow it's so funny how i haven't gotten tired of saying that)[/if][if (birdsgame.timesPlayed > 12)]\n[b]bird:[/b] (im not gonna say anything new now so u can move on to the next chapter)\n[b]bird:[/b] (isnt it kinda freaky how game characters repeat the same thing over and over again tho)\n[b]bird:[/b] (idk ive always thought about how tragic and almost dystopian that is. makes me wanna make a game about it)\n[b]bird:[/b] (but it wont be this one lol this is supposed to be a small scale game)[/if]\n\n[[try again|i'm ready]]\n[[i'm done with this game]]",
       		"position": {
-      			"x": 2677,
-      			"y": 2801
+      			"x": 716,
+      			"y": 2930
       		},
       		"colorID": 0
       	},
       	{
-      		"title": "diamonds 4",
+      		"title": "i'm done with this game",
       		"tags": "",
-      		"body": "i am the god of scavenger hunts.[script]tabletop.itemsLBRACKET;'diamonds 4'RBRACKET; = new Card('diamonds 4')[/script][if (tabletop.items.icecream == undefined && v.balance >= 2)]\n\n[[wanna get some ice cream while you're here?|ice cream boutique that has no right to be that good]][/if]",
+      		"body": "it was a good game.\n\n[i]ay that's it that's the game hope you had fun leave your highscores in the comments lol[/i]",
       		"position": {
-      			"x": 2676,
-      			"y": 3014
+      			"x": 616,
+      			"y": 3212
       		},
       		"colorID": 0
       	}

@@ -4,98 +4,90 @@ var card_settings = {};
 
 var sound = {};
 
-class Item {
-  constructor(name, img, img_back, classname, map) {
-    this.id = name;
-    this.face = "up";
+class Deck {
+  constructor(func) {
+    this.deck = [];
+
+    for (let i = 0; i < suits.length; i++) {
+      for (let ii=0; ii < values.length; ii++) {
+        let card = new Card(suits[i], values[ii]);
+        this.deck.push(card);
+      }
+    }
+
+    this.shuffle();
+
+    for (let card in this.deck) {
+      this.deck[card].index = card;
+      this.deck[card].createCanvas();
+      tabletop.zindex++;
+    }
+  }
+  shuffle() {
+    for (let i = 0; i < this.deck.length * 20; i++)
+  	{
+  		const a = Math.floor((Math.random() * this.deck.length));
+  		const b = Math.floor((Math.random() * this.deck.length));
+  		const aa = this.deck[a];
+
+  		this.deck[a] = this.deck[b];
+  		this.deck[b] = aa;
+  	}
+
+    v.currentDeckSeen = false;
+  }
+  reshuffle() {
+    for (let card in tabletop.cards) {
+      let c = tabletop.cards[card];
+      c.removeCanvas()
+    }
+    tabletop.cards = {};
+
+    this.shuffle();
+
+    for (let card in this.deck) {
+      this.deck[card].index = card;
+      this.deck[card].createCanvas();
+      this.deck[card].face = "down";
+      this.deck[card].pos = [0, 0, 0, 0];
+      this.deck[card].seen = false;
+      tabletop.zindex++;
+    }
+
+    sound.shuffle.play();
+  }
+}
+
+class Card {
+  constructor(suit, value) {
+    this.suit = suit;
+    this.value = value;
+    this.face = "down";
+    this.index = undefined;
+    this.canvas = undefined;
+
     this.pos = [0, 0, 0, 0];
-    this.front = imgs["img/"+img];
-    this.back = imgs["img/"+img_back] || null;
-    this.map = map || null;
 
-    this.createCanvas();
-
-    if (classname) this.canvas.classList.add(classname);
-    if (img == "twobucks.png") v.balance += 2;
-
-    sound.itemcreated.play();
-
-    // this.activate();
-  }
-  activate() {
-    if (this.map) {
-      this.context.drawImage(this.map.img, 0, 0);
-      this.map.data = this.context.getImageData(0, 0, this.front.width, this.front.height).data;
-      this.context.clearRect(0, 0, this.front.width, this.front.height);
-
-      if (this.face == "up") {
-        this.context.drawImage(this.front, 0, 0);
-      } else {
-        this.context.drawImage(this.back, 0, 0);
-      }
-
-      this.canvas.onmousemove = function(e) {
-        let item = tabletop.items[this.id];
-        item.checkMap(e);
-      }
-
-      this.canvas.onmouseout = function(e) {
-        tooltip("")
-      }
-    }
-  }
-  checkMap(e) {
-    if (this.map && 'data' in this.map) {
-      if (this.face == "up") {
-        const data = this.map.data;
-        let rect = this.canvas.getBoundingClientRect();
-        let x = Math.floor(e.clientX - rect.left);
-        let y = Math.floor(e.clientY - rect.top);
-
-        x = Math.floor(x / 1.5);
-        y = Math.floor(y / 1.5);
-
-        const index = (x + (y * this.canvas.width)) * 4;
-
-        var r = data[index];
-        var g = data[index + 1];
-        var b = data[index + 2];
-
-        for (let tt in this.map.tts) {
-          let color = this.map.tts[tt];
-          let arr = color.split(" ");
-          if (r == arr[0] && g == arr[1] && b == arr[2]) {
-            this.canvas.classList.add("active");
-            tooltipSimple(tt);
-
-            this.canvas.onclick = function() { jump(tt) }
-            return;
-          }
-          this.canvas.classList.remove("active");
-          this.canvas.onclick = null;
-          tooltip("");
-        }
-      } else {
-        this.canvas.classList.remove("active");
-        this.canvas.onclick = null;
-        tooltip("");
-      }
-    }
+    this.seen = false;
+    this.color = (suit == 'diamonds' || suit == 'hearts') ? 'red' : 'black';
   }
   createCanvas() {
     let canvas = document.createElement("canvas");
-    canvas.className = "item";
-    canvas.width = this.front.width;
-    canvas.height = this.front.height;
-    canvas.id = this.id;
+    canvas.className = "card";
+    canvas.width = 100;
+    canvas.height = 150;
+    canvas.id = this.suit + " " + this.value;
+    canvas.style.zIndex = this.index;
     this.canvas = canvas;
     table.appendChild(canvas);
 
     let context = canvas.getContext("2d");
     this.context = context;
-    this.context.drawImage(this.front, 0, 0);
+    this.context.drawImage(imgs["img/cardback.png"], 0, 0);
 
-    // this.applyPalette();
+    //
+
+    this.applyPalette();
 
     canvas.addEventListener('contextmenu', function(e) {
       e.preventDefault();
@@ -107,16 +99,14 @@ class Item {
       e.preventDefault();
 
       if ("buttons" in e) {
-        const card = tabletop.canvases[this.id];
+        const card = tabletop.cards[this.id];
 
         if (e.buttons == 1) {
           card.pos[2] = e.clientX;
           card.pos[3] = e.clientY;
 
           document.onmouseup = function() {
-            // var item = tabletop.items[canvas.id];
-
-            // item.checkMap(e);
+            //TODO: if you let go of a card at the edge of the screen and the card is more than halfway in the edge, someone will toss it back to u and be like "bro dont go losing my cards this is my dad's deck" or something
 
             document.onmouseup = null;
             document.onmousemove = null;
@@ -124,7 +114,7 @@ class Item {
           };
           document.onmousemove = function(e) {
             e = e || window.event;
-            const card = tabletop.canvases[canvas.id];
+            const card = tabletop.cards[canvas.id];
 
             card.pos[0] = card.pos[2] - e.clientX;
             card.pos[1] = card.pos[3] - e.clientY;
@@ -139,76 +129,70 @@ class Item {
 
           card.bringToFront();
         } else {
-          canvas.classList.remove("active");
-          tooltip("");
           card.flip();
         }
       }
     }
 
-    tabletop.canvases[canvas.id] = this;
-
-    this.bringToFront();
+    tabletop.cards[canvas.id] = this;
   }
   flip() {
-    if (this.back) {
-      if (this.face == "down") {
-        this.face = "up";
-        this.context.clearRect(0, 0, this.front.width, this.front.height);
-        this.context.drawImage(this.front, 0, 0);
-        // this.applyPalette();
-      } else {
-        this.face = "down";
-        this.context.clearRect(0, 0, this.front.width, this.front.height);
-        this.context.drawImage(this.back, 0, 0);
-        // this.applyPalette();
-      }
+    if (this.face == "down") {
+      this.face = "up";
+      this.context.clearRect(0, 0, 100, 150);
 
-      sound.flipcard.play();
+      this.drawCard();
+    } else {
+      this.face = "down";
+      this.context.clearRect(0, 0, 100, 150);
+      this.context.drawImage(imgs["img/cardback.png"], 0, 0);
+      this.applyPalette();
     }
 
+    sound.flipcard.play();
+
     this.bringToFront();
+
+    if (!v.firstCardFlipped) v.firstCardFlipped = true;
+    v.currentDeckSeen = true;
+
+    if (birdsgame.ongoing && !this.seen) {
+      this.seen = true;
+      birdsgame.cardsFlipped++;
+
+      if (!birdsgame.timeToFlip) {
+        if (birdsgame.cardBeingChecked != this.index) {
+          jump('peeked at other cards');
+        } else {
+          jump('flipped before guessing');
+        }
+      } else {
+        birdsgame.cardBeingChecked--;
+        if (this.color == birdsgame.guessedColor) {
+          jump('outcome_correct');
+        } else {
+          birdsgame.ongoing = false;
+          birdsgame.cardsFlipped--;
+          let flipped = birdsgame.cardsFlipped;
+          if (flipped > birdsgame.highscore) {
+            if (birdsgame.highscore != 0) {
+              birdsgame.newHighscore = true;
+            }
+            birdsgame.highscore = flipped;
+          }
+          birdsgame.timesPlayed++;
+          jump('outcome_incorrect');
+        }
+      }
+    } else {
+      this.seen = false;
+    }
+
+    v.flipCount++;
   }
   bringToFront() {
     tabletop.zindex++;
     this.canvas.style.zIndex = tabletop.zindex;
-  }
-  applyPalette() {
-    let data = this.context.getImageData(0, 0, 100, 150);
-    for (let i=0; i<data.data.length; i+=4) {
-      let shade = data.data[i];
-      let overlay;
-
-      if (shade == 0) continue
-      if (shade == 20) overlay = palettes[palettes.current].four
-      if (shade == 92) overlay = palettes[palettes.current].three
-      if (shade == 164) overlay = palettes[palettes.current].two
-      if (shade == 235) overlay = palettes[palettes.current].one
-
-      data.data[i]   = overlay.r;
-      data.data[i+1] = overlay.g;
-      data.data[i+2] = overlay.b;
-    }
-    this.context.putImageData(data, 0, 0);
-  }
-  selfDestruct() {
-    this.canvas.remove();
-    delete tabletop.items[this.id];
-  }
-}
-
-class Card {
-  constructor(name) {
-    if (tabletop.items)
-
-    this.suit = name.split(" ")[0];
-    this.value = name.split(" ")[1];
-    this.face = "down";
-    this.pos = [0, 0, 0, 0];
-
-    this.createCanvas();
-
-    sound.itemcreated.play();
   }
   drawCard() {
     const ctx = this.context;
@@ -259,88 +243,6 @@ class Card {
 
     this.applyPalette();
   }
-  createCanvas() {
-    let canvas = document.createElement("canvas");
-    canvas.className = "item";
-    canvas.id = this.suit + " " + this.value;
-    canvas.width = 100;
-    canvas.height = 150;
-    canvas.classList.add("card");
-    this.canvas = canvas;
-    table.appendChild(canvas);
-
-    let context = canvas.getContext("2d");
-    this.context = context;
-    this.context.drawImage(imgs["img/cardback.png"], 0, 0);
-    this.applyPalette();
-
-    canvas.addEventListener('contextmenu', function(e) {
-      e.preventDefault();
-      return false
-    }, false);
-
-    canvas.onmousedown = function(e) {
-      e = e || window.event;
-      e.preventDefault();
-
-      if ("buttons" in e) {
-        const card = tabletop.canvases[this.id];
-
-        if (e.buttons == 1) {
-          card.pos[2] = e.clientX;
-          card.pos[3] = e.clientY;
-
-          document.onmouseup = function() {
-            document.onmouseup = null;
-            document.onmousemove = null;
-            sound.placecard.play();
-          };
-          document.onmousemove = function(e) {
-            e = e || window.event;
-            const card = tabletop.canvases[canvas.id];
-
-            card.pos[0] = card.pos[2] - e.clientX;
-            card.pos[1] = card.pos[3] - e.clientY;
-            card.pos[2] = e.clientX;
-            card.pos[3] = e.clientY;
-
-            canvas.style.top = (canvas.offsetTop - card.pos[1] + "px");
-            canvas.style.left = (canvas.offsetLeft - card.pos[0] + "px");
-          };
-
-          sound.pickupcard.play();
-
-          card.bringToFront();
-        } else {
-          card.flip();
-        }
-      }
-    }
-
-    tabletop.canvases[canvas.id] = this;
-
-    this.bringToFront();
-  }
-  flip() {
-    if (this.face == "down") {
-      this.face = "up";
-      this.context.clearRect(0, 0, 100, 150);
-      this.drawCard();
-    } else {
-      this.face = "down";
-      this.context.clearRect(0, 0, 100, 150);
-      this.context.drawImage(imgs["img/cardback.png"], 0, 0);
-      this.applyPalette();
-    }
-
-    sound.flipcard.play();
-
-    this.bringToFront();
-  }
-  bringToFront() {
-    tabletop.zindex++;
-    this.canvas.style.zIndex = tabletop.zindex;
-  }
   removeCanvas() {
     this.canvas.remove();
   }
@@ -362,4 +264,20 @@ class Card {
     }
     this.context.putImageData(data, 0, 0);
   }
+}
+
+//birds game
+
+function startBirdsGame() {
+  birdsgame.ongoing = true;
+  birdsgame.cardBeingChecked = 51;
+  birdsgame.cardsFlipped = 0;
+  birdsgame.timeToFlip = false;
+  birdsgame.newHighscore = false;
+  setBookmark();
+}
+
+function birdWaitsForFlip(color) {
+  birdsgame.timeToFlip = true;
+  birdsgame.guessedColor = color;
 }

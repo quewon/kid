@@ -22,7 +22,8 @@ function loadresources() {
       b: 235,
     },
     bg: "white",
-    em: "var(--two)",
+    names: "#5a8cdb",
+    em: "#f54254",
   }
   palettes.dark = {
     one: {
@@ -46,6 +47,7 @@ function loadresources() {
       b: 235,
     },
     bg: "black",
+    names: "lightblue",
     em: "#f54254",
   }
 
@@ -56,59 +58,23 @@ function loadresources() {
     "img/cardback.png",
     "img/royals.png",
     "img/small_suits.png",
-    "img/map.png",
-    "img/map_back.png",
-    "img/map_tt.png",
-    "img/fishgolem.png",
-    "img/fishgolem1.png",
-    "img/twobucks.png",
-    "img/twobucks_back.png",
-    "img/letter.png",
-    "img/letter_back.png",
-    "img/fishmissingfaded.png",
-    "img/fishmissing_back.png",
-    "img/paper.png",
-    "img/paper_back.png",
-    "img/ccsrecruitment.png",
-    "img/ccsrecruitment_back.png",
-    "img/icecream.png",
   ];
 
-  sound.flipcard = new Howl({ src: ['sound/card/flip.mp3'] });
-  sound.placecard = new Howl({ src: ['sound/card/place.mp3'] });
-  sound.pickupcard = new Howl({ src: ['sound/card/pickup.mp3'] });
+  sound.flipcard = new Howl({ src: ['sound/card/flip.wav'], volume:0.5 });
+  sound.placecard = new Howl({ src: ['sound/card/place.wav'], volume:0.3 });
+  sound.pickupcard = new Howl({ src: ['sound/card/pickup.wav'] });
   sound.takeoutdeck = sound.flipcard;
   sound.shuffle = sound.flipcard;
-  // ambience.classroom = new Howl({
-  //   src: ['sound/ambience/classroom.wav'],
-  //   loop: true,
-  //   volume: 0.7,
-  // });
-
-  sound.itemcreated = sound.flipcard;
-
-  music.hearts = new Howl({
-    src: ['sound/music/hearts.mp3'],
+  ambience.classroom = new Howl({
+    src: ['sound/ambience/classroom.wav'],
     loop: true,
+    volume: 0.7,
   });
-  music.clubs = new Howl({
-    src: ['sound/music/clubs.mp3'],
+  ambience.lunch = new Howl({
+    src: ['sound/ambience/lunch.wav'],
     loop: true,
+    volume: 0.3,
   });
-  music.diamonds = new Howl({
-    src: ['sound/music/diamonds.mp3'],
-    loop: true,
-  });
-  music.spades = new Howl({
-    src: ['sound/music/spades.mp3'],
-    loop: true,
-  });
-}
-
-function sfxVolume(value) {
-  for (sfx in sound) {
-    sound[sfx].volume(value);
-  }
 }
 
 var table = document.getElementById("tabletop");
@@ -654,12 +620,9 @@ function init() {
     // set tabletop
     tabletop = {
       deck: undefined,
-      items: {},
-      canvases: {},
+      cards: {},
       zindex: 0,
     };
-
-    // Howler.volume(0.5);
 
     compile();
   }
@@ -683,16 +646,4 @@ function palette(mode) {
   }
 
   palettes.current = mode;
-}
-
-function findPos(obj) {
-    var curleft = 0, curtop = 0;
-    if (obj.offsetParent) {
-        do {
-            curleft += obj.offsetLeft;
-            curtop += obj.offsetTop;
-        } while (obj = obj.offsetParent);
-        return { x: curleft, y: curtop };
-    }
-    return undefined;
 }
