@@ -16,6 +16,7 @@ class Item {
     this.createCanvas();
 
     if (classname) this.canvas.classList.add(classname);
+    if (img == "twobucks.png") v.balance += 2;
 
     sound.itemcreated.play();
 

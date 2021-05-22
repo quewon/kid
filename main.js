@@ -69,6 +69,9 @@ function loadresources() {
     "img/fishmissing_back.png",
     "img/paper.png",
     "img/paper_back.png",
+    "img/ccsrecruitment.png",
+    "img/ccsrecruitment_back.png",
+    "img/icecream.png",
   ];
 
   sound.flipcard = new Howl({ src: ['sound/card/flip.mp3'] });

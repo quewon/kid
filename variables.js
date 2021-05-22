@@ -3,4 +3,5 @@ var v = {
   gaveDadLetter: false,
   metKitty: false,
   metShadow: false,
+  balance: 0,
 };
