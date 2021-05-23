@@ -184,8 +184,6 @@ class Card {
           jump('outcome_incorrect');
         }
       }
-    } else {
-      this.seen = false;
     }
 
     v.flipCount++;

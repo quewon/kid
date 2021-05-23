@@ -38,22 +38,38 @@ h1, h2 {
   display: none
 }
 
-#tabletop {
+#container {
   position: absolute;
-  top: 20%;
-  left: 30%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 70%;
+  display: flex;
+}
+
+#tabletop {
+  display: inline;
+  width: 200px;
+  height: 300px;
+  margin-right: 1em;
 }
 
 #dialogue {
-  position: absolute;
-  top: 20%;
-  left: calc(30% + 200px);
-  margin-left: 5%;
+  display: inline;
   width: 20em;
+  padding: 1em;
+  /* border: 1px solid var(--three); */
+  font-family: inherit;
+  text-align: inherit;
+  line-height: inherit;
+  overflow: scroll;
+  height: 100%;
+
+  /* margin-left: 5%;
   line-height: 1.5em;
   height: 60%;
   overflow: scroll;
-  padding: 1em;
+  padding: 1em; */
   border: 1px solid var(--three);
   box-sizing: border-box;
 }
